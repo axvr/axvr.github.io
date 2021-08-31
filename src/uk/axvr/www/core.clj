@@ -170,7 +170,7 @@
 
 
 (defn wipe-dir [dir]
-  (doseq [f (-> dir file-seq reverse butlast)]
+  (doseq [f (->> dir file-seq reverse butlast (remove #(. % isHidden)))]
     (.delete f)))
 
 
