@@ -1,0 +1,240 @@
+/*
+ * TODO
+ *   Fonts
+ *   Style all controls
+ *   Rewrite/simplify CSS
+ *   Darker blue for links?
+ *   Minor fixes
+ *   Different navigation bar colour per site-section?
+ *   Extend navigation bar colour to Chrome on Android (darker version?)
+ *   Dark theme?  Grayscale?
+ *   Override colours using injection in template.html
+ *   - Different CSS file?  /res/{{:colour}}.css
+ *   - Style tags?
+ *   Hiding sections when no content?
+ *   Visited link colour
+ *
+ * Colours:
+ * - Blue:   #3C7AD1 (make darker?)  (Slightly bluer version of: #486AC4 ?)
+ * - Purple: #5657BB
+ */
+
+@import url('https://rsms.me/inter/inter.css');
+
+body {
+	font-family: 'Inter', 'IBM Plex Sans', 'Helvetica', 'Arial', sans-serif;
+	font-size: 1.1em;
+	line-height: 1.5em;
+	margin: 0;
+}
+
+a {
+	transition: 0.2s;
+	color: #3C7AD1;
+}
+
+a:hover {
+	color: black;
+}
+
+.container {
+	display: grid;
+	grid-template-areas:
+		"navigation-l navigation navigation-r"
+		"bread-l      bread      bread-r"
+		"header-l     header     header-r"
+		"content-l    content    content-r"
+		"footer-l     footer     footer-r";
+	grid-template-rows: auto auto auto 1fr auto;
+	grid-template-columns: 1fr min(70ch, 100%) 1fr;
+	grid-gap: 0;
+	min-height: 100vh;
+}
+
+.navigation {
+	grid-area: navigation;
+	padding: 15px 30px;
+	/* padding-bottom: 20px; */
+	display: flex;
+	gap: 0px 30px;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.navigation h1 {
+	margin: 10px 0px;
+	font-size: 2.5em; /* 3em; */
+	line-height: 1.5em;
+	font-weight: 700;
+}
+
+.navigation h1 a {
+	text-decoration: none;
+}
+
+.navigation a {
+	color: white;
+}
+
+.navigation a:hover {
+	color: black;
+}
+
+.navigation ul {
+	display: flex;
+	list-style: none;
+	padding: 5px 0px;
+	margin: 0;
+	flex-wrap: wrap;
+	gap: 5px 15px;
+}
+
+.navigation ul li {
+	font-size: 1.1em;
+	font-weight: 600;
+}
+
+.navigation-l, .navigation, .navigation-r {
+	background-color: #32a1b5; /* #0ba9b7; /* #16af84; /* #703cd1; /* #d1463c; /* #d13c6e; /* #3c7ad1; */
+}
+
+.bread {
+	grid-area: bread;
+	padding: 15px 30px;
+	font-weight: 500;
+}
+
+.bread-l, .bread, .bread-r {
+	background-color: #F2F2F6;
+}
+
+.header {
+	grid-area: header;
+	padding: 15px 30px;
+}
+
+h1, h2 {
+	line-height: 1.2em;
+	margin-bottom: 0px;
+}
+
+h3, h4, h5, h6 {
+	line-height: 1.3em;
+	margin-bottom: 0px;
+}
+
+.header h1 {
+	font-size: 2.5em;
+	margin: 10px 0px;
+	font-weight: 700;
+}
+
+.header h2 {
+	font-size: 1.5em;
+	margin: 10px 0px;
+	font-weight: 700;
+}
+
+.header h3 {
+	font-size: 1.2em;
+	margin: 10px 0px;
+	font-weight: 600;
+}
+
+.header-l, .header, .header-r {
+	background-color: #e2dfcc; /* #d7dff2; */
+}
+
+.content {
+	grid-area: content;
+	padding: 15px 30px;
+}
+
+.content img {
+  display: block;
+  margin: auto;
+  max-width: min(70ch, 100%);
+}
+
+.content-l, .content, .content-r {
+}
+
+.footer {
+	grid-area: footer;
+	padding: 15px 30px;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	gap: 5px 15px;
+	font-weight: 500;
+}
+
+.footer-l, .footer, .footer-r {
+	color: black;
+	background-color: #F2F2F6;
+}
+
+
+pre, code {
+	overflow-x: auto;
+	white-space: pre;
+	font-family: 'Inconsolata', monospace;
+	background-color: #ececec;
+	border-radius: 4px;
+}
+pre { padding: 15px 20px; }
+code { padding: 2px 7px; }
+pre code { padding: 0; }
+
+blockquote {
+	color: #212121;
+	border-left: 3px solid #8d8d8d;
+	margin-right: 0;
+	padding-right: 15px;
+	margin-left: 0;
+	padding-left: 15px;
+}
+
+table {
+	width: 100%;
+	overflow-x: auto;
+	border: 2px solid #e1e1e1;
+	border-collapse: collapse;
+	margin: 20px 0px;
+}
+
+tr:nth-child(even) {
+	background-color: #eaeaea;
+}
+
+th {
+	background-color: #e1e1e1;
+}
+
+th, td {
+	padding: 5px 15px;
+	border: 2px solid #e1e1e1;
+}
+
+details {
+	background-color: #f9f1bd;
+	border-radius: 4px;
+	padding: 10px 15px;
+}
+summary {
+	cursor: pointer;
+	padding: 5px;
+	margin: 0;
+}
+
+h1 {
+	margin-top: 1.2em;
+}
+h2, h3, h4, h5, h6 {
+	margin-top: 1.8em;
+}
+
+abbr {
+	cursor: help;
+}

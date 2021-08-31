@@ -1,0 +1,4 @@
+{:title "Project timeline"
+ :featured "<span title=\"Featured project.\">★</span>"
+ :archived "&ensp;<b title=\"I no longer work on this project.\">Archived</b>"
+ :content "timeline.html"}

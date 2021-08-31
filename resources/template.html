@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+
+<html lang="en-GB">
+	<head>
+		<meta charset="utf-8" />
+
+		<title>{{page-title}}</title>
+
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+		<link rel="stylesheet" type="text/css" href="/main.css" />
+	</head>
+
+	<body>
+		<div class="container">
+
+      <!-- TODO: find solution without needing these. -->
+			<div class="navigation-l"></div>
+			<div class="navigation-r"></div>
+			<div class="bread-l"></div>
+			<div class="bread-r"></div>
+			<div class="header-l"></div>
+			<div class="header-r"></div>
+			<div class="content-l"></div>
+			<div class="content-r"></div>
+			<div class="footer-l"></div>
+			<div class="footer-r"></div>
+
+			<nav class="navigation">
+				<h1><a href="/">{{site}}</a></h1>
+				<div>
+					<ul>
+						<!-- <li><a href="/">home</a></li> -->
+						<li><a href="/essays">essays</a></li>
+						<li><a href="/projects">projects</a></li>
+						<li><a href="https://github.com/axvr">github</a></li>
+						<li><a href="/contact">contact</a></li>
+					</ul>
+				</div>
+			</nav>
+
+			<div class="bread">
+				{{breadcrumbs}}
+			</div>
+
+			<!-- TODO: fix for article tag -->
+
+			<header class="header">
+				<h1>{{title}}</h1>
+				<h2>{{subtitle}}</h2>
+			</header>
+
+			<div class="content">
+				{{content}}
+			</div>
+
+			<footer class="footer">
+				<span>{{copyright}}</span>
+				<span><a href="https://github.com/axvr/www.axvr.uk">source code</a></span>
+			</footer>
+
+		</div>
+	</body>
+</html>

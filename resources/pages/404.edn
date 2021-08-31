@@ -1,0 +1,24 @@
+{:title    "404"
+ :subtitle "Page not found"
+ :misc?    true
+ :content
+ [:blockquote
+  [:p
+   "The Internet was done so well that most people think of it as a natural
+   resource like the Pacific Ocean, rather than something that was
+   man-made. When was the last time a technology with a scale like that was so
+   error-free? The Web, in comparison, is a joke. The Web was done by
+   amateurs."]
+  [:p
+   "&mdash; "
+   [:a {:href "https://en.wikipedia.org/wiki/Alan_Kay"} "Alan Kay"]
+   " ["
+   [:a
+    {:href "https://www.drdobbs.com/architecture-and-design/interview-with-alan-kay/240003442"}
+    "2012"]
+   "]"]]}
+
+
+;; TODO: use this same encoding system elsewhere, e.g. :header.
+;; {:content "404.md"} ; <-- string = relative file path.  (determine file type by extension)
+;; {:content [:blockquote [:p "Hello, world."]]} ; <-- Vector = hiccup.
