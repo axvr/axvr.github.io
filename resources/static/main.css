@@ -1,6 +1,5 @@
 /*
  * TODO
- *   Fonts
  *   Style all controls
  *   Rewrite/simplify CSS
  *   Darker blue for links?
@@ -23,8 +22,8 @@
 
 body {
 	font-family: 'Inter', 'IBM Plex Sans', 'Helvetica', 'Arial', sans-serif;
-	font-size: 1.1em;
-	line-height: 1.5em;
+	font-size: 1.05em;
+	line-height: 1.4em;
 	margin: 0;
 }
 
@@ -179,6 +178,8 @@ h3, h4, h5, h6 {
 pre, code {
 	overflow-x: auto;
 	white-space: pre;
+	font-size: 1em;
+	line-height: 1.2em;
 	font-family: 'Inconsolata', monospace;
 	background-color: #ececec;
 	border-radius: 4px;
