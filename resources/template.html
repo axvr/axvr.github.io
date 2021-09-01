@@ -1,64 +1,60 @@
 <!DOCTYPE html>
 
 <html lang="en-GB">
-	<head>
-		<meta charset="utf-8" />
+  <head>
+    <meta charset="utf-8" />
 
-		<title>{{page-title}}</title>
+    <title>{{page-title}}</title>
 
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-		<link rel="stylesheet" type="text/css" href="/main.css" />
-	</head>
+    <link rel="stylesheet" type="text/css" href="/main.css" />
+  </head>
 
-	<body>
-		<div class="container">
+  <body>
+    <header>
+      <a class="skip-link" href="#main-content">Skip to content</a>
 
-      <!-- TODO: find solution without needing these. -->
-			<div class="navigation-l"></div>
-			<div class="navigation-r"></div>
-			<div class="bread-l"></div>
-			<div class="bread-r"></div>
-			<div class="header-l"></div>
-			<div class="header-r"></div>
-			<div class="content-l"></div>
-			<div class="content-r"></div>
-			<div class="footer-l"></div>
-			<div class="footer-r"></div>
+      <div class="section nav-section">
+        <div class="navigation">
+          <nav>
+            <h1><a href="/">{{site}}</a></h1>
+            <ul>
+              <li><a href="/essays">essays</a></li>
+              <li><a href="/projects">projects</a></li>
+              <li><a href="https://github.com/axvr">github</a></li>
+              <li><a href="/contact">contact</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
 
-			<nav class="navigation">
-				<h1><a href="/">{{site}}</a></h1>
-				<div>
-					<ul>
-						<!-- <li><a href="/">home</a></li> -->
-						<li><a href="/essays">essays</a></li>
-						<li><a href="/projects">projects</a></li>
-						<li><a href="https://github.com/axvr">github</a></li>
-						<li><a href="/contact">contact</a></li>
-					</ul>
-				</div>
-			</nav>
+      <div class="section bread-section">
+        {{breadcrumbs}}
+      </nav>
+    </header>
 
-			<div class="bread">
-				{{breadcrumbs}}
-			</div>
+    <main id="main-content">
+      <div class="section intro-section">
+        <div class="intro">
+          <h1>{{title}}</h1>
+          <h2>{{subtitle}}</h2>
+        </div>
+      </div>
 
-			<!-- TODO: fix for article tag -->
+      <div class="section content-section">
+        <div class="content">
+          {{content}}
+        </div>
+      </div>
+    </main>
 
-			<header class="header">
-				<h1>{{title}}</h1>
-				<h2>{{subtitle}}</h2>
-			</header>
+    <div class="section footer-section">
+      <footer class="footer">
+        <span>{{copyright}}</span>
+        <span><a href="https://github.com/axvr/axvr.github.io">source code</a></span>
+      </footer>
+    </div>
 
-			<div class="content">
-				{{content}}
-			</div>
-
-			<footer class="footer">
-				<span>{{copyright}}</span>
-				<span><a href="https://github.com/axvr/www.axvr.uk">source code</a></span>
-			</footer>
-
-		</div>
-	</body>
+  </body>
 </html>

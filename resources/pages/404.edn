@@ -17,8 +17,3 @@
     {:href "https://www.drdobbs.com/architecture-and-design/interview-with-alan-kay/240003442"}
     "2012"]
    "]"]]}
-
-
-;; TODO: use this same encoding system elsewhere, e.g. :header.
-;; {:content "404.md"} ; <-- string = relative file path.  (determine file type by extension)
-;; {:content [:blockquote [:p "Hello, world."]]} ; <-- Vector = hiccup.

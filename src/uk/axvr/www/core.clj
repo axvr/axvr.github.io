@@ -116,19 +116,20 @@
                separator " &rsaquo; "]
            (when path
              (hiccup->html
-               [:span
-                [:a {:href "/"} "home"]
-                separator
-                (when misc?
-                  (str "misc" separator))
-                (->> path
-                     (map
-                       (fn [idx itm]
-                         (if (zero? idx)
-                           itm
-                           [:a {:href (apply str (repeat idx "../"))} itm]))
-                       (range (dec (count path)) -1 -1))
-                     (interpose separator))])))))
+               [:nav {:class "bread"}
+                [:span
+                 [:a {:href "/"} "home"]
+                 separator
+                 (when misc?
+                   (str "misc" separator))
+                 (->> path
+                      (map
+                        (fn [idx itm]
+                          (if (zero? idx)
+                            itm
+                            [:a {:href (apply str (repeat idx "../"))} itm]))
+                        (range (dec (count path)) -1 -1))
+                      (interpose separator))]])))))
 
 
 (defn attach-page-title
@@ -186,7 +187,7 @@
       (io/copy f out-f))))
 
 
-(defn build [args]
+(defn build [& args]
   (wipe-dir dist-dir)
   (copy-dir static-dir dist-dir)
   (build-pages))
