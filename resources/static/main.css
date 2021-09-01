@@ -43,7 +43,7 @@ body {
 }
 
 .navigation, .bread, .intro, .content, .footer {
-  padding: 15px 30px;
+  margin: 15px 30px;
   grid-column: 2;
 }
 
@@ -65,18 +65,19 @@ body {
 }
 
 .navigation {
-  /* padding-bottom: 20px; */
   display: flex;
-  gap: 0px 30px;
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
+  flex-direction: row;
+  padding: 10px 0;
 }
 
 .navigation h1 {
-  margin: 10px 0px;
+  margin: 0;
+  margin-right: 30px;
   font-size: 2.5em; /* 3em; */
-  line-height: 1.5em;
+  line-height: 1.1em;
   font-weight: 700;
 }
 
@@ -94,16 +95,17 @@ body {
 
 .navigation ul {
   display: flex;
-  list-style: none;
-  padding: 5px 0px;
-  margin: 0;
   flex-wrap: wrap;
-  gap: 5px 15px;
+  list-style: none;
+  padding: 7px 0 7px 0;
+  margin: 0;
+  margin-left: -15px;
 }
 
 .navigation ul li {
   font-size: 1.1em;
   font-weight: 600;
+  margin-left: 15px;
 }
 
 .bread span {
