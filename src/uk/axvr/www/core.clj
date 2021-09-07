@@ -7,7 +7,6 @@
   (:import [java.io File FileInputStream FileOutputStream]))
 
 
-;; TODO: clean up/refactor this code.
 ;; TODO: conditional generation.
 ;; TODO: meta tags (description, keywords, author, etc.).
 ;; TODO: redirects.

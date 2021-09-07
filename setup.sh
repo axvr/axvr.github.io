@@ -9,4 +9,5 @@ rm -r "$DIST_DIR"
 mkdir -p "$DIST_DIR"
 git worktree add "$DIST_DIR" dist
 
+# git worktree prune
 # git worktree remove -f "$DIST_DIR"

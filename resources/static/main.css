@@ -1,24 +1,10 @@
-/*
- * TODO
- *   Style all controls
- *   Rewrite/simplify CSS
- *   Darker blue for links?
- *   Minor fixes
- *   Different navigation bar colour per site-section?
- *   Extend navigation bar colour to Chrome on Android (darker version?)
- *   Dark theme?  Grayscale?
- *   Override colours using injection in template.html
- *   - Different CSS file?  /res/{{:colour}}.css
- *   - Style tags?
- *   Hiding sections when no content?
- *   Visited link colour
- *
- * Colours:
- * - Blue:   #3C7AD1 (make darker?)  (Slightly bluer version of: #486AC4 ?)
- * - Purple: #5657BB
- */
-
 @import url('https://rsms.me/inter/inter.css');
+
+:root {
+  --nav-bg-color: #212121; /* #1e5370; /* #1b8199; /* #1b9966; /* #32a1b5; /* #0ba9b7; /* #16af84; /* #703cd1; /* #d1463c; /* #d13c6e; /* #3c7ad1; */
+ /* Blue:   #3C7AD1 (make darker?)  (Slightly bluer version of: #486AC4 ?) */
+ /* Purple: #5657BB */
+}
 
 body {
   font-family: 'Inter', 'IBM Plex Sans', 'Helvetica', 'Arial', sans-serif;
@@ -29,7 +15,7 @@ body {
 
 a {
   transition: 0.2s;
-  color: #3C7AD1;
+  color: #1b4f99; /* #3061a5; /* #3368b2; /* #3C7AD1; */
 }
 
 a:hover {
@@ -53,7 +39,14 @@ body {
 }
 
 .nav-section {
-  background-color: #32a1b5; /* #0ba9b7; /* #16af84; /* #703cd1; /* #d1463c; /* #d13c6e; /* #3c7ad1; */
+  /*
+   * Purple: #666489;
+   * Green:  #64897a;
+   * Teal:   #647d89;
+   * Pink:   #896477;
+   * Red:    #896464;
+   */
+  background-color: #64897a;
 }
 
 .bread-section, .footer-section {
@@ -61,7 +54,7 @@ body {
 }
 
 .intro-section {
-  background-color: #e2dfcc; /* #d7dff2; */
+  background-color: #dddccc;
 }
 
 .navigation {
@@ -76,7 +69,7 @@ body {
 .navigation h1 {
   margin: 0;
   margin-right: 30px;
-  font-size: 2.5em; /* 3em; */
+  font-size: 2.5em;
   line-height: 1.1em;
   font-weight: 700;
 }
@@ -140,10 +133,6 @@ h3, h4, h5, h6 {
   font-weight: 600;
 }
 
-.content {
-  background-color: white;
-}
-
 #main-content {
   flex: auto;
 }
@@ -167,7 +156,7 @@ pre, code {
   font-size: 1em;
   line-height: 1.2em;
   font-family: 'Inconsolata', monospace;
-  background-color: #ececec;
+  background-color: #efefef;
   border-radius: 4px;
 }
 pre { padding: 15px 20px; }
@@ -205,7 +194,7 @@ th, td {
 }
 
 details {
-  background-color: #f9f1bd;
+  background-color: #efecd5;
   border-radius: 4px;
   padding: 10px 15px;
 }
