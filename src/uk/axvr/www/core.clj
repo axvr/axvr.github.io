@@ -1,9 +1,10 @@
 (ns uk.axvr.www.core
-  (:require [clojure.edn :as edn]
-            [clojure.string :as str]
+  (:require [clojure.edn     :as edn]
+            [clojure.string  :as str]
             [clojure.java.io :as io]
-            [hiccup.core :as hiccup]
-            [markdown.core :as md])
+            [markdown.core   :as md]
+            [hiccup.core     :refer  [html]
+                             :rename {html hiccup->html}])
   (:import [java.io File FileInputStream FileOutputStream]))
 
 
@@ -44,7 +45,7 @@
 
 
 (def read-edn
-  (comp edn/read-string slurp))
+  (comp eval edn/read-string slurp))
 
 
 (defn md->html [md]
@@ -56,15 +57,11 @@
       :reference-links? true)))
 
 
-(defn hiccup->html [hiccup]
-  (hiccup/html hiccup))
-
-
 (defn relative-path [from to]
-  (io/file (if (.isFile from)
-             (.getParent from)
-             from)
-           to))
+  (let [path (if (.isFile from)
+               (.getParent from)
+               from)]
+    (io/file path to)))
 
 
 (defn attach-content [{:keys [f-in content] :as page}]
@@ -170,8 +167,12 @@
 
 
 (defn wipe-dir [dir]
-  (doseq [f (->> dir file-seq reverse butlast (remove #(. % isHidden)))]
-    (.delete f)))
+  (doseq [file (->> dir
+                    file-seq
+                    reverse
+                    butlast
+                    (remove #(. % isHidden)))]
+    (.delete file)))
 
 
 (defn copy-dir [from to]
