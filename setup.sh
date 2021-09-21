@@ -7,7 +7,5 @@ DIST_DIR="resources/dist/"
 
 rm -r "$DIST_DIR"
 mkdir -p "$DIST_DIR"
+git worktree prune
 git worktree add "$DIST_DIR" dist
-
-# git worktree prune
-# git worktree remove -f "$DIST_DIR"
