@@ -128,6 +128,19 @@
                       (interpose separator))]])))))
 
 
+(defn attach-intro [{:keys [title subtitle intro?]
+                     :or   {intro? true}
+                     :as   page}]
+  (assoc page
+         :intro
+         (when (and intro? title)
+           (hiccup->html
+             [:div {:class "intro"}
+              [:h1 title]
+              (when subtitle
+                [:h2 subtitle])]))))
+
+
 (defn attach-page-title
   "Build full page title."
   [{:keys [page-title site title subtitle author article?] :as page}]
@@ -158,6 +171,7 @@
                               (read-edn %)))
                       (map attach-content)
                       (map attach-breadcrumbs)
+                      (map attach-intro)
                       (map attach-page-title)
                       (map #(assoc % :content (inject (:content %) %)))
                       (map #(assoc % :result (inject template %))))]
