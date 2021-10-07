@@ -3,7 +3,7 @@ To learn about the attributes Ascribe uses, read the
 [specification](../spec), however it is greatly recommended that you
 read this page first.
 
-# Example
+## Example
 
 This is the `.gitattributes` file for the Ascribe Vim extension.
 
@@ -33,7 +33,7 @@ trim_trailing_whitespace = true
 
 </details>
 
-# Rules
+## Rules
 
 Each line of a `.gitattributes` file is a separate rule.  It begins with
 a [file pattern](#file_pattern), and is followed by a [list of attributes](#attribute_list) (whitespace is insignificant).
@@ -50,14 +50,14 @@ A file can be matched by multiple rules.  In this example a file named
 attribute list will be a combination of the two rules with the lower lines
 taking precedence over the upper lines.
 
-# File pattern
+## File pattern
 
 The file patterns are the same as those used in
 [`.gitignore`](https://www.git-scm.com/docs/gitignore#_pattern_format) files,
 but without the negation pattern (denoted by a literal `!` at the start of the
 line).
 
-# Attribute list
+## Attribute list
 
 When an attribute is not in the resulting attribute list, it is "unspecified".
 
@@ -89,7 +89,7 @@ These states are represented in `.gitattributes` files as the following.
 To explicitly set an attribute, just specify its name.  To unset it, prepend it
 with a hyphen (`-`).  To set to a value append an equals (`=`) and the value.
 
-# More information
+## More information
 
 - [`gitattributes(5)`](https://www.git-scm.com/docs/gitattributes)
 - [`git-check-attr(1)`](https://www.git-scm.com/docs/git-check-attr) — The official `.gitattributes` parser.

@@ -7,12 +7,12 @@ files in a project in a single place. Ascribe extensions tend to be much
 smaller, faster and simpler than their
 [EditorConfig](https://editorconfig.org/) counterparts.
 
-# Want to learn more?
+## Want to learn more?
 
 - [Comparison between EditorConfig and Ascribe](vs).
 - [Using `.gitattributes` files](usage).
 - [Ascribe specification](spec).
 
-# Extensions
+## Extensions
 
 - [Vim](https://github.com/axvr/ascribe.vim)

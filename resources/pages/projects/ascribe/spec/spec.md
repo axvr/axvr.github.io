@@ -34,21 +34,21 @@ Possible additional attributes
 - Read-only.  (Implicitly set by `binary`.)
 -->
 
-## expand-tab
+### expand-tab
 
 **Type**: boolean.
 
 Controls whether presses of the tab key will be expanded into spaces.  The
 number of spaces a tab is expanded to is controlled by [tab-stop](#tab-stop).
 
-## tab-stop
+### tab-stop
 
 **Type**: integer.
 
 The number of spaces which represent a tab character.  The most common values
 for this attribute are: 2, 4 and 8.
 
-## eol
+### eol
 
 **Type**: string.
 
@@ -65,14 +65,14 @@ set `text`).
 There is no support for Mac line-endings (`cr`), this is because they are now
 extremely rare and not supported by Git.
 
-## trim-trailing-whitespace
+### trim-trailing-whitespace
 
 **Type**: boolean.
 
 If explicitly set, this option will automatically trim trailing whitespace.
 Typically this would occur just before saving the file.
 
-## final-newline
+### final-newline
 
 **Type**: boolean.
 
@@ -88,21 +88,21 @@ the final newline character if it is missing.
 This option is not enforced by Git, however running `git diff --check` will
 inform you if it is missing.
 
-## line-length
+### line-length
 
 **Type**: integer.
 
 This option is primarily used for line length guides.  Ascribe intentionally
 doesn't try to enforce it.
 
-## binary
+### binary
 
 **Type**: boolean.
 
 If explicitly set, Git will not attempt to diff changes, and Ascribe will
 inform the editor that the file contains binary content.
 
-## working-tree-encoding
+### working-tree-encoding
 
 **Type**: string.
 

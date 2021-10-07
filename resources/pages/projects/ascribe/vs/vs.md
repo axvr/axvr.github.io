@@ -2,9 +2,9 @@ Both Ascribe and EditorConfig have clear advantages and disadvantages.  I have
 created this page to provide an overview and basic comparison between the two
 tools, to enable you to make an informed decision about which one to use.
 
-# A quick overview of the two tools
+## A quick overview of the two tools
 
-## [EditorConfig](https://editorconfig.org/)
+### [EditorConfig](https://editorconfig.org/)
 
 EditorConfig is a standard which defines a file (`.editorconfig`), and a format
 for that file.  The standard also defines several options which that file can
@@ -21,7 +21,7 @@ extensions they create.
 
 EditorConfig does not depend on any version control tools.
 
-## [Ascribe](../)
+### [Ascribe](../)
 
 The Ascribe standard reuses the `.gitattributes` file commonly found in many
 projects.  It defines how to use specific attributes in the `.gitattributes` to
@@ -37,16 +37,16 @@ This reduces problems for developers who don't use a supported editor.
 
 Ascribe depends on the [Git version control system](https://git-scm.com/).
 
-# Head to head comparison
+## Head to head comparison
 
-## EditorConfig
+### EditorConfig
 
-### Benefits
+#### Benefits
 
 - Well supported, many extensions exist and it is very popular.
 - `.editorconfig` files are easier to understand than `.gitattributes` files.
 
-### Problems
+#### Problems
 
 - Requires the creation of large, complex and unreliable/bug-prone extensions.
 - File encoding rules don't actually work when used with Git (Git will still
@@ -58,9 +58,9 @@ Ascribe depends on the [Git version control system](https://git-scm.com/).
 [31]: https://github.com/sgur/vim-editorconfig/issues/31
 [33]: https://github.com/sgur/vim-editorconfig/issues/33
 
-## Ascribe
+### Ascribe
 
-### Benefits
+#### Benefits
 
 - Ascribe extensions are significantly simpler and easier to write than
   EditorConfig extensions.
@@ -74,7 +74,7 @@ Ascribe depends on the [Git version control system](https://git-scm.com/).
 
 [linguist-language]: https://github.com/github/linguist#using-gitattributes
 
-### Problems
+#### Problems
 
 - The `.gitattributes` file format is difficult to understand.
 - Not many editor extensions available at the moment.

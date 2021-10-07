@@ -1,34 +1,25 @@
 This is a list of my featured projects, you can find the full list on the
 [project timeline](timeline).
 
-# Products & services
+## Products & services
 
 - [**Enqueue**](https://www.enqueue.org) &mdash; Work-in-progress.
 
-# Development tools
+## Development tools
 
-## .NET
+### .NET
 
-- [**MdView**](https://github.com/axvr/MdView) &mdash; The flexible Markdown
-  control for Xamarin.Forms.
-<!--
-- [LinqLisp](https://github.com/axvr/LinqLisp) &mdash; Extension methods for
-  Linq to make it more Lisp-like.
-- [Router.MAUI][]
--->
+- [**MdView**](https://github.com/axvr/MdView) &mdash; A highly customisable
+  Markdown control for Xamarin.Forms.
 
-## Clojure
+### Clojure
 
 - [**Cereal**](https://github.com/axvr/cereal) &mdash; Serial port communication for
   Clojure.
 - [**User.clj**](https://github.com/axvr/user.clj) &mdash; Automatically load global
   user.clj file on REPL/Clojure start.
-<!--
-- [Pathos](https://pathos.axvr.uk) — Abstract file path representation in
-  Clojure.
--->
 
-## Vim
+### Vim
 
 - [**Zepl.vim**](https://github.com/axvr/zepl.vim) &mdash; Simple and minimal REPL
   integration plugin for Vim and Neovim.
@@ -43,6 +34,6 @@ This is a list of my featured projects, you can find the full list on the
 - [**Photon.vim**](https://github.com/axvr/photon.vim) &mdash; A pair of colour
   schemes with minimal syntax highlighting. 
 
-## Other
+### Other
 
 - [**Ascribe**](ascribe) &mdash; A simpler alternative to EditorConfig.
