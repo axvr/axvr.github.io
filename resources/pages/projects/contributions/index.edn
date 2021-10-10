@@ -1,0 +1,68 @@
+{:title "Contribution timeline"
+ :content
+ [:div
+  [:p "This is a complete list of all my contributions to other people's projects."]
+  [:h4 [:a {:href "https://github.com/PlummersSoftwareLLC/Primes/"} "Primes"]]
+  [:div {:class "date"} [:span {:title "2021-08-04 – 2021-08-09"} "2021"]]
+  [:ul
+   [:li "Clojure solution (" [:a {:href "https://github.com/PlummersSoftwareLLC/Primes/pull/605"} "#605"] ")."]
+   [:li "(+ " [:a {:href "https://github.com/axvr/codedump/tree/master/2021/primes"} "Earlier Clojure solutions"] ".)"]]
+  [:h4 [:a {:href "https://github.com/clojure/clojure-clr"} "Clojure CLR"]]
+  [:div {:class "date"} [:span {:title "2020-06-04"} "2020"]]
+  [:ul
+   [:li "Bug fix (" [:a {:href "https://github.com/clojure/clojure-clr/pull/32"} "#32"] ")."]]
+  [:h4 [:a {:href "https://github.com/tpope/vim-markdown"} "Vim-markdown"]]
+  [:div {:class "date"} [:span {:title "2018-11-07"} "2018"]]
+  [:ul
+   [:li "Bug fix (" [:a {:href "https://github.com/tpope/vim-markdown/pull/137"} "#137"] ")."]]
+  [:h4 [:a {:href "https://github.com/OmniSharp/omnisharp-vim"} "OmniSharp-vim"]]
+  [:div {:class "date"} [:span {:title "2018-07-24 – 2019-12-14"} "2018 – 2019"]] ; TODO: add dates.
+  [:ul
+   [:li
+    "Created the automated "
+    [:a {:href "https://github.com/OmniSharp/omnisharp-roslyn"} "server"]
+    " installer to help users get the plugin up and running quicker with fewer issues ("
+    [:a {:href "https://github.com/OmniSharp/omnisharp-vim/pull/382"} "#382"] ", "
+    [:a {:href "https://github.com/OmniSharp/omnisharp-vim/pull/387"} "#387"] ", "
+    [:a {:href "https://github.com/OmniSharp/omnisharp-vim/pull/395"} "#395"] ", "
+    [:a {:href "https://github.com/OmniSharp/omnisharp-vim/pull/442"} "#442"] ", "
+    [:a {:href "https://github.com/OmniSharp/omnisharp-vim/pull/495"} "#495"] ", "
+    [:a {:href "https://github.com/OmniSharp/omnisharp-vim/pull/540"} "#540"] ", "
+    [:a {:href "https://github.com/OmniSharp/omnisharp-vim/pull/541"} "#541"] ")."]
+   [:li "Helped resolve server installation issues."]
+   [:li "Reviewed several PRs related to the installer."]]
+  [:h4 [:a {:href "https://github.com/Quramy/tsuquyomi"} "Tsuquyomi"]]
+  [:div {:class "date"} [:span {:title "2018-03-22"} "2018"]]
+  [:ul
+   [:li
+    "Bug fix ("
+    [:a {:href "https://github.com/Quramy/tsuquyomi/pull/220"} "#220"]
+    ")."]]
+  [:h4 [:a {:href "https://bitcoin.org"} "Bitcoin Core"]]
+  [:div {:class "date"} [:span {:title "2018-01-30"} "2018"]]
+  [:ul
+   [:li
+    "Small documentation update ("
+    [:a {:href "https://github.com/bitcoin/bitcoin/pull/12306"} "#12306"]
+    ")."]]
+  [:h4 [:a {:href "https://github.com/liuchengxu/space-vim-dark"} "Space-vim-dark"]]
+  [:div {:class "date"} [:span {:title "2017-11-04 – 2017-12-12"} "2017"]]
+  [:ul
+   [:li
+    "Fixed compatibility with "
+    [:a {:href "https://github.com/mhinz/vim-signify"} "Signify"]
+    " ("
+    [:a {:href "https://github.com/liuchengxu/space-vim-dark/pull/9"} "#9"]
+    ")."]
+   [:li
+    "Created an Xresources port ("
+    [:a {:href "https://github.com/liuchengxu/space-vim-dark/pull/12"} "#12"]
+    ")."]]
+  [:h4 [:a {:href "https://github.com/cyberalex4life/gnome-shell-extension-cl"} "Gnome-shell-extension-cl"]]
+  [:div {:class "date"} [:span {:title "2017-07-12 – 2017-10-02"} "2017"]]
+  [:ul
+   [:li "Various changes ("
+    [:a {:href "https://github.com/cyberalex4life/gnome-shell-extension-cl/pull/2"} "#2"] ", "
+    [:a {:href "https://github.com/cyberalex4life/gnome-shell-extension-cl/pull/3"} "#3"] ", "
+    [:a {:href "https://github.com/cyberalex4life/gnome-shell-extension-cl/pull/4"} "#4"] ", "
+    [:a {:href "https://github.com/cyberalex4life/gnome-shell-extension-cl/pull/6"} "#6"] ")."]]]}

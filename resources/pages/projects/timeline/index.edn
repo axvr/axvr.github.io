@@ -3,22 +3,12 @@
  [:div
   [:style
    ".content h2 { margin-top: 30px; }
-.date { margin-bottom: -3px; margin-top: 5px; }
-.event {
-	margin-bottom: 0px;
-	margin-top: 25px;
-	margin-left: 10px;
-	margin-right: 10px;
-	color: #888;
-	font-size: 1.1em;
-	<!-- font-style: italic; -->
-}
 .archived { opacity: 0.55; transition: opacity 0.3s; }
 .archived:hover { opacity: 0.8; transition: opacity 0.3s; }"]
   [:p
-   "This is a list of all my projects.  Lots of small bits of code I've wrote
-   over the years have been archived within my "
-   [:a {:href "#code-dump"} [:em "code dump"]]
+   "This is a list of all my projects.  Various small programs I've created
+   have been archived within my "
+   [:a {:href "https://github.com/axvr/codedump"} [:em "code dump"]]
    " repository."]
   (letfn [(year [date] (if (= date "Present")
                          date
@@ -28,7 +18,7 @@
             [:div {:class (if archived?
                             "project archived"
                             "project")}
-             [:h2 (if id {:id id} {})
+             [:h4 (if id {:id id} {})
               (if link
                 [:a {:href link} title]
                 title)]
@@ -42,12 +32,12 @@
                      (str start-year " – " end-year))
                    (when archived?
                      "&ensp;<b title=\"I no longer work on this project.\">Archived</b>")))]]
-             info])
-          (event [description]
-            [:p {:class "event"} description])]
+             info])]
     [:div
+     [:h2 {:id "2020"} "New decade"]
+     [:div {:class "date"} [:span "2020 – Present"]]
      (project
-       {:title   "www.axvr.uk"
+       {:title   "alexvear.com"
         :link    "https://github.com/axvr/axvr.github.io"
         :started "2021-08-29"
         :info    [:p "This website."]})
@@ -56,7 +46,7 @@
         :link    "https://github.com/axvr/user.clj"
         :started "2021-08-08"
         :ended   "2021-08-16"
-        :info    [:p "Tool to automatically load global user.clj file on REPL/Clojure start."]})
+        :info    [:p "Tool to automatically load a global user.clj file on REPL/Clojure start."]})
      (project
        {:title   "Cereal"
         :link    "https://github.com/axvr/cereal"
@@ -66,7 +56,12 @@
        {:title   "Raider.vim"
         :link    "https://github.com/axvr/raider.vim"
         :started "2021-02-28"
-        :info    [:p "A Vim theme inspired by the iconic Tomb Raider video game franchise."]})
+        :info    [:p "A Vim colour scheme inspired by the iconic Tomb Raider video game franchise."]})
+     (project
+       {:title   "Enqueue"
+        :link    "https://www.enqueue.org"
+        :started "2020-09-20"
+        :info    [:p "A huge work-in-progress (secret) project."]})
      (project
        {:title   "Clojure.vim"
         :link    "https://github.com/clojure-vim/clojure.vim"
@@ -77,7 +72,6 @@
                    {:href "https://github.com/guns/vim-clojure-static"}
                    "Vim-clojure-static"]
                   "."]})
-     (event "COVID-19 lockdown. 2020-03")
      (project
        {:title   "Zepl.vim"
         :link    "https://github.com/axvr/zepl.vim"
@@ -89,8 +83,13 @@
         :link    "https://github.com/axvr/MdView"
         :started "2020-01-08"
         :ended   "2021-04-27"
-        :info    [:p "A highly customisable Markdown control for Xamarin.Forms."]
+        :info    [:p
+                  "A highly customisable Markdown control for "
+                  [:a {:href "https://www.xamarin.com"} "Xamarin.Forms"]
+                  "."]
         :archived? true})
+     [:h2 {:id "2015"} "Early days"]
+     [:div {:class "date"} [:span "2015 – 2019"]]
      (project
        {:title   "Ascribe"
         :link    "/projects/ascribe"
@@ -105,8 +104,7 @@
         :link    "https://github.com/axvr/photon.vim"
         :started "2019-03-23"
         :ended   "2021-08-16"
-        :info    [:p "An elegant pair of Vim colour schemes with minimal syntax highlighting."]
-        :archived? true})
+        :info    [:p "An elegant pair of Vim colour schemes with minimal syntax highlighting."]})
      (project
        {:title   "Org.vim"
         :link    "https://github.com/axvr/org.vim"
@@ -120,12 +118,12 @@
         :ended   "2019-03-03"
         :info    [:p "An experimental RDBMS and DB engine using CSV text files to store tables.  Mostly a learning project."]
         :archived? true})
-     (project
-       {:id      "code-dump"
-        :title   "Code dump"
-        :link    "https://github.com/axvr/codedump"
-        :started "2017-10-03"
-        :info    [:p "Archive of various small bits of code I've created over the years."]})
+     ;; (project
+     ;;   {:id      "code-dump"
+     ;;    :title   "Code dump"
+     ;;    :link    "https://github.com/axvr/codedump"
+     ;;    :started "2017-10-03"
+     ;;    :info    [:p "Archive of various small bits of code I've created over the years."]})
      (project
        {:title   "axvr.io"
         :link    "https://github.com/axvr/axvr.io"
@@ -143,11 +141,11 @@
                   [:a {:href "#vivid-legacy"} "Vivid-Legacy"]
                   ", designed to be much smaller and faster."]
         :archived? true})
-     (project
-       {:title   "dotfiles"
-        :link    "https://github.com/axvr/dotfiles"
-        :started "2017-04-16"
-        :info    [:p "Configuration files for my personal computers."]})
+     ;; (project
+     ;;   {:title   "dotfiles"
+     ;;    :link    "https://github.com/axvr/dotfiles"
+     ;;    :started "2017-04-16"
+     ;;    :info    [:p "Configuration files for my personal computers."]})
      (project
        {:id      "vivid-legacy"
         :title   "Vivid-Legacy.vim"
@@ -157,22 +155,23 @@
         :archived? true
         :info    [:div
                   [:p
-                   "My second programming project.  I was interested in how plugin
-                   management in Vim worked.  After a couple of failed attempts to
-                   build one myself, I forked "
+                   "My second programming project.  After a couple of failed
+                   attempts to build a Vim plugin manager myself, I forked "
                    [:a {:href "https://github.com/VundleVim/Vundle.vim"} "Vundle"]
                    " and began making minor tweaks."]
                   [:p
-                   "Eventually I found that I needed to write one from scratch
-                   to get what I wanted. That rewrite inherited the name and
-                   this version became \"Vivid-Legacy\"."]]})
+                   "Eventually I wrote one from scratch which inherited the
+                   name, making this version \"Vivid-Legacy\"."]]})
      (project
        {:title   "ALIS (Arch Linux Installation Script)"
         :link    "https://github.com/axvr/alis"
         :started "2017-01-22"
         :ended   "2017-10-30"
         :archived? true
-        :info    [:p "My first programming project.  An attempt at building an Arch Linux installer."]})
+        :info    [:p
+                  "My first programming project.  An attempt at building an "
+                  [:a {:href "https://archlinux.org/"} "Arch Linux"]
+                  " installer."]})
      (project
        {:title   "Thermoelectric generator"
         :link    "/projects/teg"

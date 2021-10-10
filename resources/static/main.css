@@ -33,6 +33,11 @@ body {
   right: 100%;
 }
 
+.date {
+  margin-bottom: -3px;
+  margin-top: 5px;
+}
+
 a {
   transition: 0.2s;
   color: #1b4f99;
