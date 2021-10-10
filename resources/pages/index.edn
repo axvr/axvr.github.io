@@ -1,2 +1,5 @@
-{:content [:p "Welcome to my new website.  It is still a work-in-progress, and
-              should greatly improve over the next couple of weeks."]}
+{:content
+ [:div
+  [:p
+   "Welcome to my new website.  It is still very much a work-in-progress, but
+   should greatly improve over the coming months."]]}

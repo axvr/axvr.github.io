@@ -1,4 +1,4 @@
-These are my main projects, you can find the full list on the [project timeline](timeline).
+These are my main projects.  You can find the full list on my [project timeline](timeline).
 
 #### [Cereal](https://github.com/axvr/cereal)
 
