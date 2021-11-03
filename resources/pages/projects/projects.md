@@ -2,7 +2,7 @@ These are my main projects.  You can find the full list on my [project timeline]
 
 #### [Cereal](https://github.com/axvr/cereal)
 
-Library for serial port communication in Clojure.
+Clojure library for serial port communication.
 
 #### [Zepl.vim](https://github.com/axvr/zepl.vim)
 

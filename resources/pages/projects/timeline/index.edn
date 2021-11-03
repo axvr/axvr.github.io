@@ -40,23 +40,17 @@
        {:title   "alexvear.com"
         :link    "https://github.com/axvr/axvr.github.io"
         :started "2021-08-29"
-        :info    [:p "This website."]})
-     (project
-       {:title   "User.clj"
-        :link    "https://github.com/axvr/user.clj"
-        :started "2021-08-08"
-        :ended   "2021-08-16"
-        :info    [:p "Tool to automatically load a global user.clj file on REPL/Clojure start."]})
+        :info    [:p "This website.  Built using a custom static site generator."]})
      (project
        {:title   "Cereal"
         :link    "https://github.com/axvr/cereal"
         :started "2021-07-11"
-        :info    [:p "Serial port communication for Clojure."]})
+        :info    [:p "Clojure library for serial port communication."]})
      (project
        {:title   "Raider.vim"
         :link    "https://github.com/axvr/raider.vim"
         :started "2021-02-28"
-        :info    [:p "A Vim colour scheme inspired by the iconic Tomb Raider video game franchise."]})
+        :info    [:p "A Vim colour scheme for archaeological escapades."]})
      (project
        {:title   "Enqueue"
         :link    "https://www.enqueue.org"
@@ -104,7 +98,8 @@
         :link    "https://github.com/axvr/photon.vim"
         :started "2019-03-23"
         :ended   "2021-08-16"
-        :info    [:p "An elegant pair of Vim colour schemes with minimal syntax highlighting."]})
+        :info    [:p "An elegant pair of Vim colour schemes with minimal syntax highlighting."]
+        :archived? true})
      (project
        {:title   "Org.vim"
         :link    "https://github.com/axvr/org.vim"

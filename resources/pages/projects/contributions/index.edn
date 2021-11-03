@@ -6,11 +6,11 @@
   [:div {:class "date"} [:span {:title "2021-08-04 – 2021-08-09"} "2021"]]
   [:ul
    [:li "Clojure solution (" [:a {:href "https://github.com/PlummersSoftwareLLC/Primes/pull/605"} "#605"] ")."]
-   [:li "(See my " [:a {:href "https://github.com/axvr/codedump/tree/master/2021/primes"} "earlier solutions"] ".)"]]
+   [:li "(+ my " [:a {:href "https://github.com/axvr/codedump/tree/master/2021/primes"} "earlier solutions"] ".)"]]
   [:h4 [:a {:href "https://github.com/clojure/clojure-clr"} "Clojure CLR"]]
   [:div {:class "date"} [:span {:title "2020-06-04"} "2020"]]
   [:ul
-   [:li "Bug fix (" [:a {:href "https://github.com/clojure/clojure-clr/pull/32"} "#32"] ")."]]
+   [:li "Fixed major bug (" [:a {:href "https://github.com/clojure/clojure-clr/pull/32"} "#32"] ")."]]
   [:h4 [:a {:href "https://github.com/tpope/vim-markdown"} "Vim-markdown"]]
   [:div {:class "date"} [:span {:title "2018-11-07"} "2018"]]
   [:ul
