@@ -37,6 +37,14 @@
      [:h2 {:id "2020"} "New decade"]
      [:div {:class "date"} [:span "2020 – Present"]]
      (project
+       {:title   "Apart.vim"
+        :link    "https://github.com/axvr/apart.vim"
+        :started "2021-11-10"
+        :info    [:p
+                  "Simple auto-bracket/quote plugin for Vim; optimised for "
+                  [:a {:href "https://en.wikipedia.org/wiki/S-expression"} "S-expression"]
+                  " based languages."]})
+     (project
        {:title   "alexvear.com"
         :link    "https://github.com/axvr/axvr.github.io"
         :started "2021-08-29"
