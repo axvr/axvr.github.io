@@ -63,7 +63,7 @@
        {:title   "Enqueue"
         :link    "https://www.enqueue.org"
         :started "2020-09-20"
-        :info    [:p "A huge work-in-progress (secret) project."]})
+        :info    [:p "A huge work-in-progress project."]})
      (project
        {:title   "Clojure.vim"
         :link    "https://github.com/clojure-vim/clojure.vim"

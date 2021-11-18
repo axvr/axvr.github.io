@@ -14,7 +14,7 @@ Clojure syntax highlighting for Vim and Neovim.
 
 #### [Enqueue](https://www.enqueue.org)
 
-A huge work-in-progress (secret) project.
+A huge work-in-progress project.
 
 
 ## More
