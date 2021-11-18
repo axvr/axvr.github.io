@@ -69,7 +69,7 @@
         :link    "https://github.com/clojure-vim/clojure.vim"
         :started "2020-09-11"
         :info    [:p
-                  "Clojure syntax highlighting for Vim and Neovim.  Fork of "
+                  "Clojure syntax highlighting for Vim and Neovim.  Continuation of "
                   [:a
                    {:href "https://github.com/guns/vim-clojure-static"}
                    "Vim-clojure-static"]

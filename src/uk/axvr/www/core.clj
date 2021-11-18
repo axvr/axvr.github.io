@@ -8,9 +8,9 @@
   (:import [java.io File FileInputStream FileOutputStream]))
 
 
+;; TODO: RSS feed.
 ;; TODO: conditional generation.
-;; TODO: meta tags (description, keywords, author, etc.).
-;; TODO: redirects.
+;; TODO: better reader mode support.
 
 
 ;;; -----------------------------------------------------------
@@ -128,7 +128,23 @@
                       (interpose separator))]])))))
 
 
-(defn attach-intro [{:keys [title subtitle intro?]
+(defn month->string [month-code]
+  (case month-code
+    (1 "1" "01") "January"
+    (2 "2" "02") "February"
+    (3 "3" "03") "March"
+    (4 "4" "04") "April"
+    (5 "5" "05") "May"
+    (6 "6" "06") "June"
+    (7 "7" "07") "July"
+    (8 "8" "08") "August"
+    (9 "9" "09") "September"
+    (10 "10")    "October"
+    (11 "11")    "November"
+    (12 "12")    "December"))
+
+
+(defn attach-intro [{:keys [title subtitle intro? date]
                      :or   {intro? true}
                      :as   page}]
   (assoc page
@@ -138,12 +154,17 @@
              [:div {:class "intro"}
               [:h1 title]
               (when subtitle
-                [:h2 subtitle])]))))
+                [:h2 subtitle])
+              (when date
+                (when-let [[_ year month day] (re-matches #"(\d{4})-(\d{1,2})-(\d{1,2})" date)]
+                  [:span
+                   {:class "date" :title date}
+                   (month->string month) " " year]))]))))
 
 
 (defn attach-page-title
   "Build full page title."
-  [{:keys [page-title site title subtitle author article?] :as page}]
+  [{:keys [page-title site title subtitle author] :as page}]
   (assoc page
          :page-title
          (cond
@@ -151,11 +172,21 @@
            title (str title
                       (when subtitle
                         (str ": " subtitle))
-                      (when (and article? author (not= author site))
-                        (str " \u2014 " author))
                       " | "
                       site)
            :else site)))
+
+
+(defn attach-keywords
+  [page]
+  (update page :keywords #(str/join ", " %)))
+
+
+(defn attach-redirect
+  [{:keys [redirect] :as page}]
+  (if redirect
+    (assoc page :redirect (str "<meta http-equiv=\"refresh\" content=\"0; url=" redirect "\" />"))
+    page))
 
 
 (defn build-pages []
@@ -169,6 +200,8 @@
                               {:f-in  %
                                :f-out (output-file %)}
                               (read-edn %)))
+                      (map attach-redirect)
+                      (map attach-keywords)
                       (map attach-content)
                       (map attach-breadcrumbs)
                       (map attach-intro)

@@ -1,4 +1,5 @@
 {:site "Alex Vear"
  :author "Alex Vear"
  :copyright "© 2021 Alex Vear"
- :licence "<a href=\"https://creativecommons.org/licenses/by-sa/4.0/\">CC BY-SA 4.0</a>"}
+ :licence "<a href=\"https://creativecommons.org/licenses/by-sa/4.0/\">CC BY-SA 4.0</a>"
+ :image "/avatar.png"}
