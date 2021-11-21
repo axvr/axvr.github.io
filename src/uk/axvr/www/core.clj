@@ -52,7 +52,6 @@
   (remove-comments
     (md/md-to-html-string
       md
-      :footnotes?       true
       :heading-anchors  true
       :reference-links? true)))
 
@@ -128,8 +127,8 @@
                       (interpose separator))]])))))
 
 
-(defn month->string [month-code]
-  (case month-code
+(defn month->string [month]
+  (case month
     (1 "1" "01") "January"
     (2 "2" "02") "February"
     (3 "3" "03") "March"
@@ -156,9 +155,9 @@
               (when subtitle
                 [:h2 subtitle])
               (when date
-                (when-let [[_ year month day] (re-matches #"(\d{4})-(\d{1,2})-(\d{1,2})" date)]
-                  [:span
-                   {:class "date" :title date}
+                (when-let [[_ year month _] (re-matches #"(\d{4})-(\d{1,2})-(\d{1,2})" date)]
+                  [:time
+                   {:class "date", :title date, :datetime date}
                    (month->string month) " " year]))]))))
 
 

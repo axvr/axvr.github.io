@@ -38,8 +38,11 @@ body {
   margin-top: 5px;
 }
 
+hr {
+  margin: 25px auto 25px auto;
+}
+
 a {
-  transition: 0.2s;
   color: #1b4f99;
 }
 
@@ -170,6 +173,7 @@ h4 {
 }
 
 .navigation a {
+  transition: 0.2s;
   color: white;
 }
 
@@ -245,6 +249,9 @@ h4 {
 .content li {
   margin-bottom: 4px;
 }
+
+.content a:visited { color: #632393; }
+.content a:hover { color: #991b8c; }
 
 
 
