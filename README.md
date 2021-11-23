@@ -1,6 +1,6 @@
-# www.axvr.uk
+# alexvear.com
 
-Source code for my [personal website](https://www.axvr.uk).
+Source code for my [personal website](https://www.alexvear.com).
 
 To build:
 

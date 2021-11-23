@@ -5,16 +5,9 @@
             [markdown.core   :as md]
             [hiccup.core     :refer  [html]
                              :rename {html hiccup->html}])
-  (:import [java.io File FileInputStream FileOutputStream]))
-
-
-;; TODO: RSS feed.
-;; TODO: conditional generation.
-;; TODO: better reader mode support.
-
-
-;;; -----------------------------------------------------------
-;;; Helpers
+  (:import java.io.File
+           java.util.Locale
+           [java.time Instant ZoneId format.DateTimeFormatter]))
 
 
 (defn file-ext
@@ -30,7 +23,7 @@
 
 
 (defn inject
-  "Replace {{x}} tags in text with value of :x in replacements."
+  "Replace {{x}} tags in text with value of :x in replacements map."
   [text replacements]
   (str/replace
     text
@@ -45,6 +38,8 @@
 
 
 (def read-edn
+  ;; NOTE: can't use read-string and #= macro because it requires source to be
+  ;; wrapped in a string.
   (comp eval edn/read-string slurp))
 
 
@@ -127,38 +122,51 @@
                       (interpose separator))]])))))
 
 
-(defn month->string [month]
-  (case month
-    (1 "1" "01") "January"
-    (2 "2" "02") "February"
-    (3 "3" "03") "March"
-    (4 "4" "04") "April"
-    (5 "5" "05") "May"
-    (6 "6" "06") "June"
-    (7 "7" "07") "July"
-    (8 "8" "08") "August"
-    (9 "9" "09") "September"
-    (10 "10")    "October"
-    (11 "11")    "November"
-    (12 "12")    "December"))
+(defn date-format
+  [pattern & {:keys [locale zone]}]
+  (.. DateTimeFormatter
+      (ofPattern pattern)
+      (withLocale (or locale Locale/UK))
+      (withZone (ZoneId/of (or zone "GMT")))))
 
 
-(defn attach-intro [{:keys [title subtitle intro? date]
-                     :or   {intro? true}
-                     :as   page}]
+(defn parse-date [date]
+  (let [fmt (date-format "yyyy-MM-dd['T'HH:mm[:ss[.SSS[SSS]]][z][O][X][x][Z]]")]
+    (.parse fmt date)))
+
+
+(defn ->essay-date [{:keys [published updated]}]
+  (letfn [(format-date [d]
+            (.format (date-format "MMMM yyyy")
+                     (parse-date d)))
+          (close? [d1 d2]
+            (let [date #(.format (date-format "MM yyyy") (parse-date %))]
+              (= (date d1) (date d2))))]
+    (when published
+      [:time
+       {:class "date"
+        :title (if updated
+                 (str published " (rev. " updated ")")
+                 published)
+        :datetime published}
+       (if (and updated (not (close? published updated)))
+         (str (format-date published)
+              "&ensp;(rev. "
+              (format-date updated)
+              ")")
+         (format-date published))])))
+
+
+(defn attach-intro [{:keys [title subtitle] :as page}]
   (assoc page
          :intro
-         (when (and intro? title)
+         (when title
            (hiccup->html
              [:div {:class "intro"}
               [:h1 title]
               (when subtitle
                 [:h2 subtitle])
-              (when date
-                (when-let [[_ year month _] (re-matches #"(\d{4})-(\d{1,2})-(\d{1,2})" date)]
-                  [:time
-                   {:class "date", :title date, :datetime date}
-                   (month->string month) " " year]))]))))
+              (->essay-date page)]))))
 
 
 (defn attach-page-title

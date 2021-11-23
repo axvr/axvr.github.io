@@ -16,7 +16,7 @@
   [:ul
    [:li "Bug fix (" [:a {:href "https://github.com/tpope/vim-markdown/pull/137"} "#137"] ")."]]
   [:h4 [:a {:href "https://github.com/OmniSharp/omnisharp-vim"} "OmniSharp-vim"]]
-  [:div {:class "date"} [:span {:title "2018-07-24 – 2019-12-14"} "2018 – 2019"]] ; TODO: add dates.
+  [:div {:class "date"} [:span {:title "2018-07-24 – 2019-12-14"} "2018 – 2019"]]
   [:ul
    [:li
     "Created the automated "

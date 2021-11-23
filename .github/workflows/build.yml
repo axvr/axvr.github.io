@@ -29,4 +29,4 @@ jobs:
           author_email: 'alex@vear.uk'
           committer_name: GitHub Actions
           committer_email: 41898282+github-actions[bot]@users.noreply.github.com
-          message: 'Refresh website'
+          message: 'Rebuild website'
