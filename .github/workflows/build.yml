@@ -1,0 +1,32 @@
+name: Build website
+on: [push, workflow_dispatch]
+
+jobs:
+  build:
+    name: Build website
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v2
+
+      - name: Install Clojure tools
+        uses: DeLaGuardo/setup-clojure@3.5
+        with:
+          cli: '1.10.3.1029'
+
+      - name: Build website
+        run: |
+          git fetch origin dist --depth=1
+          ./setup.sh
+          clojure -X:build
+
+      - name: Commit changes
+        uses: EndBug/add-and-commit@v7
+        with:
+          cwd: resources/dist/
+          branch: dist
+          author_name: 'Alex Vear'
+          author_email: 'alex@vear.uk'
+          committer_name: GitHub Actions
+          committer_email: 41898282+github-actions[bot]@users.noreply.github.com
+          message: 'Refresh website'

@@ -5,7 +5,8 @@
 
 DIST_DIR="resources/dist/"
 
-rm -r "$DIST_DIR"
+[ -d "$DIST_DIR" ] && rm -r "$DIST_DIR"
 mkdir -p "$DIST_DIR"
+
 git worktree prune
 git worktree add "$DIST_DIR" dist
