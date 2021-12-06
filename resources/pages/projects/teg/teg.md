@@ -17,7 +17,7 @@ very efficient.  (They are also known as Seebeck Generators).  The TEG I am
 building will be able to power/charge a 5V (at 600mA) device through a standard
 USB "Type A" port.
 
-![The completed TEG in use](assets/images/teg.jpg)
+![The completed TEG in use](assets/teg.jpg)
 
 
 ## Details
@@ -40,7 +40,7 @@ This works because rather than giving the peltiers electrical energy to
 create heat (or negative heat), we are providing the heat to get electricity
 from the device.
 
-![Diagram of the Seebeck Effect](assets/images/seebeck-effect.jpg)
+![Diagram of the Seebeck Effect](assets/seebeck-effect.jpg)
 
 It is known as the Seebeck effect (temperature difference to electricity), the
 opposite of the Peltier effect (electricity to heat/temperature difference).
@@ -48,7 +48,7 @@ opposite of the Peltier effect (electricity to heat/temperature difference).
 
 ### The Circuit Schematic: 3V, 1A to 5V, 600mA.
 
-![Adafruit - MintyBoost V2 Schematic](assets/images/adafruit-mintyboost-v2.png)
+![Adafruit - MintyBoost V2 Schematic](assets/adafruit-mintyboost-v2.png)
 
 This Schematic is a possible way to convert the output from the generator/s to
 the required Current and Voltage.  The 3V battery can be replaced with the TEG.
@@ -56,21 +56,21 @@ the required Current and Voltage.  The 3V battery can be replaced with the TEG.
 instead and can be bought as a kit through [Adafruit](https://adafruit.com), the
 battery connectors can then be attached to the correct leads on the TEG.
 
-![My custom version of the Adafruit MintyBoost V2](assets/images/custom-mintyboost-v2.jpg)
+![My custom version of the Adafruit MintyBoost V2](assets/custom-mintyboost-v2.jpg)
 
 
 ### The Module Design.
 
-![Design of one of the modules](assets/images/module-design.jpg)
+![Design of one of the modules](assets/module-design.jpg)
 
-![One completed module](assets/images/completed-module.jpg)
+![One completed module](assets/completed-module.jpg)
 
 The design of each of the modules of the circuit.  (I have changed the design
 slightly, as to what is seen above, so that it has holes on one side of the
 bottom can, see below).  Each can of the module were attached securely using duct
 tape (sellotape in the prototype - above).
 
-![The entire TEG (4 modules)](assets/images/completed-teg.jpg)
+![The entire TEG (4 modules)](assets/completed-teg.jpg)
 
 
 ## Final Notes
@@ -83,7 +83,7 @@ it if the wiring was not correct or a component was damaged).
 At some point in the future I may try to make a more efficient version of this.
 Feel free to use this design or modify it as you wish.
 
-![The TEG Powering LEDs](assets/images/teg-powering-lights.jpeg)
+![The TEG Powering LEDs](assets/teg-powering-lights.jpg)
 
 This is an image of the TEG powering some LED lights.
 
@@ -91,10 +91,10 @@ This is an image of the TEG powering some LED lights.
 
 ## Useful Documents (Data Sheets)
 
-- [Data Sheet for the TEC1-12706 Peltier](assets/docs/TEC1-12706_40,40,3.8.pdf)
+- [Data Sheet for the TEC1-12706 Peltier](assets/TEC1-12706_40,40,3.8.pdf)
   I used in this project.
-- [LT1302 - Micropower High Output Current Step-Up Adjustable and Fixed 5V DC/DC Converter (Linear Technology)](assets/docs/lt1302.pdf).
-- [Voltage Regulator Data Sheet for the 78xx series](assets/docs/78xx.pdf), use
+- [LT1302 - Micropower High Output Current Step-Up Adjustable and Fixed 5V DC/DC Converter (Linear Technology)](assets/lt1302.pdf).
+- [Voltage Regulator Data Sheet for the 78xx series](assets/78xx.pdf), use
   if you want to have the current at 1A rather than 600mA.  The original
   version was going to use this.
 
