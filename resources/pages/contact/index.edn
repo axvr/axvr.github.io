@@ -1,8 +1,9 @@
 {:title "Contact me"
  :content
  [:div
-  [:p "I prefer to be contacted by email.  You can construct my email address
-      by following the steps below."]
+  [:p
+   "The best way to contact me is via email.  You can construct my email
+   address by doing the following:"]
   [:ol
    [:li "Insert an " [:code "@"] " between my first and surname (found at the top of the page)."]
    [:li "Append " [:code ".uk"] "."]]]}

@@ -44,7 +44,7 @@
                   "Simple auto-bracket/quote plugin for Vim; optimised for "
                   [:a {:href "https://en.wikipedia.org/wiki/S-expression"} "S-expression"]
                   " based languages."]})
-     (project
+     #_(project
        {:title   "alexvear.com"
         :link    "https://github.com/axvr/axvr.github.io"
         :started "2021-08-29"
@@ -58,8 +58,9 @@
        {:title   "Raider.vim"
         :link    "https://github.com/axvr/raider.vim"
         :started "2021-02-28"
+        :ended   "2021-12-03"
         :info    [:p "A Vim colour scheme for archaeological escapades."]})
-     (project
+     #_(project
        {:title   "Enqueue"
         :link    "https://www.enqueue.org"
         :started "2020-09-20"
@@ -121,13 +122,13 @@
         :ended   "2019-03-03"
         :info    [:p "An experimental RDBMS and DB engine using CSV text files to store tables.  Mostly a learning project."]
         :archived? true})
-     ;; (project
-     ;;   {:id      "code-dump"
-     ;;    :title   "Code dump"
-     ;;    :link    "https://github.com/axvr/codedump"
-     ;;    :started "2017-10-03"
-     ;;    :info    [:p "Archive of various small bits of code I've created over the years."]})
-     (project
+     #_(project
+       {:id      "code-dump"
+        :title   "Code dump"
+        :link    "https://github.com/axvr/codedump"
+        :started "2017-10-03"
+        :info    [:p "Archive of various small bits of code I've created over the years."]})
+     #_(project
        {:title   "axvr.io"
         :link    "https://github.com/axvr/axvr.io"
         :started "2017-09-09"
@@ -144,11 +145,11 @@
                   [:a {:href "#vivid-legacy"} "Vivid-Legacy"]
                   ", designed to be much smaller and faster."]
         :archived? true})
-     ;; (project
-     ;;   {:title   "dotfiles"
-     ;;    :link    "https://github.com/axvr/dotfiles"
-     ;;    :started "2017-04-16"
-     ;;    :info    [:p "Configuration files for my personal computers."]})
+     #_(project
+       {:title   "dotfiles"
+        :link    "https://github.com/axvr/dotfiles"
+        :started "2017-04-16"
+        :info    [:p "Configuration files for my personal computers."]})
      (project
        {:id      "vivid-legacy"
         :title   "Vivid-Legacy.vim"

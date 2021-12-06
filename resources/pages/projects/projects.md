@@ -12,10 +12,6 @@ Simple and minimal REPL integration plugin for Vim and Neovim.
 
 Clojure syntax highlighting for Vim and Neovim.
 
-#### [Enqueue](https://www.enqueue.org)
-
-A huge work-in-progress project.
-
 
 ## More
 
