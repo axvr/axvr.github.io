@@ -1,0 +1,40 @@
+/* Custom version of Font Awesome built using https://icomoon.io/app/ */
+
+@font-face {
+	font-family: 'Font Awesome';
+	src: url('/fonts/font-awesome.woff2') format('woff2'),
+	     url('/fonts/font-awesome.woff') format('woff');
+	font-weight: 400;
+	font-style: normal;
+}
+
+.fa, .fab, .fad, .fal, .far, .fas {
+	display: inline-block;
+	font-family: 'Font Awesome';
+	font-weight: 400;
+	font-style: normal;
+	font-variant: normal;
+	text-transform: none;
+	text-rendering: auto;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.fa-at:before { content: "\e924";}
+.fa-bookmark:before { content: "\e900";}
+.fa-chevron-down:before { content: "\e911";}
+.fa-chevron-left:before { content: "\e912";}
+.fa-chevron-right:before { content: "\e913";}
+.fa-chevron-up:before { content: "\e914";}
+.fa-code-branch:before { content: "\e901";}
+.fa-comment:before { content: "\e905";}
+.fa-envelope:before { content: "\e902";}
+.fa-exclamation-triangle:before { content: "\e918";}
+.fa-home:before { content: "\e903";}
+.fa-rss:before { content: "\e904";}
+.fa-thumbtack:before { content: "\e906";}
+.fa-git-alt:before { content: "\e907";}
+.fa-github:before { content: "\e908";}
+.fa-gitlab:before { content: "\e920";}
+.fa-hacker-news:before { content: "\e909";}
+.fa-reddit:before { content: "\e910";}
