@@ -122,8 +122,7 @@
                       (interpose separator))]])))))
 
 
-(defn date-format
-  [pattern & {:keys [locale zone]}]
+(defn date-format [pattern & {:keys [locale zone]}]
   (.. DateTimeFormatter
       (ofPattern pattern)
       (withLocale (or locale Locale/UK))
@@ -184,15 +183,25 @@
            :else site)))
 
 
-(defn attach-keywords
-  [page]
+(defn attach-keywords [page]
   (update page :keywords #(str/join ", " %)))
 
 
 (defn attach-redirect
   [{:keys [redirect] :as page}]
   (if redirect
-    (assoc page :redirect (str "<meta http-equiv=\"refresh\" content=\"0; url=" redirect "\" />"))
+    (assoc page
+           :redirect
+           (str "<meta http-equiv=\"refresh\" content=\"0; url=" redirect "\" />"))
+    page))
+
+
+(defn attach-noindex
+  [{:keys [noindex?] :as page}]
+  (if noindex?
+    (assoc page
+           :noindex
+           (str "<meta name=\"robots\" content=\"noindex\">"))
     page))
 
 
@@ -207,6 +216,7 @@
                               {:f-in  %
                                :f-out (output-file %)}
                               (read-edn %)))
+                      (map attach-noindex)
                       (map attach-redirect)
                       (map attach-keywords)
                       (map attach-content)

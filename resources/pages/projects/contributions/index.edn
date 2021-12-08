@@ -1,4 +1,5 @@
 {:title "Contribution timeline"
+ :noindex? true
  :content
  [:div
   [:p "This is a complete list of all my contributions to other people's projects."]

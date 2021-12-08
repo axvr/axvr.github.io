@@ -1,4 +1,5 @@
 {:title "Contact me"
+ :noindex? true
  :content
  [:div
   [:p
