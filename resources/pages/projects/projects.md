@@ -15,5 +15,5 @@ Clojure syntax highlighting for Vim and Neovim.
 
 ## More
 
-- [Project timeline](timeline).
-- [Contribution timeline](contributions).
+- [Project timeline](timeline/).
+- [Contribution timeline](contributions/).

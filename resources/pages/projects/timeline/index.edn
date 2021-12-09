@@ -30,8 +30,7 @@
                    (if (= start-year end-year)
                      start-year
                      (str start-year " – " end-year))
-                   (when archived?
-                     "&ensp;<b title=\"I no longer work on this project.\">Archived</b>")))]]
+                   (when archived? "&ensp;<b>Archived</b>")))]]
              info])]
     [:div
      [:h2 {:id "2020"} "New decade"]
@@ -95,7 +94,7 @@
      [:div {:class "date"} [:span "2015 – 2019"]]
      (project
        {:title   "Ascribe"
-        :link    "/projects/ascribe"
+        :link    "/projects/ascribe/"
         :started "2019-04-21"
         :ended   "2020-11-01"
         :info    [:p
@@ -178,7 +177,7 @@
                   " installer."]})
      (project
        {:title   "Thermoelectric generator"
-        :link    "/projects/teg"
+        :link    "/projects/teg/"
         :started "2015-11-08"
         :ended   "2016-02"
         :archived? true
