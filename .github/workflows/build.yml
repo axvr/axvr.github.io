@@ -32,32 +32,28 @@ jobs:
       - name: Deploy to S3
         run: |
           # delete old files and upload files from local directory to s3 bucket and set the cache control header on every single file.
-          aws s3 sync ./resources/dist/ "$S3_BUCKET" \
+          aws s3 sync ./resources/dist/ "s3://$S3_BUCKET" \
             --delete \
-            --cache-control 'max-age=604800'
-          # Shorten Cache-Control for HTML files.
-          aws s3 cp "$S3_BUCKET" "$S3_BUCKET" \
-            --recursive \
-            --exclude '*' \
-            --include '*.html' \
-            --copy-props 'metadata-directive' \
-            --content-type 'text/html'
+            --exclude '*.woff' \
+            --exclude '*.woff2' \
+            --cache-control 'max-age=1200'
           # Set Content-Type for font files.
-          aws s3 cp "$S3_BUCKET" "$S3_BUCKET" \
-            --recursive \
+          aws s3 sync ./resources/dist/ "s3://$S3_BUCKET" \
+            --delete \
             --exclude '*' \
             --include '*.woff' \
-            --copy-props 'metadata-directive' \
-            --content-type 'font/woff'
-          aws s3 cp "$S3_BUCKET" "$S3_BUCKET" \
-            --recursive \
+            --content-type 'font/woff' \
+            --cache-control 'max-age=604800'
+          aws s3 sync ./resources/dist/ "s3://$S3_BUCKET" \
+            --delete \
             --exclude '*' \
             --include '*.woff2' \
-            --copy-props 'metadata-directive' \
-            --content-type 'font/woff2'
+            --metadata-directive REPLACE \
+            --content-type 'font/woff2' \
+            --cache-control 'max-age=604800'
 
-      - name: Invalidate CloudFront cache
-        run: |
-          aws cloudfront create-invalidation \
-            --distribution-id "$CLOUDFRONT_DIST_ID" \
-            --paths '/*'
+      # - name: Invalidate CloudFront cache
+      #   run: |
+      #     aws cloudfront create-invalidation \
+      #       --distribution-id "$CLOUDFRONT_DIST_ID" \
+      #       --paths '/*'
