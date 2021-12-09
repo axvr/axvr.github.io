@@ -10,6 +10,7 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  color: #0A0A0A;
 }
 
 @supports (font-variation-settings: normal) {
@@ -177,17 +178,14 @@ h4 {
   margin-right: 30px;
 }
 
-.navigation h1 a {
-  text-decoration: none;
-}
-
 .navigation a {
   transition: 0.2s;
   color: white;
+  text-decoration: none;
 }
 
 .navigation a:hover {
-  color: black;
+  color: #0A0A0A;
 }
 
 .navigation ul {
