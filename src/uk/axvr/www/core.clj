@@ -71,7 +71,7 @@
 
 
 (def pages-dir  (-> "pages"  io/resource io/file))
-(def dist-dir   (-> "dist"   io/resource io/file))
+(def dist-dir   (io/file (.getParent pages-dir) "dist"))
 (def static-dir (-> "static" io/resource io/file))
 
 
@@ -231,11 +231,7 @@
 
 
 (defn wipe-dir [dir]
-  (doseq [file (->> dir
-                    file-seq
-                    reverse
-                    butlast
-                    (remove #(. % isHidden)))]
+  (doseq [file (->> dir file-seq reverse butlast)]
     (.delete file)))
 
 
@@ -252,6 +248,7 @@
 
 
 (defn build [& args]
+  (.mkdirs dist-dir)
   (wipe-dir dist-dir)
   (copy-dir static-dir dist-dir)
   (build-pages))

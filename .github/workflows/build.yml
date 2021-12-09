@@ -4,6 +4,9 @@ on: [push, workflow_dispatch]
 jobs:
   build:
     name: Build website
+    env:
+      CLOUDFRONT_DIST_ID: ${{ secrets.AWS_CLOUDFRONT_DISTRIBUTION_ID }}
+      S3_BUCKET: ${{ secrets.AWS_S3_BUCKET }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repo
@@ -15,18 +18,44 @@ jobs:
           cli: '1.10.3.1029'
 
       - name: Build website
-        run: |
-          git fetch origin dist --depth=1
-          ./setup.sh
-          clojure -X:build
+        run: clojure -X:build
 
-      - name: Commit changes
-        uses: EndBug/add-and-commit@v7
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v1
         with:
-          cwd: resources/dist/
-          branch: dist
-          author_name: 'Alex Vear'
-          author_email: 'alex@vear.uk'
-          committer_name: GitHub Actions
-          committer_email: 41898282+github-actions[bot]@users.noreply.github.com
-          message: 'Rebuild website'
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: eu-west-2
+
+      - name: Deploy to S3
+        run: |
+          # delete old files and upload files from local directory to s3 bucket and set the cache control header on every single file.
+          aws s3 sync ./resources/dist/ "$S3_BUCKET" \
+            --delete \
+            --cache-control 'max-age=604800'
+          # Shorten Cache-Control for HTML files.
+          aws s3 cp "$S3_BUCKET" "$S3_BUCKET" \
+            --recursive \
+            --exclude '*' \
+            --include '*.html' \
+            --copy-props 'metadata-directive' \
+            --content-type 'text/html'
+          # Set Content-Type for font files.
+          aws s3 cp "$S3_BUCKET" "$S3_BUCKET" \
+            --recursive \
+            --exclude '*' \
+            --include '*.woff' \
+            --copy-props 'metadata-directive' \
+            --content-type 'font/woff'
+          aws s3 cp "$S3_BUCKET" "$S3_BUCKET" \
+            --recursive \
+            --exclude '*' \
+            --include '*.woff2' \
+            --copy-props 'metadata-directive' \
+            --content-type 'font/woff2'
+
+      - name: Invalidate CloudFront cache
+        run: |
+          aws cloudfront create-invalidation \
+            --distribution-id "$CLOUDFRONT_DIST_ID" \
+            --paths '/*'

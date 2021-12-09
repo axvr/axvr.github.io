@@ -5,7 +5,6 @@ Source code for my [personal website](https://www.alexvear.com).
 To build:
 
 ```sh
-./setup.sh
 clojure -X:build
 clojure -M:serve  # open http://localhost:6585/
 ```
