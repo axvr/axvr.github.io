@@ -1,10 +1,15 @@
 # See: https://ascribe.axvr.uk
-*     text=auto final-newline expand-tab tab-stop=2 trim-trailing-whitespace eol=lf
-*.sh  tab-stop=4
-*.vim tab-stop=4
-*.woff filter=lfs diff=lfs merge=lfs -text
-*.woff2 filter=lfs diff=lfs merge=lfs -text
-*.png filter=lfs diff=lfs merge=lfs -text
-*.jpg filter=lfs diff=lfs merge=lfs -text
-*.pdf filter=lfs diff=lfs merge=lfs -text
-*.jpeg filter=lfs diff=lfs merge=lfs -text
+*       text=auto  final-newline  expand-tab  tab-stop=2  trim-trailing-whitespace  eol=lf
+*.css   -expand-tab
+*.html  -expand-tab
+*.sh    tab-stop=4
+*.vim   tab-stop=4
+
+# Git LFS.
+*.woff   filter=lfs  diff=lfs  merge=lfs  -text
+*.woff2  filter=lfs  diff=lfs  merge=lfs  -text
+*.png    filter=lfs  diff=lfs  merge=lfs  -text
+*.jpg    filter=lfs  diff=lfs  merge=lfs  -text
+*.jpeg   filter=lfs  diff=lfs  merge=lfs  -text
+*.ico    filter=lfs  diff=lfs  merge=lfs  -text
+*.pdf    filter=lfs  diff=lfs  merge=lfs  -text
