@@ -1,6 +1,6 @@
 This document will teach you how to use read and use `.gitattributes` files.
 To learn about the attributes Ascribe uses, read the
-[specification](../spec), however it is greatly recommended that you
+[specification](../spec/), however it is greatly recommended that you
 read this page first.
 
 ## Example

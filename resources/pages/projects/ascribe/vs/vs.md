@@ -51,8 +51,8 @@ Ascribe depends on the [Git version control system](https://git-scm.com/).
 - Requires the creation of large, complex and unreliable/bug-prone extensions.
 - File encoding rules don't actually work when used with Git (Git will still
   store and checkout the file in UTF-8 unless you use the `.gitattributes` file).
-- Some implementations suffer from security issues caused by allowing arbitrary
-  code execution (e.g. issues [#31][31] & [#33][33] in an [unofficial Vim extension][]).
+- Some implementations suffer from security issues caused by accidental arbitrary
+  code execution (e.g. [#31][31] & [#33][33] in an [unofficial Vim extension][]).
 
 [unofficial Vim extension]: https://github.com/sgur/vim-editorconfig/
 [31]: https://github.com/sgur/vim-editorconfig/issues/31
@@ -65,14 +65,9 @@ Ascribe depends on the [Git version control system](https://git-scm.com/).
 - Ascribe extensions are significantly simpler and easier to write than
   EditorConfig extensions.
 - Some options are enforced at the VCS level.
-- Keeps all information on project files in a centralised location, many other
-  tools use the `.gitattributes` file to get information (for example
-  [GitHub](https://github.com/)'s file type detection can be overridden using
-  the [`linguist-language` attribute][linguist-language]), this makes `.gitattributes` parsers
-  much more useful than their `.editorconfig` counterparts.
+- Keeps all information on project files in a centralised location (many other
+  tools use the `.gitattributes` file to get file information).
 - Global `.gitattributes` file are possible (although not recommended).
-
-[linguist-language]: https://github.com/github/linguist#using-gitattributes
 
 #### Problems
 

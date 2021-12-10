@@ -1,9 +1,9 @@
 | Version | Last modified |
 |---------|---------------|
-|    v1.0 |    2019-05-19 |
+|    v1.1 |    2021-12-10 |
 
 This is the Ascribe specification.  If you are unsure how `.gitattributes`
-files work, you can read my document on [using `.gitattributes` files](../usage).
+files work, you can read my document on [using `.gitattributes` files](../usage/).
 That document also explains the various terms used in this page, e.g.
 "explicitly set/unset".
 
@@ -14,7 +14,7 @@ are mentioned below.
 To reduce risks posed by arbitrary code execution, only specific characters are
 allowed to be used in the value for an option.  The value has to match this
 ([POSIX extended](https://pubs.opengroup.org/onlinepubs/9699919799/basedefs/V1_chap09.html#tag_09_04))
-regular expression: `/[a-zA-Z0-9_.-]*/`.
+regular expression: `/[a-zA-Z0-9_\/.+=-]*/`.
 
 - [expand-tab](#expand-tab)
 - [tab-stop](#tab-stop)
