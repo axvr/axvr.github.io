@@ -1,5 +1,5 @@
 {:title "Contribution timeline"
- :noindex? true
+ :head [:meta {:name "robots" :content "noindex"}]
  :content
  [:div
   [:p "This is a complete list of all my contributions to other people's projects."]

@@ -1,7 +1,5 @@
 # See: https://ascribe.axvr.uk
 *       text=auto  final-newline  expand-tab  tab-stop=2  trim-trailing-whitespace  eol=lf
-*.css   -expand-tab
-*.html  -expand-tab
 *.sh    tab-stop=4
 *.vim   tab-stop=4
 

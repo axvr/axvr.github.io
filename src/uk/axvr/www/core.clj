@@ -187,21 +187,23 @@
   (update page :keywords #(str/join ", " %)))
 
 
+;; TODO: conj onto :head.
 (defn attach-redirect
   [{:keys [redirect] :as page}]
   (if redirect
     (assoc page
            :redirect
-           (str "<meta http-equiv=\"refresh\" content=\"0; url=" redirect "\" />"))
+           (hiccup->html
+             [:meta {:http-eqive "refresh"
+                     :content (str "0; url=" redirect)}]))
     page))
 
 
-(defn attach-noindex
-  [{:keys [noindex?] :as page}]
-  (if noindex?
-    (assoc page
-           :noindex
-           (str "<meta name=\"robots\" content=\"noindex\">"))
+(defn attach-extra-head-tags [{:keys [head] :as page}]
+  (if (seq head)
+    (let [head (if (keyword? (first head)) [head] head)]
+      (assoc page :head
+             (str/join "\n" (map #(hiccup->html %) head))))
     page))
 
 
@@ -216,8 +218,8 @@
                               {:f-in  %
                                :f-out (output-file %)}
                               (read-edn %)))
-                      (map attach-noindex)
                       (map attach-redirect)
+                      (map attach-extra-head-tags)
                       (map attach-keywords)
                       (map attach-content)
                       (map attach-breadcrumbs)

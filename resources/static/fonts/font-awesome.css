@@ -1,23 +1,23 @@
 /* Custom version of Font Awesome built using https://icomoon.io/app/ */
 
 @font-face {
-	font-family: 'Font Awesome';
-	src: url('/fonts/font-awesome.woff2?v=5.15-custom.1') format('woff2'),
-	     url('/fonts/font-awesome.woff?v=5.15-custom.1') format('woff');
-	font-weight: 400;
-	font-style: normal;
+  font-family: 'Font Awesome';
+  src: url('/fonts/font-awesome.woff2?v=5.15-custom.1') format('woff2'),
+       url('/fonts/font-awesome.woff?v=5.15-custom.1') format('woff');
+  font-weight: 400;
+  font-style: normal;
 }
 
 .fa, .fab, .fad, .fal, .far, .fas {
-	display: inline-block;
-	font-family: 'Font Awesome';
-	font-weight: 400;
-	font-style: normal;
-	font-variant: normal;
-	text-transform: none;
-	text-rendering: auto;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
+  display: inline-block;
+  font-family: 'Font Awesome';
+  font-weight: 400;
+  font-style: normal;
+  font-variant: normal;
+  text-transform: none;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .fa-at:before { content: "\e924";}
