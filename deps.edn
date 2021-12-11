@@ -1,6 +1,7 @@
 {:paths ["src" "resources"]
- :deps  {org.clojure/clojure {:mvn/version "1.10.3"}
-         hiccup/hiccup       {:mvn/version "1.0.5"}
+ :deps  {org.clojure/clojure       {:mvn/version "1.10.3"}
+         hiccup/hiccup             {:mvn/version "1.0.5"}
+         org.clojure/data.xml      {:mvn/version "0.2.0-alpha6"}
          markdown-clj/markdown-clj {:mvn/version "1.10.7"}}
  :aliases {:build {:exec-fn uk.axvr.www.core/build}
            :serve {:extra-deps {nasus/nasus {:mvn/version "0.1.7"}}

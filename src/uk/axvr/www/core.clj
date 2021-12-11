@@ -1,13 +1,13 @@
 (ns uk.axvr.www.core
-  (:require [clojure.edn     :as edn]
-            [clojure.string  :as str]
-            [clojure.java.io :as io]
-            [markdown.core   :as md]
-            [hiccup.core     :refer  [html]
-                             :rename {html hiccup->html}])
-  (:import java.io.File
-           java.util.Locale
-           [java.time Instant ZoneId format.DateTimeFormatter]))
+  (:require [clojure.edn      :as edn]
+            [clojure.string   :as str]
+            [clojure.java.io  :as io]
+            [clojure.data.xml :as xml]
+            [markdown.core    :as md]
+            [hiccup.core      :refer [html] :rename {html hiccup->html}])
+  (:import [java.io File FileWriter]
+           [java.time Instant ZoneId format.DateTimeFormatter]
+           [java.util Locale]))
 
 
 (def read-edn
@@ -85,7 +85,6 @@
     (io/file path to)))
 
 
-;; TODO: remove these global variables?
 (def pages-dir (-> "pages"  io/resource io/file))
 (def dist-dir  (io/file (.getParent pages-dir) "dist"))
 
@@ -117,7 +116,7 @@
       io/file))
 
 
-(defn page-path [f-in]
+(defn attach-path [{:keys [f-in] :as page}]
   (let [path (-> (str f-in)
                  (str/replace-first
                    (str/re-quote-replacement (str pages-dir File/separator))
@@ -126,15 +125,16 @@
                  (str/replace #"_" " ")
                  (str/split
                    (re-pattern (str/re-quote-replacement File/separator))))]
-    (when-not (= (first path) "")
-      path)))
+    (assoc page
+           :path
+           (when-not (= (first path) "")
+             path))))
 
 
-(defn attach-breadcrumbs [{:keys [f-in misc?] :as page}]
+(defn attach-breadcrumbs [{:keys [path misc?] :as page}]
   (assoc page
          :breadcrumbs
-         (let [path      (page-path f-in)
-               separator " &rsaquo; "]
+         (let [separator " &rsaquo; "]
            (when path
              (hiccup->html
                [:nav {:class "bread"}
@@ -165,8 +165,10 @@
 (defn parse-date
   "Parse a date in ISO-8601 format into a java.time.format.Parsed object."
   [date]
-  (let [fmt (date-format "yyyy-MM-dd['T'HH:mm[:ss[.SSS[SSS]]][z][O][X][x][Z]]")]
-    (.parse fmt date)))
+  (when date
+    (let [date (if (re-find #"T" date) date (str date "T00:00:00Z"))
+          fmt (date-format "yyyy-MM-dd'T'HH:mm[:ss[.SSS[SSS]]][z][O][X][x][Z]")]
+      (.parse fmt date))))
 
 
 (defn ->essay-date
@@ -270,6 +272,7 @@
                  {:f-in  %
                   :f-out (output-file %)}
                  (read-edn %)))
+         (map attach-path)
          (map attach-redirect)
          (map attach-extra-head-tags)
          (map attach-keywords)
@@ -289,6 +292,68 @@
     (copy-required-files page)))
 
 
+(defn ->atom-date [d]
+  (let [fmt (date-format "yyyy-MM-dd'T'HH:mm:ssX" :zone "UTC")]
+    (.format fmt d)))
+
+
+(xml/alias-uri 'atom "http://www.w3.org/2005/Atom")
+
+
+(defn atom-entry [page]
+  [::atom/entry
+   [::atom/title (:title page)]
+   (when-let [subtitle (:subtitle page)]
+     [::atom/subtitle subtitle])
+   (when-let [summary (:summary page)]
+     [::atom/summary summary])
+   (when-let [id (:id page)]
+     [::atom/id (str "urn:uuid:" id)])
+   [::atom/link
+    {:type "text/html"
+     :href (str "https://www.alexvear.com/" (str/join "/" (:path page)))}]
+   [::atom/published (->atom-date (parse-date (:published page)))]
+   (when-let [updated (parse-date (:updated page))]
+     [::atom/updated (->atom-date updated)])
+   [::atom/author
+    [::atom/name (:author page)]]
+   [::atom/content {:type "html"} (:content page)]])
+
+
+(defn atom-feed [output entries]
+  (with-open [out (FileWriter. (io/file dist-dir "essays/atom.xml"))]
+    (xml/emit
+      (xml/sexp-as-element
+        (into
+          [::atom/feed {:xmlns "http://www.w3.org/2005/Atom"}
+           [::atom/id "https://www.alexvear.com"]
+           [::atom/title "Alex Vear"]
+           [::atom/subtitle "Alex Vear's Essays"]
+           [::atom/updated (->atom-date (Instant/now))]
+           [::atom/link
+            {:rel "alternative"
+             :type "text/html"
+             :href "https://www.alexvear.com"}]
+           [::atom/link
+            {:ref "self"
+             :type "application/atom+xml"
+             :href "https://www.alexvear.com/essays/atom.xml"}]
+           [::atom/icon "https://www.alexvear.com/favicon.ico"]
+           [::atom/author
+            [::atom/name "Alex Vear"]]]
+          entries))
+      out)))
+
+
+(defn generate-feed [pages]
+  (->> pages
+       (filter #(contains? % :published))
+       (sort-by :published <)
+       (map atom-entry)
+       (atom-feed (io/file dist-dir "essays" "atom.xml"))))
+
+
 (defn build [& args]
   (let [pages (build-pages)]
-    (generate-pages pages)))
+    (generate-pages pages)
+    (generate-feed pages)))

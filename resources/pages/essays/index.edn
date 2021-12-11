@@ -1,3 +1,9 @@
 {:title "Essays"
  :content
- [:p "Nothing here yet.  Maybe check back in a couple of years..."]}
+ [:div
+  [:p
+   "A collection of "
+   [:a {:href "http://paulgraham.com/essay.html"} "essays"]
+   " I have created.  You can subscribe via "
+   [:a {:href "atom.xml" :target "_blank"} "Atom/RSS"]
+   "."]]}
