@@ -1,4 +1,5 @@
-{:content
+{:requires ["favicon.ico" "avatar.png" "main.css" "robots.txt" "fonts"]
+ :content
  [:div
   [:p
    "Welcome to my new website.  It is still very much a work-in-progress, but

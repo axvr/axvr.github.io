@@ -10,6 +10,33 @@
            [java.time Instant ZoneId format.DateTimeFormatter]))
 
 
+(def read-edn
+  ;; NOTE: can't use read-string and #= macro because it requires source to be
+  ;; wrapped in a string.
+  (comp eval edn/read-string slurp))
+
+
+(defn wipe-dir
+  "Delete the contents of a directory, but not the directory itself."
+  [dir]
+  (doseq [file (some->> dir file-seq reverse butlast)]
+    (.delete file)))
+
+
+(defn copy-dir
+  "Copy the contents of a directory to another."
+  [from to]
+  (doseq [f (some->> from file-seq (filter #(. % isFile)))]
+    (let [out-f (-> (str f)
+                    (str/replace-first
+                      (str/re-quote-replacement from)
+                      (str to))
+                    io/file)
+          dirs (io/file (.getParent out-f))]
+      (.mkdirs dirs)
+      (io/copy f out-f))))
+
+
 (defn file-ext
   "Extract the file extension from a java.io.File object."
   [f]
@@ -18,7 +45,9 @@
       (re-matches #"^.*\.([\w_-]+)$" (.getName f)))))
 
 
-(defn edn-file? [f]
+(defn edn-file?
+  "Returns true if file (f) is an EDN file."
+  [f]
   (= (file-ext f) "edn"))
 
 
@@ -37,13 +66,9 @@
   (str/replace s #"<!(&ndash;.*?&ndash;|--.*?--)>" ""))
 
 
-(def read-edn
-  ;; NOTE: can't use read-string and #= macro because it requires source to be
-  ;; wrapped in a string.
-  (comp eval edn/read-string slurp))
-
-
-(defn md->html [md]
+(defn md->html
+  "Compile Markdown to HTML."
+  [md]
   (remove-comments
     (md/md-to-html-string
       md
@@ -51,14 +76,23 @@
       :reference-links? true)))
 
 
-(defn relative-path [from to]
+(defn relative-path
+  "Construct a relative file path from one file/dir to another."
+  [from to]
   (let [path (if (.isFile from)
                (.getParent from)
                from)]
     (io/file path to)))
 
 
-(defn attach-content [{:keys [f-in content] :as page}]
+;; TODO: remove these global variables?
+(def pages-dir (-> "pages"  io/resource io/file))
+(def dist-dir  (io/file (.getParent pages-dir) "dist"))
+
+
+(defn attach-content
+  "Attach content to a page."
+  [{:keys [f-in content] :as page}]
   (assoc page
          :content
          (if (string? content)
@@ -70,12 +104,9 @@
            (hiccup->html content))))
 
 
-(def pages-dir  (-> "pages"  io/resource io/file))
-(def dist-dir   (io/file (.getParent pages-dir) "dist"))
-(def static-dir (-> "static" io/resource io/file))
-
-
-(defn output-file [f-in]
+(defn output-file
+  "Create java.io.File object representing the output file of the page."
+  [f-in]
   (-> (str f-in)
       (str/replace-first
         (str/re-quote-replacement (str pages-dir))
@@ -122,19 +153,25 @@
                       (interpose separator))]])))))
 
 
-(defn date-format [pattern & {:keys [locale zone]}]
+(defn date-format
+  "Create a fully configured java.time.format.DateTimeFormatter object."
+  [pattern & {:keys [locale zone]}]
   (.. DateTimeFormatter
       (ofPattern pattern)
       (withLocale (or locale Locale/UK))
       (withZone (ZoneId/of (or zone "GMT")))))
 
 
-(defn parse-date [date]
+(defn parse-date
+  "Parse a date in ISO-8601 format into a java.time.format.Parsed object."
+  [date]
   (let [fmt (date-format "yyyy-MM-dd['T'HH:mm[:ss[.SSS[SSS]]][z][O][X][x][Z]]")]
     (.parse fmt date)))
 
 
-(defn ->essay-date [{:keys [published updated]}]
+(defn ->essay-date
+  "Convert essay published and updated dates into a pretty date to display on the site."
+  [{:keys [published updated]}]
   (letfn [(format-date [d]
             (.format (date-format "MMMM yyyy")
                      (parse-date d)))
@@ -156,7 +193,9 @@
          (format-date published))])))
 
 
-(defn attach-intro [{:keys [title subtitle] :as page}]
+(defn attach-intro
+  "Build and attach the intro/header section of the page."
+  [{:keys [title subtitle] :as page}]
   (assoc page
          :intro
          (when title
@@ -207,50 +246,49 @@
     page))
 
 
+(defn copy-required-files
+  "Copies files required by a page to the dist."
+  [page]
+  (let [{:keys [requires]} page]
+    (if (seq requires)
+      (doseq [f requires]
+        (let [rel-in  (relative-path (:f-in page) f)
+              rel-out (relative-path (:f-out page) f)]
+          (if (.isDirectory rel-in)
+            (copy-dir rel-in rel-out)
+            (io/copy rel-in rel-out)))))))
+
+
 (defn build-pages []
   (let [config   (-> "config.edn" io/resource read-edn)
-        template (-> "template.html" io/resource slurp)
-        pages    (->> pages-dir
-                      file-seq
-                      (filter edn-file?)
-                      (map #(merge
-                              config
-                              {:f-in  %
-                               :f-out (output-file %)}
-                              (read-edn %)))
-                      (map attach-redirect)
-                      (map attach-extra-head-tags)
-                      (map attach-keywords)
-                      (map attach-content)
-                      (map attach-breadcrumbs)
-                      (map attach-intro)
-                      (map attach-page-title)
-                      (map #(assoc % :content (inject (:content %) %)))
-                      (map #(assoc % :result (inject template %))))]
-    (doseq [page pages]
-      (.mkdirs (io/file (.getParent (:f-out page))))
-      (spit (:f-out page) (:result page)))))
+        template (-> "template.html" io/resource slurp)]
+    (->> pages-dir
+         file-seq
+         (filter edn-file?)
+         (map #(merge
+                 config
+                 {:f-in  %
+                  :f-out (output-file %)}
+                 (read-edn %)))
+         (map attach-redirect)
+         (map attach-extra-head-tags)
+         (map attach-keywords)
+         (map attach-content)
+         (map attach-breadcrumbs)
+         (map attach-intro)
+         (map attach-page-title)
+         (map #(assoc % :content (inject (:content %) %)))
+         (map #(assoc % :final-page (inject template %))))))
 
 
-(defn wipe-dir [dir]
-  (doseq [file (->> dir file-seq reverse butlast)]
-    (.delete file)))
-
-
-(defn copy-dir [from to]
-  (doseq [f (->> from file-seq (filter #(. % isFile)))]
-    (let [out-f (-> (str f)
-                    (str/replace-first
-                      (str/re-quote-replacement from)
-                      (str to))
-                    io/file)
-          dirs (io/file (.getParent out-f))]
-      (.mkdirs dirs)
-      (io/copy f out-f))))
+(defn generate-pages [pages]
+  (wipe-dir dist-dir)
+  (doseq [page pages]
+    (.mkdirs (io/file (.getParent (:f-out page))))
+    (spit (:f-out page) (:final-page page))
+    (copy-required-files page)))
 
 
 (defn build [& args]
-  (.mkdirs dist-dir)
-  (wipe-dir dist-dir)
-  (copy-dir static-dir dist-dir)
-  (build-pages))
+  (let [pages (build-pages)]
+    (generate-pages pages)))
