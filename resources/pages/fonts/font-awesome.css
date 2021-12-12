@@ -10,7 +10,8 @@
 
 .fa, .fab, .fad, .fal, .far, .fas {
   display: inline-block;
-  font-family: 'Font Awesome';
+  font-family: 'Font Awesome' !important;
+  font-display: block;
   font-weight: 400;
   font-style: normal;
   font-variant: normal;
