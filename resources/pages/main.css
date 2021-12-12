@@ -1,6 +1,10 @@
 /* --------------------------------------------------------- */
 /* Base page.                                                */
 
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
 
 body {
   font-family: 'Inter', 'IBM Plex Sans', 'Helvetica', 'Arial', sans-serif;
