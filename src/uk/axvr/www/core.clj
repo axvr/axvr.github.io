@@ -125,10 +125,9 @@
                  (str/replace #"_" " ")
                  (str/split
                    (re-pattern (str/re-quote-replacement File/separator))))]
-    (assoc page
-           :path
-           (when-not (= (first path) "")
-             path))))
+    (if-not (= (first path) "")
+      (assoc page :path path)
+      page)))
 
 
 (defn attach-breadcrumbs [{:keys [path misc?] :as page}]
@@ -313,8 +312,7 @@
     {:type "text/html"
      :href (str "https://www.alexvear.com/" (str/join "/" (:path page)))}]
    [::atom/published (->atom-date (parse-date (:published page)))]
-   (when-let [updated (parse-date (:updated page))]
-     [::atom/updated (->atom-date updated)])
+   [::atom/updated (->atom-date (parse-date (or (:updated page) (:published page))))]
    [::atom/author
     [::atom/name (:author page)]]
    [::atom/content {:type "html"} (:content page)]])
