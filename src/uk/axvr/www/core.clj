@@ -363,7 +363,8 @@
 (defn generate-feed [pages]
   (->> pages
        (filter #(contains? % :published))
-       (sort-by :published <)
+       (sort-by :published String/CASE_INSENSITIVE_ORDER)
+       (reverse)
        (map atom-entry)
        (atom-feed (io/file dist-dir "essays" "atom.xml"))))
 
