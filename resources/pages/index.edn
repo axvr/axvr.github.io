@@ -1,6 +1,12 @@
-{:requires ["favicon.ico" "avatar.png" "main.css" "robots.txt" "fonts"]
- :content
- [:div
-  [:p
-   "Welcome to my new website.  It is still very much a work-in-progress, but
-   should greatly improve over the coming months."]]}
+{:requires ["favicon.ico" "favicon.jpg" "avatars" "hero.jpg" "main.css" "robots.txt" "fonts"]
+ :head
+ [:style
+  "#main-content {
+     background-image: url('/hero.jpg');
+     background-repeat: no-repeat;
+     background-blend-mode: lighten;
+     background-color: rgba(255,255,255,0.4);
+     background-attachment: fixed;
+     background-position: center;
+     background-size: cover;
+   }"]}

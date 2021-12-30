@@ -353,7 +353,7 @@
             {:ref "self"
              :type "application/atom+xml"
              :href "/essays/atom.xml"}]
-           [::atom/icon "/favicon.ico"]
+           [::atom/icon "/favicon.jpg"]
            [::atom/author
             [::atom/name "Alex Vear"]]]
           entries))

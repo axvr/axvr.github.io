@@ -24,7 +24,7 @@ if !filereadable('.clj_port')
                 \   'norestore': 1,
                 \   'hidden': 1
                 \ })
-    sleep 2
+    sleep 3
 else
     echo 'Starting REPL...'
 endif
@@ -33,7 +33,7 @@ endif
 hide Repl clj-socket
 ReplSend (require 'uk.axvr.www.core :reload)
 ReplSend (ns uk.axvr.www.core)
-sleep 2
-ReplClear
+" sleep 2
+" ReplClear
 
 echon '  Ready.  Happy hacking!'
