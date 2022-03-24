@@ -39,6 +39,7 @@
        {:title   "Apart.vim"
         :link    "https://github.com/axvr/apart.vim"
         :started "2021-11-10"
+        :ended   "2022-03-21"
         :info    [:p
                   "Simple auto-bracket/quote plugin for Vim; optimised for "
                   [:a {:href "https://en.wikipedia.org/wiki/S-expression"} "S-expression"]
@@ -52,7 +53,9 @@
        {:title   "Cereal"
         :link    "https://github.com/axvr/cereal"
         :started "2021-07-11"
-        :info    [:p "Clojure library for serial port communication."]})
+        :ended   "2022-01-31"
+        :info    [:p "Clojure library for serial port communication."]
+        :archived? true})
      (project
        {:title   "Raider.vim"
         :link    "https://github.com/axvr/raider.vim"
