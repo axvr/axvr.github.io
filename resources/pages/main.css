@@ -8,7 +8,7 @@ html {
 
 body {
   font-family: 'Inter', 'IBM Plex Sans', 'Helvetica', 'Arial', sans-serif;
-  font-size: 1.05em;
+  font-size: 1em;
   line-height: 1.4em;
   margin: 0;
   min-height: 100vh;
@@ -31,7 +31,7 @@ body {
 }
 
 .navigation, .bread, .intro, .content, .footer {
-  margin: 15px 30px;
+  margin: 14px 28px;
   grid-column: 2;
 }
 
@@ -260,9 +260,6 @@ h4 {
 .content li {
   margin-bottom: 4px;
 }
-
-.content a:visited { color: #632393; }
-.content a:hover { color: #991b8c; }
 
 
 
