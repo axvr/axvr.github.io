@@ -31,9 +31,10 @@ This has been made possible thanks to the great effort of several people:
 - 2002: Paul Graham regained copyright and published a [free download](http://paulgraham.com/onlisptext.html)
   of _On Lisp_ (with missing diagrams).
 - 2010: Ramakrishnan created scans of the [missing diagrams](https://web.archive.org/web/20100302002206/http://www.zerobeat.in/wiki/doku.php?id=onlisp_missing_figures).
-- 2015: David Drysdale created SVGs of the diagrams from the scans and built a
-  [complete PDF](https://www.lurklurk.org/onlisp/onlisp.html) of the book.
-  (Unfortunately the cover he created was fairly low-quality and no longer works with LuLu.)
+- 2015: David Drysdale created SVGs of the diagrams from the scans and built
+  a [complete PDF](https://www.lurklurk.org/onlisp/onlisp.html) of the book.
+  (Unfortunately the cover he created was fairly low-quality and no longer
+  works on LuLu.)
 - 2021: Alex Vear (me) created a high-quality, near identical reproduction of
   the original cover that works on LuLu.
 
