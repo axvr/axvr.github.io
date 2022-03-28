@@ -1,0 +1,4 @@
+{:title "Book reconstructions"
+ :content "books.md"
+ :misc? true
+ :requires ["on_lisp_cover.pdf" "on_lisp_content.pdf"]}
