@@ -13,6 +13,12 @@
   (letfn [(year [date] (if (= date "Present")
                          date
                          (subs date 0 4)))
+          (section [{:keys [from to title]
+                     :or   {to "Present"}}]
+            [:div
+             [:h2 {:id from} title]
+             [:div {:class "date"}
+              [:span (str from " \u2013 " to)]]])
           (project [{:keys [title link info started ended archived? featured? id]
                      :or   {ended "Present"}}]
             [:div {:class (if archived?
@@ -23,7 +29,7 @@
                 [:a {:href link} title]
                 title)]
              [:div {:class "date"}
-              [:span {:title (str started " – " ended)}
+              [:span {:title (str started " \u2013 " ended)}
                (let [start-year (year started)
                      end-year   (year ended)]
                  (str
@@ -33,8 +39,14 @@
                    (when archived? "&ensp;<b>Archived</b>")))]]
              info])]
     [:div
-     [:h2 {:id "2020"} "New decade"]
-     [:div {:class "date"} [:span "2020 – Present"]]
+     (section
+       {:title "New decade"
+        :from  "2020"})
+     (project
+       {:title   "Dynamock"
+        :link    "https://github.com/axvr/dynamock"
+        :started "2022-03-30"
+        :info    [:p "A Clojure library for mocking dynamically-scoped functions."]})
      (project
        {:title   "Apart.vim"
         :link    "https://github.com/axvr/apart.vim"
@@ -45,10 +57,10 @@
                   [:a {:href "https://en.wikipedia.org/wiki/S-expression"} "S-expression"]
                   " based languages."]})
      #_(project
-       {:title   "alexvear.com"
-        :link    "https://github.com/axvr/axvr.github.io"
-        :started "2021-08-29"
-        :info    [:p "This website.  Built using a custom static site generator."]})
+         {:title   "alexvear.com"
+          :link    "https://github.com/axvr/axvr.github.io"
+          :started "2021-08-29"
+          :info    [:p "This website.  Built using a custom static site generator."]})
      (project
        {:title   "Cereal"
         :link    "https://github.com/axvr/cereal"
@@ -62,11 +74,6 @@
         :started "2021-02-28"
         :ended   "2021-12-03"
         :info    [:p "A Vim colour scheme for archaeological escapades."]})
-     #_(project
-       {:title   "Enqueue"
-        :link    "https://www.enqueue.org"
-        :started "2020-09-20"
-        :info    [:p "A huge work-in-progress project."]})
      (project
        {:title   "Clojure.vim"
         :link    "https://github.com/clojure-vim/clojure.vim"
@@ -93,8 +100,10 @@
                   [:a {:href "https://www.xamarin.com"} "Xamarin.Forms"]
                   "."]
         :archived? true})
-     [:h2 {:id "2015"} "Early days"]
-     [:div {:class "date"} [:span "2015 – 2019"]]
+     (section
+       {:title "Early days"
+        :from  "2015"
+        :to    "2020"})
      (project
        {:title   "Ascribe"
         :link    "/projects/ascribe/"
@@ -125,18 +134,18 @@
         :info    [:p "An experimental RDBMS and DB engine using CSV text files to store tables.  Mostly a learning project."]
         :archived? true})
      #_(project
-       {:id      "code-dump"
-        :title   "Code dump"
-        :link    "https://github.com/axvr/codedump"
-        :started "2017-10-03"
-        :info    [:p "Archive of various small bits of code I've created over the years."]})
+         {:id      "code-dump"
+          :title   "Code dump"
+          :link    "https://github.com/axvr/codedump"
+          :started "2017-10-03"
+          :info    [:p "Archive of various small bits of code I've created over the years."]})
      #_(project
-       {:title   "axvr.io"
-        :link    "https://github.com/axvr/axvr.io"
-        :started "2017-09-09"
-        :ended   "2021-06-04"
-        :info    [:p "The precursor to this website."]
-        :archived? true})
+         {:title   "axvr.io"
+          :link    "https://github.com/axvr/axvr.io"
+          :started "2017-09-09"
+          :ended   "2021-06-04"
+          :info    [:p "The precursor to this website."]
+          :archived? true})
      (project
        {:title   "Vivid.vim"
         :link    "https://github.com/axvr/vivid.vim"
@@ -148,10 +157,10 @@
                   ", designed to be much smaller and faster."]
         :archived? true})
      #_(project
-       {:title   "dotfiles"
-        :link    "https://github.com/axvr/dotfiles"
-        :started "2017-04-16"
-        :info    [:p "Configuration files for my personal computers."]})
+         {:title   "dotfiles"
+          :link    "https://github.com/axvr/dotfiles"
+          :started "2017-04-16"
+          :info    [:p "Configuration files for my personal computers."]})
      (project
        {:id      "vivid-legacy"
         :title   "Vivid-Legacy.vim"
@@ -164,10 +173,7 @@
                    "My second programming project.  After a couple of failed
                    attempts to build a Vim plugin manager myself, I forked "
                    [:a {:href "https://github.com/VundleVim/Vundle.vim"} "Vundle"]
-                   " and began making minor tweaks."]
-                  [:p
-                   "Eventually I wrote one from scratch which inherited the
-                   name, making this version \"Vivid-Legacy\"."]]})
+                   " and began making minor tweaks."]]})
      (project
        {:title   "ALIS (Arch Linux Installation Script)"
         :link    "https://github.com/axvr/alis"

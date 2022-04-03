@@ -1,4 +1,9 @@
-These are my main projects.  You can find the full list on my [project timeline](timeline/).
+These are my main projects.  You can find a complete list on my [project timeline](timeline/).
+
+
+#### [Dynamock](https://github.com/axvr/dynamock)
+
+A Clojure library for mocking dynamically-scoped functions.
 
 
 #### [Zepl.vim](https://github.com/axvr/zepl.vim)
