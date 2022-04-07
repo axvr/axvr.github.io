@@ -10,7 +10,7 @@ smaller, faster and simpler than their
 ## Want to learn more?
 
 - [Comparison between EditorConfig and Ascribe](vs/).
-- [Using `.gitattributes` files](usage/).
+- [Using Git attributes](usage/).
 - [Ascribe specification](spec/).
 
 ## Extensions

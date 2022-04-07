@@ -79,12 +79,16 @@ blockquote {
   padding-left: 15px;
 }
 
+.table-container {
+  margin: 20px 0px;
+  overflow-x: auto;
+  outline: 2px solid #e1e1e1;
+}
+
 table {
   width: 100%;
-  overflow-x: auto;
   border: 2px solid #e1e1e1;
   border-collapse: collapse;
-  margin: 20px 0px;
 }
 
 tr:nth-child(even) {

@@ -1,6 +1,26 @@
-| Version | Last modified |
-|---------|---------------|
-|    v1.1 |    2021-12-10 |
+<div class="table-container">
+<table>
+<thead>
+<tr>
+  <th>Version</th>
+  <th>Date</th>
+  <th>Changes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>v1.1</td>
+  <td>2021-12-10</td>
+  <td>Allow more characters in attribute values.<br>(Old regex: <code>/[a-zA-Z0-9_.-]/</code>)</td>
+</tr>
+<tr>
+  <td>v1.0</td>
+  <td>2019-05-18</td>
+  <td>Initial version.</td>
+</tr>
+</tbody>
+</table>
+</div>
 
 This is the Ascribe specification.  If you are unsure how `.gitattributes`
 files work, you can read my document on [using `.gitattributes` files](../usage/).
