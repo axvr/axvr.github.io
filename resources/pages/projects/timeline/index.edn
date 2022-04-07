@@ -46,7 +46,7 @@
        {:title   "Dynamock"
         :link    "https://github.com/axvr/dynamock"
         :started "2022-03-30"
-        :info    [:p "A Clojure library for mocking dynamically-scoped functions."]})
+        :info    [:p "A Clojure library for function mocking."]})
      (project
        {:title   "Apart.vim"
         :link    "https://github.com/axvr/apart.vim"

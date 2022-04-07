@@ -3,7 +3,7 @@ These are my main projects.  You can find a complete list on my [project timelin
 
 #### [Dynamock](https://github.com/axvr/dynamock)
 
-A Clojure library for mocking dynamically-scoped functions.
+A Clojure library for function mocking.
 
 
 #### [Zepl.vim](https://github.com/axvr/zepl.vim)
