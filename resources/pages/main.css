@@ -1,4 +1,29 @@
 /* --------------------------------------------------------- */
+/* Colour definitions.                                       */
+
+:root {
+  --bg-main:     #ffffff;
+  --bg-alt:      #f2f2f6;
+  --fg-main:     #0a0a0a;
+  --fg-alt:      #212121;
+  --fg-pale:     #8d8d8d;
+  --fg-link:     #1b4f99;
+  --fg-link-alt: #991b8c;
+  --bg-nav:      #64897a;
+  --bg-intro:    #e5dfd0;
+  --tbl-border:  #e1e1e1;
+  --tbl-row-alt: #eaeaea;
+}
+
+/* TODO: dark variant.
+@media (prefers-color-scheme: dark) {
+  :root { }
+}
+*/
+
+
+
+/* --------------------------------------------------------- */
 /* Base page.                                                */
 
 html {
@@ -14,7 +39,8 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  color: #0A0A0A;
+  color: var(--fg-main);
+  background-color: var(--bg-main);
 }
 
 @supports (font-variation-settings: normal) {
@@ -50,11 +76,11 @@ hr {
 }
 
 a {
-  color: #1b4f99;
+  color: var(--fg-link);
 }
 
 a:hover {
-  color: #991b8c;
+  color: var(--fg-link-alt);
 }
 
 pre, code {
@@ -63,7 +89,8 @@ pre, code {
   font-size: 1em;
   line-height: 1.2em;
   font-family: 'Inconsolata', monospace;
-  background-color: #efefef;
+  background-color: var(--bg-alt);
+  color: var(--fg-main);
   border-radius: 4px;
 }
 pre { padding: 15px 20px; }
@@ -71,8 +98,8 @@ code { padding: 2px 7px; }
 pre code { padding: 0; }
 
 blockquote {
-  color: #212121;
-  border-left: 3px solid #8d8d8d;
+  color: var(--fg-alt);
+  border-left: 3px solid var(--fg-pale);
   margin-right: 0;
   padding-right: 15px;
   margin-left: 0;
@@ -82,30 +109,30 @@ blockquote {
 .table-container {
   margin: 20px 0px;
   overflow-x: auto;
-  outline: 2px solid #e1e1e1;
+  outline: 2px solid var(--tbl-border);
 }
 
 table {
   width: 100%;
-  border: 2px solid #e1e1e1;
+  border: 2px solid var(--tbl-border);
   border-collapse: collapse;
 }
 
 tr:nth-child(even) {
-  background-color: #eaeaea;
+  background-color: var(--tbl-row-alt);
 }
 
 th {
-  background-color: #e1e1e1;
+  background-color: var(--tbl-border);
 }
 
 th, td {
   padding: 5px 15px;
-  border: 2px solid #e1e1e1;
+  border: 2px solid var(--tbl-border);
 }
 
 details {
-  background-color: #efe6d3;
+  background-color: var(--bg-alt);
   border-radius: 4px;
   padding: 10px 15px;
 }
@@ -167,7 +194,7 @@ h5 {
    * Pink:   #896477;
    * Red:    #896464;
    */
-  background-color: #64897a;
+  background-color: var(--bg-nav);
 }
 
 .navigation {
@@ -186,12 +213,12 @@ h5 {
 
 .navigation a {
   transition: 0.2s;
-  color: white;
+  color: var(--bg-main);
   text-decoration: none;
 }
 
 .navigation a:hover {
-  color: #0A0A0A;
+  color: var(--fg-main);
 }
 
 .navigation ul {
@@ -216,7 +243,7 @@ h5 {
 
 
 .bread-section {
-  background-color: #F2F2F6;
+  background-color: var(--bg-alt);
 }
 
 .bread {
@@ -230,7 +257,7 @@ h5 {
 
 
 .intro-section {
-  background-color: #e5dfd0;
+  background-color: var(--bg-intro);
 }
 
 .intro h1, .intro h2 {
@@ -274,7 +301,7 @@ h5 {
 
 
 .footer-section {
-  background-color: #F2F2F6;
+  background-color: var(--bg-alt);
 }
 
 .footer {
