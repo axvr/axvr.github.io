@@ -292,7 +292,10 @@ h5 {
 
 
 .content .footnote {
-  font-size: 0.85em
+  font-size: 0.85em;
+  color: var(--fg-alt);
+  margin: 0;
+  padding: 0;
 }
 
 

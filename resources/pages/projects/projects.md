@@ -1,4 +1,5 @@
-These are my main projects.  You can find a complete list on my [project timeline](timeline/).
+These are my main projects.  You can find a complete list on my
+[project timeline](timeline/).
 
 
 #### [Dynamock](https://github.com/axvr/dynamock)

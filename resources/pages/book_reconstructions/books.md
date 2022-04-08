@@ -17,11 +17,6 @@ reproduction of _On Lisp_ through [LuLu][]:
 - Book content, [PDF](on_lisp_content.pdf).
 - Book cover, [PDF](on_lisp_cover.pdf).<sup>1</sup>
 
-<p class="footnote">
-\[1\] The imperfection on the right edge will be chopped off when the book is
-cut to size.
-</p>
-
 
 #### Attribution
 
@@ -29,7 +24,7 @@ This has been made possible thanks to the great effort of several people:
 
 - 1993: [Paul Graham](http://paulgraham.com) published _On Lisp_ through Prentice Hall.
 - 2002: Paul Graham regained copyright and published a [free download](http://paulgraham.com/onlisptext.html)
-  of _On Lisp_ (with missing diagrams).
+  of _On Lisp_ (with missing diagrams).<sup>2</sup>
 - 2010: Ramakrishnan created scans of the [missing diagrams](https://web.archive.org/web/20100302002206/http://www.zerobeat.in/wiki/doku.php?id=onlisp_missing_figures).
 - 2015: David Drysdale created SVGs of the diagrams from the scans and built
   a [complete PDF](https://www.lurklurk.org/onlisp/onlisp.html) of the book.
@@ -38,6 +33,14 @@ This has been made possible thanks to the great effort of several people:
 - 2021: Alex Vear (me) created a high-quality, near identical reproduction of
   the original cover that works on LuLu.
 
+
+<p class="footnote">
+1: The imperfection on the right edge will be chopped off when the book is
+cut to size.
+</p>
+<p class="footnote">
+2: Graham also published an [errata](http://paulgraham.com/onlisperrata.html).
+</p>
 
 
 ### _Macintosh Human Interface Guidelines_ by Apple
