@@ -71,17 +71,10 @@ body {
   margin-top: 5px;
 }
 
-hr {
-  margin: 25px auto 25px auto;
-}
+hr { margin: 25px auto 25px auto; }
 
-a {
-  color: var(--fg-link);
-}
-
-a:hover {
-  color: var(--fg-link-alt);
-}
+a { color: var(--fg-link); }
+a:hover { color: var(--fg-link-alt); }
 
 pre, code {
   overflow-x: auto;
@@ -96,6 +89,8 @@ pre, code {
 pre { padding: 15px 20px; }
 code { padding: 2px 7px; }
 pre code { padding: 0; }
+a pre, a code { color: var(--fg-link); }
+a:hover pre, a:hover code { color: var(--fg-link-alt); }
 
 blockquote {
   color: var(--fg-alt);
@@ -144,9 +139,7 @@ summary {
   margin: 0;
 }
 
-abbr {
-  cursor: help;
-}
+abbr { cursor: help; }
 
 h1, h2, h3, h4, h5, h6 {
   margin-bottom: 0px;
