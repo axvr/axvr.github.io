@@ -1,12 +1,9 @@
-name: Build website
+name: Deploy website
 on: [push, workflow_dispatch]
 
 jobs:
   build:
-    name: Build website
-    env:
-      CLOUDFRONT_DIST_ID: ${{ secrets.AWS_CLOUDFRONT_DISTRIBUTION_ID }}
-      S3_BUCKET: ${{ secrets.AWS_S3_BUCKET }}
+    name: Deploy website
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repo
@@ -27,7 +24,7 @@ jobs:
           clojure -X:build
           cp -r resources/dist/* dist/
 
-      - name: Commit changes
+      - name: Deploy changes
         uses: EndBug/add-and-commit@v7
         with:
           cwd: dist/
