@@ -4,7 +4,7 @@ These are my main projects.  You can find a complete list on my
 
 #### [Dynamock](https://github.com/axvr/dynamock)
 
-A Clojure library for function mocking.
+Collection of simple utilities for mocking Clojure functions.
 
 
 #### [Zepl.vim](https://github.com/axvr/zepl.vim)
