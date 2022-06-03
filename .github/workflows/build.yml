@@ -20,38 +20,21 @@ jobs:
           cli: '1.11.1.1113'
 
       - name: Build website
-        run: clojure -X:build
-
-      - name: Configure AWS Credentials
-        uses: aws-actions/configure-aws-credentials@v1
-        with:
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: eu-west-2
-
-      - name: Deploy to S3
         run: |
-          aws s3 sync ./resources/dist/ "s3://$S3_BUCKET" \
-            --delete \
-            --exclude '*.woff' \
-            --exclude '*.woff2' \
-            --cache-control 'max-age=1200'    # Cache in browser for 20 mins.
-          aws s3 sync ./resources/dist/ "s3://$S3_BUCKET" \
-            --delete \
-            --exclude '*' \
-            --include '*.woff' \
-            --content-type 'font/woff' \
-            --cache-control 'max-age=604800'  # Cache in browser for a week.
-          aws s3 sync ./resources/dist/ "s3://$S3_BUCKET" \
-            --delete \
-            --exclude '*' \
-            --include '*.woff2' \
-            --metadata-directive REPLACE \
-            --content-type 'font/woff2' \
-            --cache-control 'max-age=604800'  # Cache in browser for a week.
+          git fetch origin dist --depth=1
+          git worktree add dist origin/dist
+          git -C dist rm -r .
+          clojure -X:build
+          cp -r resources/dist/* dist/
 
-      # - name: Invalidate CloudFront cache
-      #   run: |
-      #     aws cloudfront create-invalidation \
-      #       --distribution-id "$CLOUDFRONT_DIST_ID" \
-      #       --paths '/*'
+      - name: Commit changes
+        uses: EndBug/add-and-commit@v7
+        with:
+          cwd: dist/
+          branch: dist
+          default_author: github_actions
+          message: 'Deploy website'
+          add: '*'
+
+      - name: Clean up
+        run: git worktree remove --force dist

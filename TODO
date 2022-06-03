@@ -22,7 +22,6 @@
   - Generate content on essays list page?
   - Conditional generation?
   - Split Inter fonts by character ranges (like Google Fonts).
-  - Better/more efficient/cheaper deployment code (set MIME types and cache durations).
   - Use specific monospace font.
   - Safari reader mode can automatically fetch the next part of an article.
     - E.g. http://www.moserware.com/2008/04/towards-moores-law-software-part-1-of-3.html

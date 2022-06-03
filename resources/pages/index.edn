@@ -1,4 +1,4 @@
-{:requires ["favicon.ico" "favicon.jpg" "avatars" "hero.jpg" "main.css" "robots.txt" "fonts"]
+{:requires ["favicon.ico" "favicon.jpg" "avatars" "hero.jpg" "main.css" "robots.txt" "fonts" "CNAME"]
  :head
  [:style
   "#main-content {
