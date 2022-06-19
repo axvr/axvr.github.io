@@ -11,8 +11,6 @@
 
 
 (def read-edn
-  ;; NOTE: can't use read-string and #= macro because it requires source to be
-  ;; wrapped in a string.
   (comp eval edn/read-string slurp))
 
 

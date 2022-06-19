@@ -12,9 +12,9 @@ jobs:
           lfs: true
 
       - name: Install Clojure tools
-        uses: DeLaGuardo/setup-clojure@5.1
+        uses: DeLaGuardo/setup-clojure@7.0
         with:
-          cli: '1.11.1.1113'
+          cli: 1.11.1.1139
 
       - name: Build website
         run: |
@@ -30,7 +30,7 @@ jobs:
           cwd: dist/
           branch: dist
           default_author: github_actions
-          message: 'Deploy website'
+          message: Deploy website
           add: '*'
 
       - name: Clean up

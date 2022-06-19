@@ -3,6 +3,38 @@
  :content
  [:div
   [:p "This is a complete list of all my contributions to other people's projects."]
+
+  [:h4 [:a {:href "https://github.com/schmee/java-http-clj"} "Java-http-clj"]]
+  [:div {:class "date"} [:span {:title "2022-06-13 — 2022-06-15"} "2022"]]
+  [:ul
+   [:li
+    [:em
+     "Add short-hand functions for some common additional HTTP methods ("
+     [:a {:href "https://github.com/schmee/java-http-clj/pull/7"} "#7"]
+     ")."]]
+   [:li
+    "Fix broken links in documentation ("
+    [:a {:href "https://github.com/schmee/java-http-clj/pull/8"} "#8"]
+    ")."]]
+
+  [:h4 [:a {:href "https://github.com/jimmythompson/halboy"} "Halboy"]]
+  [:div {:class "date"} [:span {:title "2022-03-08"} "2022"]]
+  [:ul
+   [:li
+    [:strike
+     "Check Content-Type header before parsing HTTP response as JSON ("
+     [:a {:href "https://github.com/jimmythompson/halboy/pull/17"} "#17"]
+     ")."]]]
+
+  [:h4 [:a {:href "http://pedestal.io/"} "Pedestal"]]
+  [:div {:class "date"} [:span {:title "2021-11-03"} "2021"]]
+  [:ul
+   [:li
+    [:em
+     "Small documentation update ("
+     [:a {:href "https://github.com/pedestal/pedestal-docs/pull/158"} "#158"]
+     ")."]]]
+
   [:h4 [:a {:href "https://github.com/PlummersSoftwareLLC/Primes/"} "Primes"]]
   [:div {:class "date"} [:span {:title "2021-08-04 – 2021-12-31"} "2021"]]
   [:ul
