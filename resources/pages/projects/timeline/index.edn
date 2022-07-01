@@ -46,6 +46,7 @@
        {:title   "Refrain"
         :link    "https://github.com/axvr/refrain"
         :started "2022-06-18"
+        :ended   "2022-06-27"
         :info    [:p "Collection of Clojure utility functions I frequently replicate across programs."]})
      (project
        {:title   "Dynamock"
