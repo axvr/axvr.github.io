@@ -43,6 +43,16 @@
        {:title "New decade"
         :from  "2020"})
      (project
+       {:title   "Rollbots"
+        :link    "https://axvr.itch.io/rollbots"
+        :started "2022-07-15"
+        :ended   "2022-07-17"
+        :archived? true
+        :info    [:p
+                  "A 2-player game built in 48 hours for the "
+                  [:a {:href "https://itch.io/jam/gmtk-jam-2022"} "GMTK Game Jam 2022"]
+                  "."]})
+     (project
        {:title   "Refrain"
         :link    "https://github.com/axvr/refrain"
         :started "2022-06-18"
