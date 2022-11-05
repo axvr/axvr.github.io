@@ -137,11 +137,12 @@
         :info    [:p "An elegant pair of Vim colour schemes with minimal syntax highlighting."]
         :archived? true})
      (project
-       {:title   "Org.vim"
-        :link    "https://github.com/axvr/org.vim"
-        :started "2018-11-03"
-        :ended   "2021-03-11"
-        :info    [:p "Org mode syntax highlighting and folding for Vim."]})
+       {:title     "Org.vim"
+        :link      "https://github.com/axvr/org.vim"
+        :started   "2018-11-03"
+        :ended     "2021-03-11"
+        :info      [:p "Org mode syntax highlighting and folding for Vim."]
+        :archived? true})
      (project
        {:title   "txtdb"
         :link    "https://github.com/axvr/txtdb"

@@ -30,10 +30,9 @@
   [:div {:class "date"} [:span {:title "2021-11-03"} "2021"]]
   [:ul
    [:li
-    [:em
-     "Small documentation update ("
-     [:a {:href "https://github.com/pedestal/pedestal-docs/pull/158"} "#158"]
-     ")."]]]
+    "Small documentation update ("
+    [:a {:href "https://github.com/pedestal/pedestal-docs/pull/158"} "#158"]
+    ")."]]
 
   [:h4 [:a {:href "https://github.com/PlummersSoftwareLLC/Primes/"} "Primes"]]
   [:div {:class "date"} [:span {:title "2021-08-04 – 2021-12-31"} "2021"]]
