@@ -1,4 +1,5 @@
 {:site "Alex Vear"
  :author "Alex Vear"
  :licence "CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/)"
- :image "/favicon.jpg"}
+ :image "/favicon.jpg"
+ :generator "https://github.com/axvr/axvr.github.io"}

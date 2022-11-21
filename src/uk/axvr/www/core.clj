@@ -262,7 +262,7 @@
          (map attach-breadcrumbs)
          (map attach-intro)
          (map attach-page-title)
-         (map #(assoc % :content (inject (:content %) %)))
+         (map #(update % :content inject %))
          (map #(assoc % :final-page (inject template %))))))
 
 (defn generate-pages [pages]
