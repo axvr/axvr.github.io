@@ -2,14 +2,15 @@ These are my main projects.  You can find a complete list on my
 [project timeline](timeline/).
 
 
+#### [Machina](https://github.com/axvr/machina)
+
+An experimental, interactive, Lispy, object-oriented, hardware description
+language.
+
+
 #### [Dynamock](https://github.com/axvr/dynamock)
 
 Collection of simple utilities for mocking Clojure functions.
-
-
-#### [Zepl.vim](https://github.com/axvr/zepl.vim)
-
-Simple and minimal REPL integration plugin for Vim and Neovim.
 
 
 #### [Clojure.vim](https://github.com/clojure-vim/clojure.vim)

@@ -6,6 +6,7 @@
   - Refactor core.clj
     - Remove hard coded options.
     - Rename pages dir?
+  - Tags
 
 
 * Maybe

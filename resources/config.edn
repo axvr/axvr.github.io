@@ -1,5 +1,6 @@
 {:site "Alex Vear"
  :author "Alex Vear"
+ :copyright-year 2023
  :licence "CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/)"
  :image "/favicon.jpg"
  :generator "https://github.com/axvr/axvr.github.io"}
