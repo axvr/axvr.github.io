@@ -12,9 +12,9 @@ jobs:
           lfs: true
 
       - name: Install Clojure tools
-        uses: DeLaGuardo/setup-clojure@7.0
+        uses: DeLaGuardo/setup-clojure@10.2
         with:
-          cli: 1.11.1.1139
+          cli: 1.11.1.1267
 
       - name: Build website
         run: |
