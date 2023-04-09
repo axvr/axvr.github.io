@@ -17,14 +17,14 @@
     [:a {:href "https://github.com/schmee/java-http-clj/pull/8"} "#8"]
     ")."]]
 
-  [:h4 [:a {:href "https://github.com/jimmythompson/halboy"} "Halboy"]]
-  [:div {:class "date"} [:span {:title "2022-03-08"} "2022"]]
-  [:ul
-   [:li
-    [:strike
-     "Check Content-Type header before parsing HTTP response as JSON ("
-     [:a {:href "https://github.com/jimmythompson/halboy/pull/17"} "#17"]
-     ")."]]]
+  ;; [:h4 [:a {:href "https://github.com/jimmythompson/halboy"} "Halboy"]]
+  ;; [:div {:class "date"} [:span {:title "2022-03-08"} "2022"]]
+  ;; [:ul
+  ;;  [:li
+  ;;   [:strike
+  ;;    "Check Content-Type header before parsing HTTP response as JSON ("
+  ;;    [:a {:href "https://github.com/jimmythompson/halboy/pull/17"} "#17"]
+  ;;    ")."]]]
 
   [:h4 [:a {:href "http://pedestal.io/"} "Pedestal"]]
   [:div {:class "date"} [:span {:title "2021-11-03"} "2021"]]

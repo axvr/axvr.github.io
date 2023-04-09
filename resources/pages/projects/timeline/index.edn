@@ -43,11 +43,6 @@
        {:title "New decade"
         :from  "2020"})
      (project
-       {:title   "Epilogue"
-        :link    "https://github.com/axvr/epilogue"
-        :started "2023-01-29"
-        :info    [:p "Simple wrapper around clojure.tools.logging providing structural logging support."]})
-     (project
        {:title   "Machina"
         :link    "https://github.com/axvr/machina"
         :started "2022-11-27"
