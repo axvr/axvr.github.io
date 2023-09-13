@@ -2,15 +2,15 @@ These are my main projects.  You can find a complete list on my
 [project timeline](timeline/).
 
 
-#### [Machina](https://github.com/axvr/machina)
+#### [Gait](https://github.com/axvr/gait)
 
 An experimental, interactive, Lispy, object-oriented, hardware description
 language.
 
 
-#### [Dynamock](https://github.com/axvr/dynamock)
+#### [Epilogue](https://github.com/b-social/epilogue)
 
-Collection of simple utilities for mocking Clojure functions.
+Simple Clojure logging facade for logging structured data via SLF4J 2+.
 
 
 #### [Clojure.vim](https://github.com/clojure-vim/clojure.vim)

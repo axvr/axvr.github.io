@@ -4,6 +4,14 @@
  [:div
   [:p "This is a complete list of all my contributions to other people's projects."]
 
+  [:h4 [:a {:href "https://github.com/babashka/http-client"} "Babashka/http-client"]]
+  [:div {:class "date"} [:span {:title "2023-08-07"} "2023"]]
+  [:ul
+   [:li
+    "Fix double wrapping of futures on exceptions during async requests ("
+    [:a {:href "https://github.com/babashka/http-client/pull/40"} "#40"]
+    ")."]]
+
   [:h4 [:a {:href "https://github.com/schmee/java-http-clj"} "Java-http-clj"]]
   [:div {:class "date"} [:span {:title "2022-06-13 — 2022-06-15"} "2022"]]
   [:ul

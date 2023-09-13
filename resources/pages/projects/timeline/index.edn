@@ -43,8 +43,18 @@
        {:title "New decade"
         :from  "2020"})
      (project
-       {:title   "Machina"
-        :link    "https://github.com/axvr/machina"
+       {:title   "Typeset.logback"
+        :link    "https://github.com/b-social/typeset.logback"
+        :started "2023-05-28"
+        :info    [:p "Simple JSON layout component for Logback Classic, with Clojure and SLF4J 2+ key value attribute support."]})
+     (project
+       {:title   "Epilogue"
+        :link    "https://github.com/b-social/epilogue"
+        :started "2023-04-02"
+        :info    [:p "Simple Clojure logging facade for logging structured data via SLF4J 2+."]})
+     (project
+       {:title   "Gait"
+        :link    "https://github.com/axvr/gait"
         :started "2022-11-27"
         :info    [:p "An experimental, interactive, Lispy, object-oriented, hardware description language (HDL)."]})
      (project
@@ -67,6 +77,8 @@
        {:title   "Dynamock"
         :link    "https://github.com/axvr/dynamock"
         :started "2022-03-30"
+        :ended   "2023-07-26"
+        :archived? true
         :info    [:p "Collection of simple utilities for mocking Clojure functions."]})
      (project
        {:title   "Apart.vim"
@@ -109,8 +121,9 @@
        {:title   "Zepl.vim"
         :link    "https://github.com/axvr/zepl.vim"
         :started "2020-02-23"
-        :ended   "2021-08-03"
-        :info    [:p "Simple and minimal REPL integration plugin for Vim and Neovim."]})
+        :ended   "2022-09-02"
+        :info    [:p "Simple and minimal REPL integration plugin for Vim and Neovim."]
+        :archived? true})
      (project
        {:title   "MdView"
         :link    "https://github.com/axvr/MdView"
