@@ -72,7 +72,8 @@
         :link    "https://github.com/axvr/refrain"
         :started "2022-06-18"
         :ended   "2022-06-27"
-        :info    [:p "Collection of Clojure utility functions I frequently replicate across programs."]})
+        :info    [:p "Collection of Clojure utility functions I frequently replicate across programs."]
+        :archived? true})
      (project
        {:title   "Dynamock"
         :link    "https://github.com/axvr/dynamock"
@@ -143,6 +144,7 @@
         :link    "/projects/ascribe/"
         :started "2019-04-21"
         :ended   "2020-11-01"
+        :archived? true
         :info    [:p
                   "A simpler alternative to "
                   [:a {:href "https://editorconfig.org/"} "EditorConfig"]
