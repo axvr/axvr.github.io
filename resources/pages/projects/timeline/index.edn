@@ -42,16 +42,16 @@
      (section
        {:title "New decade"
         :from  "2020"})
-     (project
-       {:title   "Typeset.logback"
-        :link    "https://github.com/b-social/typeset.logback"
-        :started "2023-05-28"
-        :info    [:p "Simple JSON layout component for Logback Classic, with Clojure and SLF4J 2+ key value attribute support."]})
-     (project
-       {:title   "Epilogue"
-        :link    "https://github.com/b-social/epilogue"
-        :started "2023-04-02"
-        :info    [:p "Simple Clojure logging facade for logging structured data via SLF4J 2+."]})
+     #_(project
+        {:title   "Typeset.logback"
+         :link    "https://github.com/b-social/typeset.logback"
+         :started "2023-05-28"
+         :info    [:p "Simple JSON layout component for Logback Classic, with Clojure and SLF4J 2+ key value attribute support."]})
+     #_(project
+        {:title   "Epilogue"
+         :link    "https://github.com/b-social/epilogue"
+         :started "2023-04-02"
+         :info    [:p "Simple Clojure logging facade for logging structured data via SLF4J 2+."]})
      (project
        {:title   "Gait"
         :link    "https://github.com/axvr/gait"

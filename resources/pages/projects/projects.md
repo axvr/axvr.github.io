@@ -8,11 +8,6 @@ An experimental, interactive, Lispy, object-oriented, hardware description
 language.
 
 
-#### [Epilogue](https://github.com/b-social/epilogue)
-
-Simple Clojure logging facade for logging structured data via SLF4J 2+.
-
-
 #### [Clojure.vim](https://github.com/clojure-vim/clojure.vim)
 
 Clojure syntax highlighting for Vim and Neovim.
