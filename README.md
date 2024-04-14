@@ -6,7 +6,7 @@ To build:
 
 ```sh
 clojure -X:build
-clojure -M:serve  # open http://localhost:6585/
+clojure -M:serve  # open http://localhost:6586/
 ```
 
 
