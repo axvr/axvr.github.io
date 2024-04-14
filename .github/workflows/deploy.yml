@@ -7,14 +7,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repo
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4.1.2
         with:
           lfs: true
 
       - name: Install Clojure tools
-        uses: DeLaGuardo/setup-clojure@10.2
+        uses: DeLaGuardo/setup-clojure@12.5
         with:
-          cli: 1.11.1.1267
+          cli: 1.11.2.1446
 
       - name: Build website
         run: |
