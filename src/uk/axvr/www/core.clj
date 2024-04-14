@@ -321,7 +321,7 @@
            [::atom/link
             {:ref "self"
              :type "application/atom+xml"
-             :href "/essays/atom.xml"}]
+             :href "/blog/atom.xml"}]
            [::atom/icon "/favicon.jpg"]
            [::atom/author
             [::atom/name "Alex Vear"]]]
@@ -334,7 +334,7 @@
        (sort-by :published String/CASE_INSENSITIVE_ORDER)
        (reverse)
        (map atom-entry)
-       (atom-feed (io/file dist-dir "essays" "atom.xml"))))
+       (atom-feed (io/file dist-dir "blog" "atom.xml"))))
 
 (defn build [& _]
   (let [pages (build-pages)]

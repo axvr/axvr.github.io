@@ -1,9 +1,0 @@
-{:title "Essays"
- :content
- [:div
-  [:p
-   "A collection of "
-   [:a {:href "http://paulgraham.com/essay.html"} "essays"]
-   " I have created.  You can subscribe via "
-   [:a {:href "atom.xml" :target "_blank"} "Atom/RSS"]
-   "."]]}
