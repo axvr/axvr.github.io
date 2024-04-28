@@ -1,5 +1,7 @@
-{:paths ["src" "resources"]
+{:paths ["src" "resources" "website"]
  :deps  {org.clojure/clojure       {:mvn/version "1.11.2"}
+         uk.axvr/refrain           {:mvn/version "0.4"}
+         babashka/fs               {:mvn/version "0.5.20"}
          hiccup/hiccup             {:mvn/version "1.0.5"}
          org.clojure/data.xml      {:mvn/version "0.2.0-alpha9"}
          markdown-clj/markdown-clj {:mvn/version "1.12.1"}}
@@ -7,5 +9,5 @@
            :serve {:extra-deps {nasus/nasus {:mvn/version "0.1.7"}}
                    :main-opts  ["-m" "http.server"
                                 "-p" "6586"
-                                "--dir" "resources/dist/"
+                                "--dir" "target/website/"
                                 "--index-document-path" "index.html"]}}}

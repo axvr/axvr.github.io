@@ -1,28 +1,14 @@
-* Next
-
-  - Favicons.
-    - Check how Y Combinator, ELS and GitHub set icons for iOS Safari favourites.
-    - og:image
-  - Refactor core.clj
-    - Remove hard coded options.
-    - Rename pages dir?
-  - Tags
-
-
-* Maybe
-
-  - Add additional RSS feed items for other things?
-  - Create essays through the REPL (+ Vim command).
-    - (new-essay :name "Computational relativity")
-    - Auto generate EDN files and page IDs.
-  - Customise sections?
-  - Custom colours per site-area.
-  - Extend navigation bar colour to Chrome on Android (darker version?)
-  - Better way to do footnotes?
-  - Generate content on essays list page?
-  - Conditional generation?
-  - Split Inter fonts by character ranges (like Google Fonts).
-  - Use specific monospace font.
-  - Safari reader mode can automatically fetch the next part of an article.
-    - E.g. http://www.moserware.com/2008/04/towards-moores-law-software-part-1-of-3.html
-  - Recommended sites and things I like/am interested in
+- Babashka for faster builds.
+- Highlight.js
+- Mermaid.js
+- Favicons.
+  - Check how Y Combinator, ELS and GitHub set icons for iOS Safari favourites.
+  - og:image
+- Tags
+- Generate content on essays list page?
+- Conditional generation?
+- Split Inter fonts by character ranges (like Google Fonts).
+- Use specific monospace font.
+- Safari reader mode can automatically fetch the next part of an article.
+  - E.g. http://www.moserware.com/2008/04/towards-moores-law-software-part-1-of-3.html
+- Recommended sites and things I like/am interested in

@@ -22,7 +22,7 @@ jobs:
           git worktree add dist origin/dist
           git -C dist rm -r .
           clojure -X:build
-          cp -r resources/dist/* dist/
+          cp -r target/website/* dist/
 
       - name: Deploy changes
         uses: EndBug/add-and-commit@v7
