@@ -1,3 +1,7 @@
+---
+title: "Thermoelectric generator"
+---
+
 Date: 2015-11-08 &ndash; 2016-02
 
 This page was originally hosted on [Hackaday.io](https://hackaday.io), but I

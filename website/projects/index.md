@@ -1,3 +1,7 @@
+---
+title: Projects
+---
+
 These are my main projects.  You can find a complete list on my
 [project timeline](timeline/).
 

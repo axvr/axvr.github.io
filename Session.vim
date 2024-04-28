@@ -1,1 +1,1 @@
-set path=,,src/**,resources/pages/**,resources
+set path=,,src/**,resources/**,website/**

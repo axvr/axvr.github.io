@@ -1,3 +1,8 @@
+---
+title: "EditorConfig vs. Ascribe"
+subtitle: "Comparison between EditorConfig and Ascribe"
+---
+
 Both Ascribe and EditorConfig have clear advantages and disadvantages.  I have
 created this page to provide an overview and basic comparison between the two
 tools, to enable you to make an informed decision about which one to use.

@@ -10,4 +10,10 @@
     [:p
      "A collection of my "
      [:a {:href "http://paulgraham.com/essay.html"} "essays"]
-     ", with occassional blog-like posts."]])}
+     ", with occassional blog-like posts."]
+    (post
+      {:title "Polymorphism"
+       :type  :essay
+       :url   "polymorphism/"
+       :desc  "Expressiveness of notation in relation to programming languages."
+       :date  "April 2024"})])}

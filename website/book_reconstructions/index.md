@@ -1,3 +1,9 @@
+---
+title: "Book reconstructions"
+subtitle: "Reconstructing out-of-print classics"
+misc?: true
+---
+
 There are lots of great, classic computing books which are now sadly out of
 print and difficult to get physical copies of.  However you can still find many
 of them archived in various places across the web and sites like [LuLu][] can
@@ -15,7 +21,7 @@ You will need these files to print a _near identical_ "perfect paperback"
 reproduction of _On Lisp_ through [LuLu][]:
 
 - Book content, [PDF](on_lisp_content.pdf).
-- Book cover, [PDF](on_lisp_cover.pdf).<sup>1</sup>
+- Book cover, [PDF](on_lisp_cover.pdf).[^cover]
 
 
 #### Attribution
@@ -24,7 +30,7 @@ This has been made possible thanks to the great effort of several people:
 
 - 1993: [Paul Graham](http://paulgraham.com) published _On Lisp_ through Prentice Hall.
 - 2002: Paul Graham regained copyright and published a [free download](http://paulgraham.com/onlisptext.html)
-  of _On Lisp_ (with missing diagrams).<sup>2</sup>
+  of _On Lisp_ (with missing diagrams).[^errata]
 - 2010: Ramakrishnan created scans of the [missing diagrams](https://web.archive.org/web/20100302002206/http://www.zerobeat.in/wiki/doku.php?id=onlisp_missing_figures).
 - 2015: David Drysdale created SVGs of the diagrams from the scans and built
   a [complete PDF](https://www.lurklurk.org/onlisp/onlisp.html) of the book.
@@ -34,13 +40,8 @@ This has been made possible thanks to the great effort of several people:
   the original cover that works on LuLu.
 
 
-<p class="footnote">
-1: The imperfection on the right edge will be chopped off when the book is
-cut to size.
-</p>
-<p class="footnote">
-2: Graham also published an [errata](http://paulgraham.com/onlisperrata.html).
-</p>
+[^cover]: The imperfection on the right edge will be chopped off when the book is cut to size.
+[^errata]: Graham also published an [errata](http://paulgraham.com/onlisperrata.html).
 
 
 ### _Macintosh Human Interface Guidelines_ by Apple

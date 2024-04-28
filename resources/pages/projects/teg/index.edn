@@ -1,3 +1,0 @@
-{:title "Thermoelectric generator"
- :requires ["assets"]
- :content "teg.md"}

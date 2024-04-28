@@ -1,3 +1,7 @@
+---
+title: "Ascribe specification"
+---
+
 <div class="table-container">
 <table>
 <thead>
