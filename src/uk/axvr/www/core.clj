@@ -8,13 +8,13 @@
 (defn config [overrides]
   (-> (r/read-edn-resource "config.edn")
       (merge overrides)
-      (update :dist fs/file)
-      (update :source fs/file)
+      (update :target-dir fs/file)
+      (update :source-dir fs/file)
       (update :template (comp slurp io/resource))))
 
 (defn build [& {:as config-overrides}]
   (let [conf (config config-overrides)]
-    (fs/delete-tree (:dist conf))
+    (fs/delete-tree (:target-dir conf))
     (site/build! conf)
     ;; TODO
     #_(feed/build! conf)))

@@ -34,7 +34,7 @@
        :footnotes? true)
       (update :html remove-comments)))
 
-(defn attach-path [{:keys [dest rel-path] :as page}]
+(defn attach-path [{:keys [rel-path] :as page}]
   (let [bread-path (-> rel-path
                        (str/replace-first #"(?:index)?\.html$" "")
                        (str/replace #"_" " ")
@@ -149,7 +149,7 @@
 
 (defn construct-page [{:as page, :keys [template]}]
   (-> page
-      (update :dest htmlise-path)
+      (update :target htmlise-path)
       (update :rel-path htmlise-path)
       attach-path
       attach-redirect
@@ -162,16 +162,16 @@
         (update* $ :content inject $)
         (assoc $ :final-page (inject template $)))))
 
-(defn write-page [{:keys [final-page dest]}]
-  (fs/create-dirs (fs/parent dest))
-  (spit dest final-page))
+(defn write-page [{:keys [final-page target]}]
+  (fs/create-dirs (fs/parent target))
+  (spit target final-page))
 
 (defmulti process-file
   (comp fs/extension :source))
 
-(defmethod process-file :default [{:keys [source dest]}]
-  (fs/create-dirs (fs/parent dest))
-  (fs/copy source dest))
+(defmethod process-file :default [{:keys [source target]}]
+  (fs/create-dirs (fs/parent target))
+  (fs/copy source target))
 
 (defmethod process-file "edn"
   [{:as file, :keys [source template]}]
@@ -198,10 +198,9 @@
                          (str dest-root))
       fs/file))
 
-(defn build! [{:as config, :keys [template dist source]}]
-  (doseq [f (some->> source file-seq (filter #(.isFile ^File %)))]
-    (process-file (merge config
-                         {:template template
-                          :source   f
-                          :dest     (dest-path f source dist)
-                          :rel-path (dest-path f source "")}))))
+(defn build! [{:as config, :keys [template target-dir source-dir]}]
+  (doseq [f (filterv fs/regular-file? (file-seq source-dir))]
+    (process-file (assoc config
+                         :source f
+                         :target (dest-path f source-dir target-dir)
+                         :rel-path (dest-path f source-dir "")))))
