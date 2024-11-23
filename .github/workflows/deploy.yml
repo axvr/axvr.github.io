@@ -7,14 +7,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repo
-        uses: actions/checkout@v4.1.2
+        uses: actions/checkout@v4.2.2
         with:
           lfs: true
 
       - name: Install Clojure tools
-        uses: DeLaGuardo/setup-clojure@12.5
+        uses: DeLaGuardo/setup-clojure@13.0
         with:
-          cli: 1.11.2.1446
+          cli: 1.12.0.1488
 
       - name: Build website
         run: |
@@ -25,10 +25,9 @@ jobs:
           cp -r target/website/* dist/
 
       - name: Deploy changes
-        uses: EndBug/add-and-commit@v7
+        uses: EndBug/add-and-commit@v9.1.4
         with:
           cwd: dist/
-          branch: dist
           default_author: github_actions
           message: Deploy website
           add: '*'
