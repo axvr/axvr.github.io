@@ -40,18 +40,17 @@
                        (str/replace #"_" " ")
                        (str/split
                          (re-pattern (str/re-quote-replacement File/separator)))
-                       next)
-        url-path (as-> rel-path it
-                   (str it)
-                   (str/split it
-                     (re-pattern (str/re-quote-replacement File/separator)))
-                   (remove empty? it)
-                   (str/join "/" it)
-                   (str/replace-first it #"(?:index)?\.html$" "")
-                   (str "/" it))]
+                       next)]
     (assoc page
            :path (when-not (= (first bread-path) "") bread-path)
-           :url-path url-path)))
+           :url-path (as-> rel-path it
+                       (str it)
+                       (str/split it
+                                  (re-pattern (str/re-quote-replacement File/separator)))
+                       (remove empty? it)
+                       (str/join "/" it)
+                       (str/replace-first it #"(?:index)?\.html$" "")
+                       (str "/" it)))))
 
 (defn attach-breadcrumbs [{:keys [path misc?] :as page}]
   (assoc page
@@ -76,12 +75,11 @@
 (defn ->essay-date
   "Convert essay published and updated dates into a pretty date to display on the site."
   [{:keys [published updated]}]
-  (letfn [(format-date [d]
-            (.format (date/formatter "MMMM yyyy")
-                     (date/parse d)))
-          (close? [d1 d2]
-            (let [date #(.format (date/formatter "MM yyyy") (date/parse %))]
-              (= (date d1) (date d2))))]
+  (let [format-date #(.format (date/formatter "MMMM yyyy")
+                              (date/parse %))
+        close? (fn [d1 d2]
+                 (let [date #(.format (date/formatter "MM yyyy") (date/parse %))]
+                   (= (date d1) (date d2))))]
     (when published
       [:time
        {:class "date"

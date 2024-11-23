@@ -4,6 +4,14 @@
  [:div
   [:p "This is a complete list of all my contributions to other people's projects."]
 
+  [:h4 [:a {:href "https://github.com/ionide/Ionide-vim"} "Ionide/Ionide-vim"]]
+  [:div {:class "date"} [:span {:title "2024-10-26"} "2024"]]
+  [:ul
+   [:li
+    "Complete overhaul of documentation ("
+    [:a {:href "https://github.com/ionide/Ionide-vim/pull/89"} "#89"]
+    ")."]]
+
   [:h4 [:a {:href "https://github.com/babashka/http-client"} "Babashka/http-client"]]
   [:div {:class "date"} [:span {:title "2023-08-07"} "2023"]]
   [:ul

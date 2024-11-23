@@ -44,9 +44,4 @@ This has been made possible thanks to the great effort of several people:
 [^errata]: Graham also published an [errata](http://paulgraham.com/onlisperrata.html).
 
 
-### _Macintosh Human Interface Guidelines_ by Apple
-
-_WIP_
-
-
 [LuLu]: https://www.lulu.com
