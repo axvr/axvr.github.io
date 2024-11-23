@@ -113,7 +113,7 @@
        :info    [:p "A Vim colour scheme for archaeological escapades."]})
      (project
       {:title   "Music server"
-       :link    ""
+       :link    "https://github.com/axvr/music-server"
        :started "2020-09-20"
        :ended   "2023-04-08"
        :archived? true
@@ -153,7 +153,7 @@
       {:title   "Ascribe"
        :link    "/projects/ascribe/"
        :started "2019-04-21"
-       :ended   "2020-11-01"
+       :ended   "2021-12-10"
        :archived? true
        :info    [:p
                  "A simpler alternative to "
