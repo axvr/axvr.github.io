@@ -15,9 +15,3 @@ language.
 #### [Clojure.vim](https://github.com/clojure-vim/clojure.vim)
 
 Clojure syntax highlighting for Vim and Neovim.
-
-
-## More
-
-- [Project timeline](timeline/).
-- [Contribution timeline](contributions/).
