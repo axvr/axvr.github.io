@@ -1,1 +1,1 @@
-set path=,,src/**,resources/**,website/**
+autocmd! BufRead,BufNewFile * set path=,,src/**,resources/**,website/**
