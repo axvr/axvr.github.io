@@ -1,3 +1,2 @@
-.clj-kondo/.cache/
-.cpcache/
-target/website/
+ssg/.cpcache/*
+.dist

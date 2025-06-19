@@ -1,0 +1,8 @@
+#!/bin/sh
+
+# Serve website locally.  http://localhost:6586/
+
+set -e
+
+do/build
+python3 -m http.server -d .dist 6586

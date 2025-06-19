@@ -1,0 +1,7 @@
+#!/bin/sh
+
+# Build website.
+
+set -e
+
+( cd ssg && bb -f ssg.clj )

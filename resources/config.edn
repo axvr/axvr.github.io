@@ -1,8 +1,0 @@
-{:site "Alex Vear"
- :author "Alex Vear"
- :copyright-year 2024
- :licence "CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/)"
- :template "template.html"
- :image "/favicon.jpg"
- :source-dir "website/"
- :target-dir "target/website/"}

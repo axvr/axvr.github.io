@@ -1,0 +1,243 @@
+{:title "Project timeline"
+ :html/content
+ [:div
+  [:style
+   ".content h2 { margin-top: 30px; margin-bottom: 5px; }
+.archived { opacity: 0.55; transition: opacity 0.3s; }
+.archived:hover { opacity: 0.8; transition: opacity 0.3s; }"]
+  [:p
+   "This is a list of all my projects.  Various small programs I've created
+   have been archived within my "
+   [:a {:href "https://github.com/axvr/code-dump"} [:em "code dump"]]
+   " repository."]
+  (let [year (fn [date] (if (= date "Present")
+                          date
+                          (subs date 0 4)))
+        section (fn [{:keys [from to title]
+                      :or   {to "Present"}}]
+                  [:div
+                   [:h2 {:id from} title]
+                   [:div {:class "date"}
+                    [:span (str from " \u2013 " to)]]])
+        project (fn [{:keys [title link info started ended archived? featured? id]
+                      :or   {ended "Present"}}]
+                  [:div {:class (if archived?
+                                  "project archived"
+                                  "project")}
+                   [:h4 (if id {:id id} {})
+                    (if link
+                      [:a {:href link} title]
+                      title)]
+                   [:div {:class "date"}
+                    [:span {:title (str started " \u2013 " ended)}
+                     (let [start-year (year started)
+                           end-year   (year ended)]
+                       (str
+                        (if (= start-year end-year)
+                          start-year
+                          (str start-year " – " end-year))
+                        (when archived? "&ensp;<b>Archived</b>")))]]
+                   info])]
+    [:div
+     (section
+      {:title "New decade"
+       :from  "2020"
+       :to    "2025"})
+     (project
+      {:title   "iCal.vim"
+       :link    "https://github.com/axvr/ical.vim"
+       :started "2024-06-24"
+       :ended   "2024-10-12"
+       :info    [:p "iCalendar and vCard syntax highlighting for Vim/Neovim."]})
+     (project
+      {:title   "Typeset.logback"
+       :link    "https://github.com/b-social/typeset.logback"
+       :started "2023-05-28"
+       :info    [:p "Simple JSON layout component for Logback Classic, with Clojure and SLF4J 2+ key value attribute support."]})
+     (project
+      {:title   "Epilogue"
+       :link    "https://github.com/b-social/epilogue"
+       :started "2023-04-02"
+       :info    [:p "Simple Clojure logging facade for logging structured data via SLF4J 2+."]})
+     (project
+      {:title   "Gait"
+       :link    "https://github.com/axvr/gait"
+       :started "2022-11-27"
+       :info    [:p "An experimental, interactive, Lispy, object-oriented, hardware description language (HDL)."]})
+     (project
+      {:title   "Rollbots"
+       :link    "https://axvr.itch.io/rollbots"
+       :started "2022-07-15"
+       :ended   "2022-07-17"
+       :archived? true
+       :info    [:p
+                 "A 2-player game built in 48 hours for the "
+                 [:a {:href "https://itch.io/jam/gmtk-jam-2022"} "GMTK Game Jam 2022"]
+                 "."]})
+     (project
+      {:title   "Refrain"
+       :link    "https://github.com/axvr/refrain"
+       :started "2022-06-18"
+       :info    [:p "Collection of Clojure utility functions I frequently replicate across programs."]})
+     (project
+      {:title   "Dynamock"
+       :link    "https://github.com/axvr/dynamock"
+       :started "2022-03-30"
+       :ended   "2023-07-26"
+       :archived? true
+       :info    [:p "Collection of simple utilities for mocking Clojure functions."]})
+     (project
+      {:title   "Apart.vim"
+       :link    "https://github.com/axvr/apart.vim"
+       :started "2021-11-10"
+       :info    [:p
+                 "Simple auto-bracket/quote plugin for Vim; optimised for "
+                 [:a {:href "https://en.wikipedia.org/wiki/S-expression"} "S-expression"]
+                 " based languages."]})
+     #_(project
+        {:title   "alexvear.com"
+         :link    "https://github.com/axvr/axvr.github.io"
+         :started "2021-08-29"
+         :info    [:p "This website.  Built using a custom static site generator."]})
+     (project
+      {:title   "Cereal"
+       :link    "https://github.com/axvr/cereal"
+       :started "2021-07-11"
+       :ended   "2022-01-31"
+       :info    [:p "Clojure library for serial port communication."]
+       :archived? true})
+     (project
+      {:title   "Raider.vim"
+       :link    "https://github.com/axvr/raider.vim"
+       :started "2021-02-28"
+       :info    [:p "A Vim colour scheme for archaeological escapades."]})
+     (project
+      {:title   "Music server"
+       :link    "https://github.com/axvr/music-server"
+       :started "2020-09-20"
+       :ended   "2023-04-08"
+       :archived? true
+       :info    [:p "My first Clojure project.  A Clojure music streaming server experiment."]})
+     (project
+      {:title   "Clojure.vim"
+       :link    "https://github.com/clojure-vim/clojure.vim"
+       :started "2020-09-11"
+       :info    [:p
+                 "Clojure syntax highlighting for Vim and Neovim.  Continuation of "
+                 [:a
+                  {:href "https://github.com/guns/vim-clojure-static"}
+                  "Vim-clojure-static"]
+                 "."]})
+     (project
+      {:title   "Zepl.vim"
+       :link    "https://github.com/axvr/zepl.vim"
+       :started "2020-02-23"
+       :ended   "2022-09-02"
+       :info    [:p "Simple and minimal REPL integration plugin for Vim and Neovim."]
+       :archived? true})
+     (project
+      {:title   "MdView"
+       :link    "https://github.com/axvr/MdView"
+       :started "2020-01-08"
+       :ended   "2021-04-27"
+       :info    [:p
+                 "A highly customisable Markdown control for "
+                 [:a {:href "https://www.xamarin.com"} "Xamarin.Forms"]
+                 "."]
+       :archived? true})
+     (section
+      {:title "Early days"
+       :from  "2015"
+       :to    "2020"})
+     (project
+      {:title   "Ascribe"
+       :link    "/projects/ascribe/"
+       :started "2019-04-21"
+       :ended   "2021-12-10"
+       :archived? true
+       :info    [:p
+                 "A simpler alternative to "
+                 [:a {:href "https://editorconfig.org/"} "EditorConfig"]
+                 "."]})
+     (project
+      {:title   "Photon.vim"
+       :link    "https://github.com/axvr/photon.vim"
+       :started "2019-03-23"
+       :ended   "2021-08-16"
+       :info    [:p "An elegant pair of Vim colour schemes with minimal syntax highlighting."]
+       :archived? true})
+     (project
+      {:title   "Org.vim"
+       :link    "https://github.com/axvr/org.vim"
+       :started "2018-11-03"
+       :ended   "2021-03-11"
+       :info    [:p "Org mode syntax highlighting and folding for Vim."]
+       :archived? true})
+     (project
+      {:title   "txtdb"
+       :link    "https://github.com/axvr/txtdb"
+       :started "2018-11-09"
+       :ended   "2019-03-03"
+       :info    [:p "An experimental RDBMS and DB engine using CSV text files to store tables.  Mostly a learning project."]
+       :archived? true})
+     #_(project
+        {:id      "code-dump"
+         :title   "Code dump"
+         :link    "https://github.com/axvr/codedump"
+         :started "2017-10-03"
+         :info    [:p "Archive of various small bits of code I've created over the years."]})
+     #_(project
+        {:title   "axvr.io"
+         :link    "https://github.com/axvr/axvr.io"
+         :started "2017-09-09"
+         :ended   "2021-06-04"
+         :info    [:p "The precursor to this website."]
+         :archived? true})
+     (project
+      {:title   "Vivid.vim"
+       :link    "https://github.com/axvr/vivid.vim"
+       :started "2017-08-13"
+       :ended   "2018-11-07"
+       :info    [:p
+                 "A rewrite of "
+                 [:a {:href "#vivid-legacy"} "Vivid-Legacy"]
+                 ", designed to be much smaller and faster."]
+       :archived? true})
+     #_(project
+        {:title   "dotfiles"
+         :link    "https://github.com/axvr/dotfiles"
+         :started "2017-04-16"
+         :info    [:p "Configuration files for my personal computers."]})
+     (project
+      {:id      "vivid-legacy"
+       :title   "Vivid-Legacy.vim"
+       :link    "https://github.com/axvr/Vivid-Legacy.vim"
+       :started "2017-04-06"
+       :ended   "2017-09-14"
+       :archived? true
+       :info    [:div
+                 [:p
+                  "My second programming project.  After a couple of failed
+                   attempts to build a Vim plugin manager myself, I forked "
+                  [:a {:href "https://github.com/VundleVim/Vundle.vim"} "Vundle"]
+                  " and began making minor tweaks."]]})
+     (project
+      {:title   "ALIS (Arch Linux Installation Script)"
+       :link    "https://github.com/axvr/alis"
+       :started "2017-01-22"
+       :ended   "2017-10-30"
+       :archived? true
+       :info    [:p
+                 "My first programming project.  An attempt at building an "
+                 [:a {:href "https://archlinux.org/"} "Arch Linux"]
+                 " installer."]})
+     (project
+      {:title   "Thermoelectric generator"
+       :link    "/projects/teg/"
+       :started "2015-11-08"
+       :ended   "2016-02"
+       :archived? true
+       :info    [:p
+                 "I thought it would be interesting to see if it was possible
+                  to efficiently generate electricity on a tiny budget.  The
+                  end result was capable of charging a mobile phone."]})])]}

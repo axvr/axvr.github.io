@@ -2,13 +2,6 @@
 
 Source code for my [personal website](https://www.alexvear.com).
 
-To build:
-
-```sh
-clojure -X:build
-clojure -M:serve  # open http://localhost:6586/
-```
-
 
 ## Legal
 
