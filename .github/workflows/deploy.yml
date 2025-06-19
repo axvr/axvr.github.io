@@ -18,11 +18,10 @@ jobs:
 
       - name: Build website
         run: |
-          set -ex
+          do/build
           git fetch origin dist --depth=1
           git worktree add dist origin/dist
           git -C dist rm -r .
-          do/build
           cp -r .dist/* dist/
 
       - name: Deploy changes
@@ -35,6 +34,4 @@ jobs:
           add: '*'
 
       - name: Clean up
-        run: |
-          set -ex
-          git worktree remove --force dist
+        run: git worktree remove --force dist
