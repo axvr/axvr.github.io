@@ -1,6 +1,5 @@
 User-agent: *
 Disallow: /contact/
-Disallow: /projects/contributions/
 Disallow: /projects/teg/
 
 # User-agent: ia_archiver

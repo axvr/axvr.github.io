@@ -1,5 +1,5 @@
-/* --------------------------------------------------------- */
-/* Colour definitions.                                       */
+/* ------------------------------ */
+/* Colour definitions.            */
 
 :root {
   --bg-main:     #ffffff;
@@ -9,7 +9,7 @@
   --fg-link:     #1b4f99;
   --fg-link-alt: #991b8c;
   --bg-nav:      #64897a;
-  --bg-intro:    #e5dfd0;
+  --bg-preamble: #e5dfd0;
   --tbl-border:  #e1e1e1;
   --tbl-row-alt: #eaeaea;
 }
@@ -24,16 +24,23 @@
     --fg-link:     #80bdf7;
     --fg-link-alt: #ba80f7;
     --bg-nav:      #44aa9d;
-    --bg-intro:    #424242;
+    --bg-preamble: #424242;
     --tbl-border:  #424242;
     --tbl-row-alt: #303030;
   }
 }
 
+/* ------------------------------ */
+/* Base page.                     */
 
-
-/* --------------------------------------------------------- */
-/* Base page.                                                */
+/* https://rsms.me/inter/download/ */
+:root {
+  font-family: Inter, 'Helvetica', 'Arial', sans-serif;
+  font-feature-settings: 'liga' 1, 'calt' 1; /* fix for Chrome */
+}
+@supports (font-variation-settings: normal) {
+  :root { font-family: InterVariable, 'Helvetica', 'Arial', sans-serif; }
+}
 
 html {
   -webkit-text-size-adjust: 100%;
@@ -41,7 +48,6 @@ html {
 }
 
 body {
-  font-family: 'Inter', 'IBM Plex Sans', 'Helvetica', 'Arial', sans-serif;
   font-size: 1em;
   line-height: 1.4em;
   margin: 0;
@@ -52,13 +58,7 @@ body {
   background-color: var(--bg-main);
 }
 
-@supports (font-variation-settings: normal) {
-  body {
-    font-family: 'Inter var', 'IBM Plex Sans', 'Helvetica', 'Arial', sans-serif;
-  }
-}
-
-.navigation, .bread, .intro, .content, .footer {
+.navigation, .bread, .preamble, .content, .footer {
   margin: 14px 28px;
   grid-column: 2;
 }
@@ -183,11 +183,8 @@ h5 {
   font-weight: 700;
 }
 
-
-
-/* --------------------------------------------------------- */
-/* Navigation section.                                       */
-
+/* ------------------------------ */
+/* Navigation section.            */
 
 .nav-section {
   /*
@@ -239,11 +236,8 @@ h5 {
   margin-left: 15px;
 }
 
-
-
-/* --------------------------------------------------------- */
-/* Breadcrumbs.                                              */
-
+/* ------------------------------ */
+/* Breadcrumbs.                   */
 
 .bread-section {
   background-color: var(--bg-alt);
@@ -253,31 +247,25 @@ h5 {
   font-weight: 500;
 }
 
+/* ------------------------------ */
+/* Preamble section.              */
 
-
-/* --------------------------------------------------------- */
-/* Intro section.                                            */
-
-
-.intro-section {
-  background-color: var(--bg-intro);
+.preamble-section {
+  background-color: var(--bg-preamble);
 }
 
-.intro h1, .intro h2 {
+.preamble h1, .preamble h2 {
   margin: 10px 0px;
 }
 
-.intro h2 {
+.preamble h2 {
   font-size: 1.5em;
   font-weight: 600;
   line-height: 1.3em;
 }
 
-
-
-/* --------------------------------------------------------- */
-/* Content section.                                          */
-
+/* ------------------------------ */
+/* Content section.               */
 
 #main-content {
   flex: auto;
@@ -293,7 +281,6 @@ h5 {
   margin-bottom: 4px;
 }
 
-
 .content .footnote {
   font-size: 0.85em;
   color: var(--fg-alt);
@@ -301,10 +288,8 @@ h5 {
   padding: 0;
 }
 
-
-/* --------------------------------------------------------- */
-/* Footer section.                                           */
-
+/* ------------------------------ */
+/* Footer section.                */
 
 .footer-section {
   background-color: var(--bg-alt);

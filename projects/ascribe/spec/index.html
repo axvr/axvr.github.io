@@ -1,96 +1,91 @@
 <!DOCTYPE html>
+
 <html lang="en-GB">
-  <head>
-    <meta charset="utf-8">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Ascribe specification | Alex Vear</title>
+		<title>Ascribe specification | Alex Vear</title>
 
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="title" content="Ascribe specification">
+		<meta name="keywords" content="">
+		<meta name="published" content="">
+		<meta name="description" content="Some default description.">
+		<meta name="og:type" content="website">
+		<meta name="og:title" content="Ascribe specification">
+		<meta name="og:description" content="Some default description.">
+		<meta name="og:site_name" content="Alex Vear">
+		<meta name="article:published_time" content="">
+		<meta name="article:modified_time" content="">
 
-    <meta name="author" content="Alex Vear">
-    <meta name="keywords" content="">
-    <meta name="description" content="">
-    <meta name="subject" content="">
-    <meta name="copyright" content="Alex Vear">
-    <meta name="licence" content="CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/)">
+		<link href="/atom.xml" type="application/atom+xml" rel="alternate" title="Atom feed">
+		<link rel="shortcut icon" type="image/jpeg" href="/assets/favicon.jpg">
 
-    <meta name="title" content="Ascribe specification">
-    <meta name="subtitle" content="">
-    <meta name="date" content="">
-    <meta name="published" content="">
-    <meta name="topic" content="">
+		<link rel="preconnect" href="https://rsms.me/">
+		<link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+		<link rel="stylesheet" type="text/css" href="/assets/main.css">
+		<link rel="stylesheet" type="text/css" href="/assets/font-awesome.css">
 
-    <meta name="og:type" content="website">
-    <meta name="og:title" content="Ascribe specification">
-    <meta name="og:description" content="">
-    <meta name="og:image" content="/favicon.jpg">
-    <meta name="og:site_name" content="Alex Vear">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/default.min.css">
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
+		<script>hljs.highlightAll();</script>
 
-    <link rel="stylesheet" type="text/css" href="/main.css">
-    <link rel="stylesheet" type="text/css" href="/fonts/inter.css">
-    <link rel="stylesheet" type="text/css" href="/fonts/font-awesome.css">
+		
+	</head>
 
-    <link href="/blog/atom.xml" type="application/atom+xml" rel="alternate" title="Alex Vear's Blog">
+	<body>
+		<header>
+			<a class="skip-link" href="#main-content">Skip to content</a>
 
-    <link rel="shortcut icon" type="image/jpeg" href="/favicon.jpg">
+			<div class="section nav-section">
+				<nav class="navigation">
+					<h1><a title="Home" href="/">Alex Vear</a></h1>
+					<ul>
+						<li><a title="Blog" href="/blog/">blog</a></li>
+						<li><a title="Talks" href="/talks/">talks</a></li>
+						<li><a title="Projects" href="/projects/">projects</a></li>
+						<li>
+							<a title="GitHub" href="https://github.com/axvr" target="_blank">
+								<i class="fab fa-code-branch" role="img" aria-label="GitHub"></i>
+							</a>
+						</li>
+						<li>
+							<a title="Contact" href="/contact/" rel="nofollow">
+								<i class="fab fa-envelope" role="img" aria-label="Contact"></i>
+							</a>
+						</li>
+						<li>
+							<a title="Atom feed" href="/atom.xml" target="_blank" rel="nofollow">
+								<i class="fab fa-rss" role="img" aria-label="Atom feed"></i>
+							</a>
+						</li>
+					</ul>
+				</nav>
+			</div>
 
-    
-    
-  </head>
+			<div class="section bread-section">
+				<nav class="bread"><a href="../../../">home</a> &rsaquo; <a href="../../">projects</a> &rsaquo; <a href="../">ascribe</a> &rsaquo; spec</nav>
+			</div>
+		</header>
 
-  <body>
-    <header>
-      <a class="skip-link" href="#main-content">Skip to content</a>
+		<main id="main-content">
+			<div class="section preamble-section">
+				<div class="preamble"><h1>Ascribe specification</h1></div>
+			</div>
 
-      <div class="section nav-section">
-        <nav class="navigation">
-          <h1><a title="Home" href="/">Alex Vear</a></h1>
-          <ul>
-            <li><a title="Blog" href="/blog/">blog</a></li>
-            <li><a title="Talks" href="/talks/">talks</a></li>
-            <li><a title="Projects" href="/projects/">projects</a></li>
-            <li>
-              <a title="GitHub" href="https://github.com/axvr" target="_blank">
-                <i class="fab fa-code-branch" role="img" aria-label="GitHub"></i>
-              </a>
-            </li>
-            <li>
-              <a title="Contact me" href="/contact/" rel="nofollow">
-                <i class="fab fa-envelope" role="img" aria-label="Contact me"></i>
-              </a>
-            </li>
-            <li>
-              <a title="Atom feed" href="/blog/atom.xml" target="_blank" rel="nofollow">
-                <i class="fab fa-rss" role="img" aria-label="Atom feed"></i>
-              </a>
-            </li>
-          </ul>
-        </nav>
-      </div>
+			<div class="section content-section">
+				<div class="content">
+					<div class="table-container"><table><thead><tr><th>Version</th><th>Date</th><th>Changes</th></tr></thead><tbody><tr><td>v1.1</td><td>2021-12-10</td><td>Allow more characters in attribute values.<br>(Old regex: <code>/&#91;a-zA-Z0-9&#95;.-&#93;/</code>)</td></tr><tr><td>v1.0</td><td>2019-05-18</td><td>Initial version.</td></tr></tbody></table></div><p>This is the Ascribe specification.  If you are unsure how <code>.gitattributes</code> files work, you can read my document on <a href='../usage/'>using <code>.gitattributes</code> files</a>. That document also explains the various terms used in this page, e.g. "explicitly set/unset".</p><p>Most of the time if a specific option is "unspecified", Ascribe should use the default settings of the editor or tool, i.e. do nothing.  Any exceptions to this are mentioned below.</p><p>To reduce risks posed by arbitrary code execution, only specific characters are allowed to be used in the value for an option.  The value has to match this (<a href='https://pubs.opengroup.org/onlinepubs/9699919799/basedefs/V1_chap09.html#tag_09_04'>POSIX extended</a>) regular expression: <code>/&#91;a-zA-Z0-9&#95;\/.+=-&#93;&#42;/</code>.</p><ul><li><a href='#expand-tab'>expand-tab</a></li><li><a href='#tab-stop'>tab-stop</a></li><li><a href='#eol'>eol</a></li><li><a href='#trim-trailing-whitespace'>trim-trailing-whitespace</a></li><li><a href='#final-newline'>final-newline</a></li><li><a href='#line-length'>line-length</a></li><li><a href='#binary'>binary</a></li><li><a href='#working-tree-encoding'>working-tree-encoding</a></li></ul><p><!&ndash; Possible additional attributes</p><ul><li>File type detection.</li><li>Trim excess trailing newlines from end of file.</li><li>Spell check.</li><li>Spell check language.</li><li>Read-only.  (Implicitly set by <code>binary</code>.)&ndash;></li></ul><h3 id="expand-tab">expand-tab</h3><p><strong>Type</strong>: boolean.</p><p>Controls whether presses of the tab key will be expanded into spaces.  The number of spaces a tab is expanded to is controlled by <a href='#tab-stop'>tab-stop</a>.</p><h3 id="tab-stop">tab-stop</h3><p><strong>Type</strong>: integer.</p><p>The number of spaces which represent a tab character.  The most common values for this attribute are: 2, 4 and 8.</p><h3 id="eol">eol</h3><p><strong>Type</strong>: string.</p><p>Sets the character(s) used at the end of a line.</p><p>Setting this option enables end-of-line normalisation by Git (without having to set <code>text</code>).</p><p><strong>Values</strong>: (case insensitive)</p><ul><li><code>lf</code> - Unix</li><li><code>crlf</code> - DOS</li></ul><p>There is no support for Mac line-endings (<code>cr</code>), this is because they are now extremely rare and not supported by Git.</p><h3 id="trim-trailing-whitespace">trim-trailing-whitespace</h3><p><strong>Type</strong>: boolean.</p><p>If explicitly set, this option will automatically trim trailing whitespace. Typically this would occur just before saving the file.</p><h3 id="final-newline">final-newline</h3><p><strong>Type</strong>: boolean.</p><p>The <a href='https://pubs.opengroup.org/onlinepubs/9699919799/basedefs/V1_chap03.html#tag_03_206'>POSIX specification</a> states that a line should always end with a newline character, including the last line of the file.  Many tools in the Unix world expect this final newline character to be there, otherwise they may consider the file to be corrupted or at the very least, truncated.</p><p>By explicitly setting this option, an Ascribe tool will automatically insert the final newline character if it is missing.</p><p>This option is not enforced by Git, however running <code>git diff --check</code> will inform you if it is missing.</p><h3 id="line-length">line-length</h3><p><strong>Type</strong>: integer.</p><p>This option is primarily used for line length guides.  Ascribe intentionally doesn't try to enforce it.</p><h3 id="binary">binary</h3><p><strong>Type</strong>: boolean.</p><p>If explicitly set, Git will not attempt to diff changes, and Ascribe will inform the editor that the file contains binary content.</p><h3 id="working-tree-encoding">working-tree-encoding</h3><p><strong>Type</strong>: string.</p><p>Whenever a file is checked into Git, it will be stored using the UTF-8 file encoding.  When files are checked out of Git, they will also be encoded in UTF-8 (regardless of the encoding the file was originally using).  The working-tree-encoding option allows you to override the encoding used when checking out the file.</p><p>This option is enforced by Git, however there are some limitations.  According to the <a href='https://www.git-scm.com/docs/gitattributes'><code>gitattributes&#40;5&#41;</code></a> manual page, there can be pretty major issues when using Git clients which don't support the working-tree-encoding option.</p><p>Because of these issues, this option hasn't yet been implemented in the "official" Ascribe extensions.  If you must use it, please read the entirety of the appropriate section of the <code>gitattributes&#40;5&#41;</code> manual page, do it manually and inform all contributors about potential issues.</p>
+				</div>
+			</div>
+		</main>
 
-      <div class="section bread-section">
-        <nav class="bread"><span><a href="/">home</a> &rsaquo; <a href="../../">projects</a> &rsaquo; <a href="../">ascribe</a> &rsaquo; spec</span></nav>
-      </nav>
-    </header>
+		<div class="section footer-section">
+			<footer class="footer">
+				<span>&copy; <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a></span>
+				<span><a title="Back to top of page" href="#top" rel="nofollow">Going up?</a></span>
+			</footer>
+		</div>
 
-    <main id="main-content">
-      <div class="section intro-section">
-        <div class="intro"><h1>Ascribe specification</h1></div>
-      </div>
-
-      <div class="section content-section">
-        <div class="content">
-          <p><div class="table-container"> <table> <thead> <tr>   <th>Version</th>   <th>Date</th>   <th>Changes</th> </tr> </thead> <tbody> <tr>   <td>v1.1</td>   <td>2021-12-10</td>   <td>Allow more characters in attribute values.<br>(Old regex: <code>/[a-zA-Z0-9_.-]/</code>)</td> </tr> <tr>   <td>v1.0</td>   <td>2019-05-18</td>   <td>Initial version.</td> </tr> </tbody> </table> </div></p><p>This is the Ascribe specification.  If you are unsure how <code>.gitattributes</code> files work, you can read my document on <a href='../usage/'>using <code>.gitattributes</code> files</a>. That document also explains the various terms used in this page, e.g. "explicitly set/unset".</p><p>Most of the time if a specific option is "unspecified", Ascribe should use the default settings of the editor or tool, i.e. do nothing.  Any exceptions to this are mentioned below.</p><p>To reduce risks posed by arbitrary code execution, only specific characters are allowed to be used in the value for an option.  The value has to match this (<a href='https://pubs.opengroup.org/onlinepubs/9699919799/basedefs/V1_chap09.html#tag_09_04'>POSIX extended</a>) regular expression: <code>/&#91;a-zA-Z0-9&#95;\/.+=-&#93;&#42;/</code>.</p><ul><li><a href='#expand-tab'>expand-tab</a></li><li><a href='#tab-stop'>tab-stop</a></li><li><a href='#eol'>eol</a></li><li><a href='#trim-trailing-whitespace'>trim-trailing-whitespace</a></li><li><a href='#final-newline'>final-newline</a></li><li><a href='#line-length'>line-length</a></li><li><a href='#binary'>binary</a></li><li><a href='#working-tree-encoding'>working-tree-encoding</a></li></ul><p></li></ul><h3 id="expand-tab">expand-tab</h3><p><strong>Type</strong>: boolean.</p><p>Controls whether presses of the tab key will be expanded into spaces.  The number of spaces a tab is expanded to is controlled by <a href='#tab-stop'>tab-stop</a>.</p><h3 id="tab-stop">tab-stop</h3><p><strong>Type</strong>: integer.</p><p>The number of spaces which represent a tab character.  The most common values for this attribute are: 2, 4 and 8.</p><h3 id="eol">eol</h3><p><strong>Type</strong>: string.</p><p>Sets the character(s) used at the end of a line.</p><p>Setting this option enables end-of-line normalisation by Git (without having to set <code>text</code>).</p><p><strong>Values</strong>: (case insensitive)</p><ul><li><code>lf</code> - Unix</li><li><code>crlf</code> - DOS</li></ul><p>There is no support for Mac line-endings (<code>cr</code>), this is because they are now extremely rare and not supported by Git.</p><h3 id="trim-trailing-whitespace">trim-trailing-whitespace</h3><p><strong>Type</strong>: boolean.</p><p>If explicitly set, this option will automatically trim trailing whitespace. Typically this would occur just before saving the file.</p><h3 id="final-newline">final-newline</h3><p><strong>Type</strong>: boolean.</p><p>The <a href='https://pubs.opengroup.org/onlinepubs/9699919799/basedefs/V1_chap03.html#tag_03_206'>POSIX specification</a> states that a line should always end with a newline character, including the last line of the file.  Many tools in the Unix world expect this final newline character to be there, otherwise they may consider the file to be corrupted or at the very least, truncated.</p><p>By explicitly setting this option, an Ascribe tool will automatically insert the final newline character if it is missing.</p><p>This option is not enforced by Git, however running <code>git diff --check</code> will inform you if it is missing.</p><h3 id="line-length">line-length</h3><p><strong>Type</strong>: integer.</p><p>This option is primarily used for line length guides.  Ascribe intentionally doesn't try to enforce it.</p><h3 id="binary">binary</h3><p><strong>Type</strong>: boolean.</p><p>If explicitly set, Git will not attempt to diff changes, and Ascribe will inform the editor that the file contains binary content.</p><h3 id="working-tree-encoding">working-tree-encoding</h3><p><strong>Type</strong>: string.</p><p>Whenever a file is checked into Git, it will be stored using the UTF-8 file encoding.  When files are checked out of Git, they will also be encoded in UTF-8 (regardless of the encoding the file was originally using).  The working-tree-encoding option allows you to override the encoding used when checking out the file.</p><p>This option is enforced by Git, however there are some limitations.  According to the <a href='https://www.git-scm.com/docs/gitattributes'><code>gitattributes&#40;5&#41;</code></a> manual page, there can be pretty major issues when using Git clients which don't support the working-tree-encoding option.</p><p>Because of these issues, this option hasn't yet been implemented in the "official" Ascribe extensions.  If you must use it, please read the entirety of the appropriate section of the <code>gitattributes&#40;5&#41;</code> manual page, do it manually and inform all contributors about potential issues.</p>
-        </div>
-      </div>
-    </main>
-
-    <div class="section footer-section">
-      <footer class="footer">
-        <span><abbr title="CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/)">© 2024 Alex Vear</abbr></span>
-        <span><a title="Back to top of page" href="#top" rel="nofollow">Going up?</a></span>
-      </footer>
-    </div>
-
-  </body>
+	</body>
 </html>
