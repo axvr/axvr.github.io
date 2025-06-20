@@ -1,10 +1,10 @@
-- Highlight.js theme.  Base it on Raider.vim?
 - Add a monospace font.
 - Add some home page content.
 - Refine HTML + CSS.
   - Port some improvements from TM site.
 
 - Maybe
+  - Highlight.js by default & theme.  Base it on Raider.vim?
   - Goatcounter analytics?
   - Book reviews?
   - Recommended sites and resources?
