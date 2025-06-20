@@ -1,14 +1,11 @@
-- Add a monospace font.
-- Add some home page content.
 - Refine HTML + CSS.
   - Port some improvements from TM site.
 
-- Maybe
-  - Highlight.js by default & theme.  Base it on Raider.vim?
-  - Goatcounter analytics?
-  - Book reviews?
-  - Recommended sites and resources?
-  - Maybe drop the project timeline (replace with code-dump repo).
-  - Generate content on blog list page?
-  - Safari reader mode can automatically fetch the next part of an article.
-    - E.g. http://www.moserware.com/2008/04/towards-moores-law-software-part-1-of-3.html
+- Add a monospace font.
+- Switch to https://github.com/nextjournal/markdown as Markdown parser.
+  - https://github.com/babashka/babashka/issues/1825
+- Highlight.js by default & theme.  Base it on Raider.vim?
+- Goatcounter analytics?
+- Recommended sites and resources?
+- Move project timeline to code-dump repo?
+- Generate content on blog list page?

@@ -98,11 +98,12 @@
          [::atom/author [::atom/name "Alex Vear"]]]
         entries))
 
-(defn generate-feed [conf pages]
+(defn generate-feed! [conf pages]
   (let [feed (->> pages
                   (filterv :export)
                   (sort-by :published String/CASE_INSENSITIVE_ORDER)
                   reverse
+                  (take 20)
                   (mapv atom-entry)
                   (atom-feed conf))]
     (with-open [out (FileWriter. (fs/file (:output-dir conf) "atom.xml"))]
@@ -216,7 +217,7 @@
                     (file-seq input-dir))]
     (fs/delete-tree output-dir)
     (run! write-file! files)
-    (generate-feed conf files)))
+    (generate-feed! conf files)))
 
 (build
  {:site-name   "Alex Vear"

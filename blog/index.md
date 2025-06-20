@@ -1,6 +1,6 @@
 ---
 title: "Blog"
-description: "Alex Vear's blog.  Here you will find lots of stuff about computers and software engineering."
+description: "Alex Vear's blog.  Here you will mostly find stuff about computers and software engineering."
 ---
 
-Coming soon...
+Reverse chronological list of blog posts.  **Coming soon...**
