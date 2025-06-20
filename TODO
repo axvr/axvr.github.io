@@ -1,11 +1,15 @@
 - Refine HTML + CSS.
   - Port some improvements from TM site.
 
-- Add a monospace font.
-- Switch to https://github.com/nextjournal/markdown as Markdown parser.
-  - https://github.com/babashka/babashka/issues/1825
-- Highlight.js by default & theme.  Base it on Raider.vim?
+- Switch to <https://github.com/nextjournal/markdown> as Markdown parser.
+  - <https://github.com/babashka/babashka/issues/1825>
+  - May need to separately call commonmark-java for the YAML front-matter extension.
+
 - Goatcounter analytics?
-- Recommended sites and resources?
-- Move project timeline to code-dump repo?
-- Generate content on blog list page?
+
+- Later
+  - Add a monospace font.
+  - Highlight.js by default & theme.  Base it on Raider.vim?
+  - Recommended sites and resources?
+  - Move project timeline to code-dump repo?
+  - Generate content on blog list page?

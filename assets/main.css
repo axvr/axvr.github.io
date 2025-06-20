@@ -9,7 +9,7 @@
   --fg-link:     #1b4f99;
   --fg-link-alt: #991b8c;
   --bg-nav:      #64897a;
-  --bg-preamble: #e5dfd0;
+  --bg-cover:    #e5dfd0;
   --tbl-border:  #e1e1e1;
   --tbl-row-alt: #eaeaea;
 }
@@ -24,7 +24,7 @@
     --fg-link:     #80bdf7;
     --fg-link-alt: #ba80f7;
     --bg-nav:      #44aa9d;
-    --bg-preamble: #424242;
+    --bg-cover:    #424242;
     --tbl-border:  #424242;
     --tbl-row-alt: #303030;
   }
@@ -58,7 +58,7 @@ body {
   background-color: var(--bg-main);
 }
 
-.navigation, .bread, .preamble, .content, .footer {
+.navigation, .bread, .cover, .content, .footer {
   margin: 14px 28px;
   grid-column: 2;
 }
@@ -250,15 +250,15 @@ h5 {
 /* ------------------------------ */
 /* Preamble section.              */
 
-.preamble-section {
-  background-color: var(--bg-preamble);
+.cover-section {
+  background-color: var(--bg-cover);
 }
 
-.preamble h1, .preamble h2 {
+.cover h1, .cover h2 {
   margin: 10px 0px;
 }
 
-.preamble h2 {
+.cover h2 {
   font-size: 1.5em;
   font-weight: 600;
   line-height: 1.3em;

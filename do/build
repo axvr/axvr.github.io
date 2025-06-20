@@ -4,4 +4,4 @@
 
 set -e
 
-( cd ssg && bb -f ssg.clj )
+( cd ssg && exec bb -f ssg.clj )

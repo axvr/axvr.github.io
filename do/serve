@@ -5,4 +5,4 @@
 set -e
 
 do/build
-python3 -m http.server -d .dist 6586
+exec python3 -m http.server -d .dist 6586

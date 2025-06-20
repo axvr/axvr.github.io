@@ -125,10 +125,10 @@
       (and title (format "%s | %s" title site-name))
       site-name))
 
-(defn build-preamble [{:keys [title subtitle published updated]}]
+(defn build-cover [{:keys [title subtitle published updated]}]
   (when title
     (hiccup/html
-     [:div {:class "preamble"}
+     [:div {:class "cover"}
       [:h1 title]
       (when subtitle [:h2 subtitle])
       (when published
@@ -165,7 +165,7 @@
                               (str (apply fs/file (:output-dir %) (:path %)) ".html")))
       (update :og/type #(or % "website"))
       (assocf :html/title build-title)
-      (assocf :html/preamble build-preamble)
+      (assocf :html/cover build-cover)
       (assocf :html/breadcrumbs build-breadcrumbs)
       (assocf :html/output #(inject (:template %) %))))
 
