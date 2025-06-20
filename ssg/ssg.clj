@@ -154,7 +154,9 @@
   (-> page
       (update :path #(let [l (fs/strip-ext (peek %)), p (pop %)]
                        (if (= l "index") p (conj p l))))
-      (assocf :output-file #(apply fs/file (flatten [(:output-dir %) (:path %) "index.html"])))
+      (assocf :output-file #(if (:index % true)
+                              (apply fs/file (:output-dir %) (conj (:path %) "index.html"))
+                              (str (apply fs/file (:output-dir %) (:path %)) ".html")))
       (update :og/type #(or % "website"))
       (assocf :html/title build-title)
       (assocf :html/preamble build-preamble)

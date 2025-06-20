@@ -1,16 +1,14 @@
-- Port some improvements from TM site.
-- Highlight.js theme.
-- Monospace font.
+- Highlight.js theme.  Base it on Raider.vim?
+- Add a monospace font.
 - Add some home page content.
-- Maybe drop the project timeline (replace with code-dump repo).
-- Book reviews?
-- Recommended sites and resources?
+- Refine HTML + CSS.
+  - Port some improvements from TM site.
 
-- Additional features
+- Maybe
   - Goatcounter analytics?
+  - Book reviews?
+  - Recommended sites and resources?
+  - Maybe drop the project timeline (replace with code-dump repo).
   - Generate content on blog list page?
   - Safari reader mode can automatically fetch the next part of an article.
     - E.g. http://www.moserware.com/2008/04/towards-moores-law-software-part-1-of-3.html
-
-- Favicons.
-  - Check how Y Combinator, ELS and GitHub set icons for iOS Safari favourites.
