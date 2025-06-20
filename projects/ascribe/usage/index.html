@@ -72,28 +72,78 @@
 
 			<div class="section content-section">
 				<div class="content">
-					<p>This document will teach you how to use read and use <code>.gitattributes</code> files. To learn about the attributes Ascribe uses, read the <a href='../spec/'>specification</a>, however it is greatly recommended that you read this page first.</p><h2 id="example">Example</h2><p>This is the <code>.gitattributes</code> file for the Ascribe Vim extension.</p><pre><code>&#42;      text=auto final-newline eol=lf
-&#42;.vim  expand-tab tab-stop=4 trim-trailing-whitespace
-</code></pre><p>This file defines 2 <a href='#rules'>rules</a>, one for all files, and the other for files with the <code>.vim</code> extension.</p><p><details> <summary>Click to view the equivalent <code>.editorconfig</code> file.</summary></p><pre><code class="editorconfig">root = true
+					<p>This document will teach you how to use read and use <code>.gitattributes</code> files.
+To learn about the attributes Ascribe uses, read the
+<a href="../spec/">specification</a>, however it is greatly recommended that you
+read this page first.</p>
+<h2 id="example">Example</h2>
+<p>This is the <code>.gitattributes</code> file for the Ascribe Vim extension.</p>
+<pre><code>*      text=auto final-newline eol=lf
+*.vim  expand-tab tab-stop=4 trim-trailing-whitespace
+</code></pre>
+<p>This file defines 2 <a href="#rules">rules</a>, one for all files, and the other for files
+with the <code>.vim</code> extension.</p>
+<details>
+<summary>Click to view the equivalent <code>.editorconfig</code> file.</summary>
+<pre><code class="language-editorconfig">root = true
 
-&#91;&#42;&#93;
-end&#95;of&#95;line = lf
-insert&#95;final&#95;newline = true
+[*]
+end_of_line = lf
+insert_final_newline = true
 
-&#91;&#42;.vim&#93;
-indent&#95;style = space
-indent&#95;size = 4
-trim&#95;trailing&#95;whitespace = true
-</code></pre><p></details></p><h2 id="rules">Rules</h2><p>Each line of a <code>.gitattributes</code> file is a separate rule.  It begins with a <a href='#file_pattern'>file pattern</a>, and is followed by a <a href='#attribute_list'>list of attributes</a> (whitespace is insignificant).</p><pre><code> &#42;.vim   expand-tab tab-stop=4 trim-trailing-whitespace
-|&#95;&#95;&#95;&#95;&#95;| |&#95;&#95;&#95;&#95;&#95;&#95;&#95;&#95;&#95;&#95;&#95;&#95;&#95;&#95;&#95;&#95;&#95;&#95;&#95;&#95;&#95;&#95;&#95;&#95;&#95;&#95;&#95;&#95;&#95;&#95;&#95;&#95;&#95;&#95;&#95;&#95;&#95;&#95;&#95;&#95;&#95;&#95;&#95;&#95;&#95;&#95;|
+[*.vim]
+indent_style = space
+indent_size = 4
+trim_trailing_whitespace = true
+</code></pre>
+</details>
+<h2 id="rules">Rules</h2>
+<p>Each line of a <code>.gitattributes</code> file is a separate rule.  It begins with
+a <a href="#file_pattern">file pattern</a>, and is followed by a <a href="#attribute_list">list of attributes</a> (whitespace is insignificant).</p>
+<pre><code> *.vim   expand-tab tab-stop=4 trim-trailing-whitespace
+|_____| |______________________________________________|
    |                           |
 File pattern             Attribute list
-</code></pre><p>A file can be matched by multiple rules.  In this example a file named <code>something.vim</code> will match both the <code>&#42;</code> and <code>&#42;.vim</code> rules, the resulting attribute list will be a combination of the two rules with the lower lines taking precedence over the upper lines.</p><h2 id="file_pattern">File pattern</h2><p>The file patterns are the same as those used in <a href='https://www.git-scm.com/docs/gitignore#_pattern_format'><code>.gitignore</code></a> files, but without the negation pattern (denoted by a literal <code>!</code> at the start of the line).</p><h2 id="attribute_list">Attribute list</h2><p>When an attribute is not in the resulting attribute list, it is "unspecified".</p><p>If an attribute is mentioned in the <code>.gitattributes</code> file, it has been "explicitly specified".</p><p>Attributes which appear in the resulting attribute list but are not in the <code>.gitattibutes</code> file are "implicitly specified".  Sometimes explicitly specifying an attribute will cause another to be implicitly specified.  For example explicitly setting the <code>binary</code> attribute will implicitly unset the <code>diff</code> attribute.</p><p>Specified attributes can have 3 states.</p><ul><li>Set (boolean true)</li><li>Unset (boolean false)</li><li>Set to value</li></ul><p>These states are represented in <code>.gitattributes</code> files as the following.</p><pre><code>&#42;.py  expand-tab   tab-stop=4   -binary
-     |&#95;&#95;&#95;&#95;&#95;&#95;&#95;&#95;&#95;&#95;| |&#95;&#95;&#95;&#95;&#95;&#95;&#95;&#95;&#95;&#95;| |&#95;&#95;&#95;&#95;&#95;&#95;&#95;|
+</code></pre>
+<p>A file can be matched by multiple rules.  In this example a file named
+<code>something.vim</code> will match both the <code>*</code> and <code>*.vim</code> rules, the resulting
+attribute list will be a combination of the two rules with the lower lines
+taking precedence over the upper lines.</p>
+<h2 id="file-pattern">File pattern</h2>
+<p>The file patterns are the same as those used in
+<a href="https://www.git-scm.com/docs/gitignore#_pattern_format"><code>.gitignore</code></a> files,
+but without the negation pattern (denoted by a literal <code>!</code> at the start of the
+line).</p>
+<h2 id="attribute-list">Attribute list</h2>
+<p>When an attribute is not in the resulting attribute list, it is &quot;unspecified&quot;.</p>
+<p>If an attribute is mentioned in the <code>.gitattributes</code> file, it has been
+&quot;explicitly specified&quot;.</p>
+<p>Attributes which appear in the resulting attribute list but are not in the
+<code>.gitattibutes</code> file are &quot;implicitly specified&quot;.  Sometimes explicitly
+specifying an attribute will cause another to be implicitly specified.  For
+example explicitly setting the <code>binary</code> attribute will implicitly unset the
+<code>diff</code> attribute.</p>
+<p>Specified attributes can have 3 states.</p>
+<ul>
+<li>Set (boolean true)</li>
+<li>Unset (boolean false)</li>
+<li>Set to value</li>
+</ul>
+<p>These states are represented in <code>.gitattributes</code> files as the following.</p>
+<pre><code>*.py  expand-tab   tab-stop=4   -binary
+     |__________| |__________| |_______|
            |            |          |
     Explicitly set      |   Explicitly unset
             Explicitly set to value
-</code></pre><p>To explicitly set an attribute, just specify its name.  To unset it, prepend it with a hyphen (<code>-</code>).  To set to a value append an equals (<code>=</code>) and the value.</p><h2 id="more_information">More information</h2><ul><li><a href='https://www.git-scm.com/docs/gitattributes'><code>gitattributes&#40;5&#41;</code></a></li><li><a href='https://www.git-scm.com/docs/git-check-attr'><code>git-check-attr&#40;1&#41;</code></a> — The official <code>.gitattributes</code> parser.</li></ul>
+</code></pre>
+<p>To explicitly set an attribute, just specify its name.  To unset it, prepend it
+with a hyphen (<code>-</code>).  To set to a value append an equals (<code>=</code>) and the value.</p>
+<h2 id="more-information">More information</h2>
+<ul>
+<li><a href="https://www.git-scm.com/docs/gitattributes"><code>gitattributes(5)</code></a></li>
+<li><a href="https://www.git-scm.com/docs/git-check-attr"><code>git-check-attr(1)</code></a> — The official <code>.gitattributes</code> parser.</li>
+</ul>
+
 				</div>
 			</div>
 		</main>
