@@ -6,7 +6,7 @@ published: 1970-01-01  # Required for Atom feed.
 description: ""
 keywords: ""
 updated: 1970-01-01
-og/type: "article"  # default is: "website"
+og.type: "article"  # default is: "website"
 export: true  # Include in Atom feed.
 html.head: |
   <!-- Web crawlers

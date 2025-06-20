@@ -171,7 +171,8 @@
       (assocf :output-file #(if (:index % true)
                               (apply fs/file (:output-dir %) (conj (:path %) "index.html"))
                               (str (apply fs/file (:output-dir %) (:path %)) ".html")))
-      (update :og/type #(or % "website"))
+      (update :og.type #(or % "website"))
+      (assocf :og.title #(or (:og.title %) (:html.title %) (:title %)))
       ;; TODO: spec validation.
       (assocf :html.title build-title)
       (assocf :html.cover build-cover)

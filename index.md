@@ -2,9 +2,6 @@
 html.title: "Alex Vear"
 title: "Hello,"
 subtitle: "Let's create better computers and software."
-html.head: |
-  <meta name="title" content="Alex Vear">
-  <meta name="og:title" content="Alex Vear">
 ---
 
 I'm a professional software engineer attempting to discover how to create
