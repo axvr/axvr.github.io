@@ -1,5 +1,5 @@
 ---
-title: "Contact"
+title: "Contact me"
 html/head: '<meta name="robots" content="noindex">'
 ---
 

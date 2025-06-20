@@ -2,15 +2,14 @@
   "A simple Static Site Generator (SSG) for my personal website."
   (:require [clojure.string :as str]
             [clojure.edn :as edn]
+            [clojure.data.xml :as xml]
             [babashka.fs :as fs]
             [markdown.core :as md]
             [hiccup.core :as hiccup])
-  (:import (java.io File)
+  (:import (java.io File FileWriter)
            (java.util Locale)
-           (java.time ZoneId)
+           (java.time ZoneId Instant)
            (java.time.format DateTimeFormatter)))
-
-;; TODO: Atom feed generation?
 
 ;; ----------------------------
 ;; Helpers.
@@ -66,6 +65,54 @@
    :custom-transformers [scrollable-tables]))
 
 ;; ----------------------------
+;; Atom feed construction.
+
+(xml/alias-uri 'atom "http://www.w3.org/2005/Atom")
+
+(defn atom-date [d]
+  (.format (date-formatter "yyyy-MM-dd'T'HH:mm:ssX" :zone "UTC") d))
+
+(defn atom-entry [{:as page, :keys [site-url]}]
+  (let [url (str site-url (:url-path page))]
+    [::atom/entry
+     [::atom/title (:title page)]
+     (when-let [subtitle (:subtitle page)]
+       [::atom/subtitle subtitle])
+     (when-let [summary (:description page)]
+       [::atom/summary summary])
+     (when-let [id (:id page)]
+       [::atom/id (str "urn:uuid:" id)])
+     [::atom/link {:type "text/html", :rel "alternate", :title (:title page), :href url}]
+     [::atom/published (atom-date (parse-date (:published page)))]
+     [::atom/updated (atom-date (parse-date (or (:updated page) (:published page))))]
+     [::atom/author [::atom/name (:author page)]]
+     [::atom/content {:type "html", :xml:base url} (:content page)]]))
+
+(defn atom-feed [{:keys [site-name site-url]} entries]
+  (into [::atom/feed
+         {:xmlns "http://www.w3.org/2005/Atom", :xml:base site-url}
+         [::atom/id site-url]
+         [::atom/title site-name]
+         #_[::atom/subtitle "Alex Vear's Blog"]
+         [::atom/updated (atom-date (Instant/now))]
+         [::atom/link {:rel "alternative", :type "text/html", :href site-url}]
+         [::atom/link {:ref "self", :type "application/atom+xml", :href "/atom.xml"}]
+         [::atom/icon "/favicon.jpg"]
+         [::atom/author [::atom/name "Alex Vear"]]]
+        entries))
+
+(defn generate-feed [conf pages]
+  (let [feed (->> pages
+                  (filterv #(= "blog" (first (:path %))))
+                  (filterv #(contains? % :published))
+                  (sort-by :published String/CASE_INSENSITIVE_ORDER)
+                  reverse
+                  (mapv atom-entry)
+                  (atom-feed conf))]
+    (with-open [out (FileWriter. (fs/file (:output-dir conf) "atom.xml"))]
+      (xml/emit (xml/sexp-as-element feed) out))))
+
+;; ----------------------------
 ;; Page construction.
 
 (defn build-title [{html-title :html/title, :keys [title site-name]}]
@@ -118,31 +165,33 @@
 ;; ----------------------------
 ;; File processing.
 
-(defn write-page! [{:keys [:html/output output-file :html/breadcrumbs]}]
-  (fs/create-dirs (fs/parent output-file))
-  (spit output-file output))
+(defmulti enrich-file :file-type)
 
-(defmulti process-file! :file-type)
+(defmethod enrich-file :default [f] f)
 
-(defmethod process-file! :default [{:keys [input-file output-file]}]
-  (fs/create-dirs (fs/parent output-file))
-  (fs/copy input-file output-file))
-
-(defmethod process-file! "md"
+(defmethod enrich-file "md"
   [{:as conf, :keys [input-file template]}]
   (let [{:keys [html metadata]} (parse-md-file input-file)]
-    (-> conf
-        (merge metadata {:html/content html})
-        build-page
-        write-page!)))
+    (build-page (merge conf metadata {:html/content html}))))
 
-(defmethod process-file! "edn"
+(defmethod enrich-file "edn"
   [{:as conf, :keys [input-file template]}]
   (-> conf
       (merge (-> input-file slurp edn/read-string eval))
       (update :html/content #(hiccup/html %))
-      build-page
-      write-page!))
+      build-page))
+
+(defmulti write-file! (comp fs/extension :output-file))
+
+(defmethod write-file! :default
+  [{:keys [input-file output-file]}]
+  (fs/create-dirs (fs/parent output-file))
+  (fs/copy input-file output-file))
+
+(defmethod write-file! "html"
+  [{:keys [:html/output output-file :html/breadcrumbs]}]
+  (fs/create-dirs (fs/parent output-file))
+  (spit output-file output))
 
 (defn path-breakdown [prefix f]
   (into []
@@ -152,19 +201,24 @@
             fs/components)))
 
 (defn build [conf]
-  (let [{:keys [input-dir output-dir exclusions]} conf]
+  (let [{:keys [input-dir output-dir exclusions]} conf
+        files (into []
+                    (comp
+                     (filter fs/regular-file?)
+                     (keep (fn [f]
+                             (let [path (path-breakdown input-dir f)]
+                               (when-not (or (re-find #"^\." (first path))
+                                             (exclusions (first path)))
+                                 (-> conf
+                                     (assoc :path        path
+                                            :file-type   (fs/extension f)
+                                            :input-file  f
+                                            :output-file (apply fs/file output-dir path)))))))
+                     (map enrich-file))
+                    (file-seq input-dir))]
     (fs/delete-tree output-dir)
-    (doseq [f (file-seq input-dir)]
-      (when (fs/regular-file? f)
-        (let [path (path-breakdown input-dir f)]
-          (when-not (or (re-find #"^\." (first path))
-                        (exclusions (first path)))
-            (-> conf
-                (assoc :path        path
-                       :file-type   (fs/extension f)
-                       :input-file  f
-                       :output-file (apply fs/file output-dir path))
-                process-file!)))))))
+    (run! write-file! files)
+    (generate-feed conf files)))
 
 (build
  {:site-name   "Alex Vear"

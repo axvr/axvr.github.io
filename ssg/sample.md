@@ -1,7 +1,8 @@
 ---
+id: "UUID"  # Required for Atom feed.
 title: ""
 subtitle: ""
-published: ""
+published: ""  # Required for Atom feed.
 description: ""
 keywords: ""
 updated: ""
