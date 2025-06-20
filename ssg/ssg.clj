@@ -72,20 +72,18 @@
 (defn atom-date [d]
   (.format (date-formatter "yyyy-MM-dd'T'HH:mm:ssX" :zone "UTC") d))
 
-(defn atom-entry [{:as page, :keys [site-url]}]
+(defn atom-entry [{:as page, :keys [id title published updated site-url]}]
   (let [url (str site-url "/" (apply fs/file (:path page)))]
     [::atom/entry
-     [::atom/id (str "urn:uuid:" (:id page))]
-     [::atom/title (:title page)]
-     (when-let [subtitle (:subtitle page)]
-       [::atom/subtitle subtitle])
-     (when-let [summary (:description page)]
-       [::atom/summary summary])
-     [::atom/link {:type "text/html", :rel "alternate", :title (:title page), :href url}]
-     [::atom/published (atom-date (parse-date (:published page)))]
-     [::atom/updated (atom-date (parse-date (or (:updated page) (:published page))))]
-     [::atom/author [::atom/name (:author page)]]
-     [::atom/content {:type "html", :xml:base url} (:content page)]]))
+     [::atom/id (str "urn:uuid:" id)]
+     [::atom/title title]
+     (when-let [subtitle (:subtitle page)] [::atom/subtitle subtitle])
+     (when-let [summary (:description page)] [::atom/summary summary])
+     [::atom/link {:type "text/html", :rel "alternate", :title title, :href url}]
+     [::atom/published (atom-date (parse-date published))]
+     [::atom/updated (atom-date (parse-date (or updated published)))]
+     [::atom/author [::atom/name "Alex Vear"]]
+     [::atom/content {:type "html", :xml:base url} (:html/content page)]]))
 
 (defn atom-feed [{:keys [site-name site-url]} entries]
   (into [::atom/feed
@@ -102,9 +100,7 @@
 
 (defn generate-feed [conf pages]
   (let [feed (->> pages
-                  (filterv #(= "blog" (first (:path %))))
-                  (remove #(:draft %))
-                  (filterv #(contains? % :published))
+                  (filterv :export)
                   (sort-by :published String/CASE_INSENSITIVE_ORDER)
                   reverse
                   (mapv atom-entry)

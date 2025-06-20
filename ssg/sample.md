@@ -7,7 +7,7 @@ description: ""
 keywords: ""
 updated: ""
 og/type: "article"  # default is: "website"
-draft: true  # Mark as a draft.  (Excludes from Atom feed.)
+export: true  # Include in Atom feed.
 html/head: |
   <!-- Web crawlers
   <meta name="robots" content="noindex"> -->
