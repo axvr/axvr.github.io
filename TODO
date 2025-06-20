@@ -1,10 +1,6 @@
 - Refine HTML + CSS.
   - Port some improvements from TM site.
 
-- Switch to <https://github.com/nextjournal/markdown> as Markdown parser.
-  - <https://github.com/babashka/babashka/issues/1825>
-  - May need to separately call commonmark-java for the YAML front-matter extension.
-
 - Goatcounter analytics?
 
 - Later

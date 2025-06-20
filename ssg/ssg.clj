@@ -3,13 +3,22 @@
   (:require [clojure.string :as str]
             [clojure.edn :as edn]
             [clojure.data.xml :as xml]
+            [clj-yaml.core :as yaml]
             [babashka.fs :as fs]
-            [markdown.core :as md]
             [hiccup.core :as hiccup])
   (:import (java.io File FileWriter)
            (java.util Locale)
-           (java.time ZoneId Instant)
-           (java.time.format DateTimeFormatter)))
+           (java.time Instant ZoneId)
+           (java.time.format DateTimeFormatter)
+           (org.commonmark.parser Parser)
+           (org.commonmark.renderer.html HtmlWriter HtmlRenderer HtmlNodeRendererContext HtmlNodeRendererFactory)
+           (org.commonmark.ext.gfm.tables TablesExtension)
+           (org.commonmark.ext.gfm.tables.internal TableHtmlNodeRenderer)
+           (org.commonmark.ext.gfm.strikethrough StrikethroughExtension)
+           (org.commonmark.ext.footnotes FootnotesExtension)
+           (org.commonmark.ext.heading.anchor HeadingAnchorExtension)
+           (org.commonmark.ext.front.matter YamlFrontMatterExtension YamlFrontMatterVisitor)
+           (org.commonmark.ext.task.list.items TaskListItemsExtension)))
 
 ;; ----------------------------
 ;; Helpers.
@@ -24,53 +33,54 @@
   [text replacements]
   (str/replace text #"\{\{ *([\w/_.-]+) *\}\}" (comp str replacements keyword second)))
 
-(defn date-formatter [pattern & {:keys [locale zone]}]
+(defn date-formatter [pattern]
   (.. DateTimeFormatter
       (ofPattern pattern)
-      (withLocale (or locale Locale/UK))
-      (withZone (ZoneId/of (or zone "GMT")))))
-
-(defn parse-date [date]
-  (when date
-    (let [date (if (re-find #"T" date) date (str date "T12:00:00Z"))
-          fmt (date-formatter "yyyy-MM-dd'T'HH:mm[:ss[.SSS[SSS]]][z][O][X][x][Z]")]
-      (.parse fmt date))))
+      (withLocale Locale/UK)
+      (withZone (ZoneId/of "UTC"))))
 
 ;; ----------------------------
 ;; Markdown parsing.
 
-(defn scrollable-tables
-  "Wraps HTML and Markdown tables in a `div` of class `table-container`."
-  [text state]
-  (or (cond
-        (:codeblock state) nil
+(defn yaml-fix-date [maybe-date]
+  (if (instance? java.util.Date maybe-date)
+    (.toInstant maybe-date)
+    maybe-date))
 
-        (str/starts-with? text "<table>")
-        [(str "<div class=\"table-container\">" text "</div>") state]
-
-        (str/starts-with? text "<p><table>")
-        [(str/replace-first text #"<p>" "<div class=\"table-container\">") state]
-
-        (str/ends-with? text "</table>")
-        ;; FIXME: `:skip-next-line?` does not work, so insert `<p>` tag instead.
-        [(str text "</div><p>") state])
-      [text state]))
-
-(defn hr-fix
-  "Markdown-clj doesn't convert `---` into `<hr>` correctly."
-  [text state]
-  (if (and (= "<h2></h2>" text)
-           (re-find #"^---+$" (:next-line state)))
-    ["<hr>" state]
-    [text state]))
-
+;; TODO: refactor this.
 (defn parse-md-file [file]
-  (md/md-to-html-string-with-meta
-   (slurp file)
-   :heading-anchors true
-   :reference-links? true
-   :footnotes? true
-   :custom-transformers [scrollable-tables hr-fix]))
+  (let [e [(TablesExtension/create)
+           (StrikethroughExtension/create)
+           (FootnotesExtension/create)
+           (HeadingAnchorExtension/create)
+           (YamlFrontMatterExtension/create)
+           (TaskListItemsExtension/create)]
+        p (.. (Parser/builder)
+              (extensions e)
+              (build))
+        d (.parse p (slurp file))
+        v (YamlFrontMatterVisitor.)
+        _ (.accept d v)
+        r (.. (HtmlRenderer/builder)
+              ;; Wrap tables in scrollable container.
+              (nodeRendererFactory
+               (reify HtmlNodeRendererFactory
+                 (create [this context]
+                   (proxy [TableHtmlNodeRenderer] [context]
+                     (renderBlock [tableBlock]
+                       (let [^HtmlWriter html (HtmlNodeRendererContext/.getWriter context)]
+                         (.line html)
+                         (.tag html "div" {"class" "table-container"})
+                         (proxy-super renderBlock tableBlock)
+                         (.tag html "/div")
+                         (.line html)))))))
+              (extensions e)
+              (build))]
+    (into {:html.content (.render r d)}
+          (map (fn [[k v]]
+                 [(keyword k)
+                  (-> v (#(apply str %)) (yaml/parse-string :keywords false) yaml-fix-date)]))
+          (.getData v))))
 
 ;; ----------------------------
 ;; Atom feed construction.
@@ -78,7 +88,7 @@
 (xml/alias-uri 'atom "http://www.w3.org/2005/Atom")
 
 (defn atom-date [d]
-  (.format (date-formatter "yyyy-MM-dd'T'HH:mm:ssX" :zone "UTC") d))
+  (.format (date-formatter "yyyy-MM-dd'T'HH:mm:ssX") d))
 
 (defn atom-entry [{:as page, :keys [id title published updated site-url]}]
   (let [url (str site-url "/" (apply fs/file (:path page)))]
@@ -88,10 +98,10 @@
      (when-let [subtitle (:subtitle page)] [::atom/subtitle subtitle])
      (when-let [summary (:description page)] [::atom/summary summary])
      [::atom/link {:type "text/html", :rel "alternate", :title title, :href url}]
-     [::atom/published (atom-date (parse-date published))]
-     [::atom/updated (atom-date (parse-date (or updated published)))]
+     [::atom/published (atom-date published)]
+     [::atom/updated (atom-date (or updated published))]
      [::atom/author [::atom/name "Alex Vear"]]
-     [::atom/content {:type "html", :xml:base url} (:html/content page)]]))
+     [::atom/content {:type "html", :xml:base url} (:html.content page)]]))
 
 (defn atom-feed [{:keys [site-name site-url]} entries]
   (into [::atom/feed
@@ -109,7 +119,7 @@
 (defn generate-feed! [conf pages]
   (let [feed (->> pages
                   (filterv :export)
-                  (sort-by :published String/CASE_INSENSITIVE_ORDER)
+                  (sort-by :published compare)
                   reverse
                   (take 20)
                   (mapv atom-entry)
@@ -120,7 +130,7 @@
 ;; ----------------------------
 ;; Page construction.
 
-(defn build-title [{html-title :html/title, :keys [title site-name]}]
+(defn build-title [{html-title :html.title, :keys [title site-name]}]
   (or html-title
       (and title (format "%s | %s" title site-name))
       site-name))
@@ -132,7 +142,7 @@
       [:h1 title]
       (when subtitle [:h2 subtitle])
       (when published
-        (let [format-date #(.format (date-formatter "dd MMMM yyyy") (parse-date %))]
+        (let [format-date #(.format (date-formatter "dd MMMM yyyy") %)]
           [:time {:class "date"
                   :title (str published (when updated (format " (rev. %s" updated)))
                   :datetime published}
@@ -155,8 +165,6 @@
            (cons "home" path)))))
 
 (defn build-page [page]
-  ;; TODO: spec validation.
-  ;; {:post [(s/valid? )]}
   (-> page
       (update :path #(let [l (fs/strip-ext (peek %)), p (pop %)]
                        (if (= l "index") p (conj p l))))
@@ -164,10 +172,11 @@
                               (apply fs/file (:output-dir %) (conj (:path %) "index.html"))
                               (str (apply fs/file (:output-dir %) (:path %)) ".html")))
       (update :og/type #(or % "website"))
-      (assocf :html/title build-title)
-      (assocf :html/cover build-cover)
-      (assocf :html/breadcrumbs build-breadcrumbs)
-      (assocf :html/output #(inject (:template %) %))))
+      ;; TODO: spec validation.
+      (assocf :html.title build-title)
+      (assocf :html.cover build-cover)
+      (assocf :html.breadcrumbs build-breadcrumbs)
+      (assocf :html.output #(inject (:template %) %))))
 
 ;; ----------------------------
 ;; File processing.
@@ -178,14 +187,13 @@
 
 (defmethod enrich-file "md"
   [{:as conf, :keys [input-file template]}]
-  (let [{:keys [html metadata]} (parse-md-file input-file)]
-    (build-page (merge conf metadata {:html/content html}))))
+  (build-page (merge conf (parse-md-file input-file))))
 
 (defmethod enrich-file "edn"
   [{:as conf, :keys [input-file template]}]
   (-> conf
       (merge (-> input-file slurp edn/read-string eval))
-      (update :html/content #(hiccup/html %))
+      (update :html.content #(hiccup/html %))
       build-page))
 
 (defmulti write-file! (comp fs/extension :output-file))
@@ -196,7 +204,7 @@
   (fs/copy input-file output-file))
 
 (defmethod write-file! "html"
-  [{:keys [:html/output output-file :html/breadcrumbs]}]
+  [{output :html.output, :keys [output-file]}]
   (fs/create-dirs (fs/parent output-file))
   (spit output-file output))
 

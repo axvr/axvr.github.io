@@ -1,8 +1,8 @@
 ---
 title: "Thermoelectric generator"
-published: "2016-02-28"
-updated: "2018-03-24"
-html/head: '<meta name="robots" content="noindex">'
+published: 2016-02-28
+updated: 2018-03-24
+html.head: '<meta name="robots" content="noindex">'
 ---
 
 <!-- Date: 2015-11-08 &ndash; 2016-02 -->

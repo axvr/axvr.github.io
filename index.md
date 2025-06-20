@@ -1,5 +1,5 @@
 ---
-html/title: "Alex Vear"
+html.title: "Alex Vear"
 title: "Hello,"
 subtitle: "Let's create better computers and software."
 ---

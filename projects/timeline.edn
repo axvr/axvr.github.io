@@ -1,5 +1,5 @@
 {:title "Project timeline"
- :html/content
+ :html.content
  [:div
   [:style
    ".content h4 { margin-top: 30px; margin-bottom: 5px; }

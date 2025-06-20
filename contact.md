@@ -1,6 +1,6 @@
 ---
 title: "Contact me"
-html/head: '<meta name="robots" content="noindex">'
+html.head: '<meta name="robots" content="noindex">'
 ---
 
 If you wish to contact me, I am most accessible via email.  You can construct

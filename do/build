@@ -4,4 +4,4 @@
 
 set -e
 
-( cd ssg && exec bb -f ssg.clj )
+( cd ssg && exec clojure -M ssg.clj )

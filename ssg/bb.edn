@@ -1,1 +1,0 @@
-{:deps {markdown-clj/markdown-clj {:mvn/version "1.12.3"}}}

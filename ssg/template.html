@@ -5,7 +5,7 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 
-		<title>{{ html/title }}</title>
+		<title>{{ html.title }}</title>
 
 		<meta name="title" content="{{ title }}">
 		<meta name="keywords" content="{{ keywords }}">
@@ -27,7 +27,7 @@
 		<link rel="stylesheet" type="text/css" href="/assets/main.css">
 		<link rel="stylesheet" type="text/css" href="/assets/font-awesome.css">
 
-		{{ html/head }}
+		{{ html.head }}
 	</head>
 
 	<body>
@@ -61,18 +61,18 @@
 			</div>
 
 			<div class="section bread-section">
-				{{ html/breadcrumbs }}
+				{{ html.breadcrumbs }}
 			</div>
 		</header>
 
 		<main id="main-content">
 			<div class="section cover-section">
-				{{ html/cover }}
+				{{ html.cover }}
 			</div>
 
 			<div class="section content-section">
 				<div class="content">
-					{{ html/content }}
+					{{ html.content }}
 				</div>
 			</div>
 		</main>
