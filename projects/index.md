@@ -1,5 +1,6 @@
 ---
 title: "Projects"
+description: "List of Alex Vear's projects; mostly software."
 ---
 
 These are my main projects.  You can find a complete list on my

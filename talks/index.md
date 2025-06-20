@@ -1,8 +1,9 @@
 ---
 title: "Talks"
+description: "List of public talks given by Alex Vear."
 ---
 
-Reverse chronological list of talks I have given.
+Reverse chronological list of public talks I have given.
 
 
 #### Reading Inside Out

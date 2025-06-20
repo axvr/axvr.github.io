@@ -1,6 +1,12 @@
 ---
 title: "Ascribe"
 subtitle: "A simpler alternative to EditorConfig."
+description: |
+  Ascribe is a standard for software development tools (specifically editors)
+  to retrieve and handle useful information about various files within
+  a project through the .gitattributes file already found in many software
+  projects.
+keywords: "git, editorconfig, editor, config, ascribe, vim, files, attributes, gitattributes"
 ---
 
 Ascribe is a standard for software development tools (specifically editors) to

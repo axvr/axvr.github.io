@@ -127,7 +127,7 @@
       [:h1 title]
       (when subtitle [:h2 subtitle])
       (when published
-        (let [format-date #(.format (date-formatter "MMMM yyyy") (parse-date %))]
+        (let [format-date #(.format (date-formatter "dd MMMM yyyy") (parse-date %))]
           [:time {:class "date"
                   :title (str published (when updated (format " (rev. %s" updated)))
                   :datetime published}
@@ -225,7 +225,7 @@
 (build
  {:site-name   "Alex Vear"
   :site-url    "https://www.alexvear.com"
-  :description "Alex Vear's corner of the World Wide Web."
+  :description "Alex Vear's little corner of the World Wide Web."
   :template    (slurp "template.html")
   :input-dir   (fs/file "..")
   :output-dir  (fs/file ".." ".dist")
