@@ -73,15 +73,14 @@
   (.format (date-formatter "yyyy-MM-dd'T'HH:mm:ssX" :zone "UTC") d))
 
 (defn atom-entry [{:as page, :keys [site-url]}]
-  (let [url (str site-url (:url-path page))]
+  (let [url (str site-url "/" (apply fs/file (:path page)))]
     [::atom/entry
+     [::atom/id (str "urn:uuid:" (:id page))]
      [::atom/title (:title page)]
      (when-let [subtitle (:subtitle page)]
        [::atom/subtitle subtitle])
      (when-let [summary (:description page)]
        [::atom/summary summary])
-     (when-let [id (:id page)]
-       [::atom/id (str "urn:uuid:" id)])
      [::atom/link {:type "text/html", :rel "alternate", :title (:title page), :href url}]
      [::atom/published (atom-date (parse-date (:published page)))]
      [::atom/updated (atom-date (parse-date (or (:updated page) (:published page))))]

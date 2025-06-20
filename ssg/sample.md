@@ -13,4 +13,4 @@ html/head: |
   <script src="https://cdn.jsdelivr.net/npm/mermaid@11.6.0/dist/mermaid.min.js"></script>
 ---
 
-# Hello world
+Hello world.
