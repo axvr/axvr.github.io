@@ -56,13 +56,21 @@
         [(str text "</div><p>") state])
       [text state]))
 
+(defn hr-fix
+  "Markdown-clj doesn't convert `---` into `<hr>` correctly."
+  [text state]
+  (if (and (= "<h2></h2>" text)
+           (re-find #"^---+$" (:next-line state)))
+    ["<hr>" state]
+    [text state]))
+
 (defn parse-md-file [file]
   (md/md-to-html-string-with-meta
    (slurp file)
    :heading-anchors true
    :reference-links? true
    :footnotes? true
-   :custom-transformers [scrollable-tables]))
+   :custom-transformers [scrollable-tables hr-fix]))
 
 ;; ----------------------------
 ;; Atom feed construction.
