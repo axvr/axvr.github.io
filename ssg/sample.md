@@ -8,16 +8,19 @@ keywords: ""
 updated: ""
 og/type: "article"  # default is: "website"
 html/head: |
-  <meta name="robots" content="noindex">
-  <meta http-eqiv="refresh" content="0; url="https://example.com">
+  <!-- Web crawlers
+  <meta name="robots" content="noindex"> -->
 
-  <!-- Mermaid.JS -->
-  <script src="https://cdn.jsdelivr.net/npm/mermaid@11.6.0/dist/mermaid.min.js"></script>
+  <!-- Redirect
+  <meta http-equiv="refresh" content="1; url=https://example.com"> -->
 
-  <!-- Highlight.JS -->
+  <!-- Mermaid.JS
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@11.6.0/dist/mermaid.min.js"></script> -->
+
+  <!-- Highlight.JS
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/default.min.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
-  <script>hljs.highlightAll();</script>
+  <script>hljs.highlightAll();</script> -->
 ---
 
 Hello world.
