@@ -103,6 +103,7 @@
 (defn generate-feed [conf pages]
   (let [feed (->> pages
                   (filterv #(= "blog" (first (:path %))))
+                  (remove #(:draft %))
                   (filterv #(contains? % :published))
                   (sort-by :published String/CASE_INSENSITIVE_ORDER)
                   reverse
@@ -224,7 +225,7 @@
 (build
  {:site-name   "Alex Vear"
   :site-url    "https://www.alexvear.com"
-  :description "Some default description."
+  :description "Alex Vear's corner of the World Wide Web."
   :template    (slurp "template.html")
   :input-dir   (fs/file "..")
   :output-dir  (fs/file ".." ".dist")

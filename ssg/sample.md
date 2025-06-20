@@ -1,12 +1,13 @@
 ---
 id: "UUID"  # Required for Atom feed.
 title: ""
-subtitle: ""
+subtitle: ""  # For consistency end a subtitle with a full stop.
 published: ""  # Required for Atom feed.
 description: ""
 keywords: ""
 updated: ""
 og/type: "article"  # default is: "website"
+draft: true  # Mark as a draft.  (Excludes from Atom feed.)
 html/head: |
   <!-- Web crawlers
   <meta name="robots" content="noindex"> -->

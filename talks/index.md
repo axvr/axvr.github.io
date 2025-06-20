@@ -13,4 +13,4 @@ A walkthrough of an algorithm I developed for efficient indentation of
 [S-expressions](https://en.wikipedia.org/wiki/S-expression) by reading them
 from the inside out.
 
-[Slides](reading-inside-out.pdf) / [Video](https://www.youtube.com/watch?v=2_bl1Z9k8I8)
+[Slides](reading-inside-out.pdf) / [Video](https://www.youtube.com/watch?v=2_bl1Z9k8I8) \[00:05:55\]

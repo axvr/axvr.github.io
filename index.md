@@ -1,6 +1,8 @@
 ---
 html/title: "Alex Vear"
-title: "Home"
+title: "Hi,"
+subtitle: "Let's create better computers and software."
 ---
 
-Just can't stop thinking about computers...
+There isn't much here yet, but I am _finally_ going to start publishing on my
+[blog](blog/) soon.

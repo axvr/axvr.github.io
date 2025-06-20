@@ -1,6 +1,6 @@
 ---
 title: "Ascribe"
-subtitle: "A simpler alternative to EditorConfig"
+subtitle: "A simpler alternative to EditorConfig."
 ---
 
 Ascribe is a standard for software development tools (specifically editors) to
