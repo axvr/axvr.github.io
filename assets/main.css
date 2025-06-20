@@ -90,7 +90,7 @@ pre, code {
   white-space: pre;
   font-size: 1em;
   line-height: 1.2em;
-  font-family: 'Inconsolata', monospace;
+  font-family: 'IBM Plex Mono', 'Inconsolata', monospace;
   background-color: var(--bg-alt);
   color: var(--fg-main);
   border-radius: 4px;
