@@ -1,11 +1,12 @@
 - Refine HTML + CSS.
   - Port some improvements from TM site.
-
-- Goatcounter analytics?
-
-- Later
   - Add a monospace font.
+  - Nested bullet lists.
+  - Block quotes.
+  - Banners?
   - Highlight.js by default & theme.  Base it on Raider.vim?
+
+- Content ideas
   - Recommended sites and resources?
   - Move project timeline to code-dump repo?
   - Generate content on blog list page?
