@@ -187,13 +187,6 @@ h5 {
 /* Navigation section.            */
 
 .nav-section {
-  /*
-   * Purple: #666489;
-   * Green:  #64897a;
-   * Teal:   #647d89;
-   * Pink:   #896477;
-   * Red:    #896464;
-   */
   background-color: var(--bg-nav);
 }
 

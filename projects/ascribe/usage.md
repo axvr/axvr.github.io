@@ -22,7 +22,7 @@ with the `.vim` extension.
 <details>
 <summary>Click to view the equivalent <code>.editorconfig</code> file.</summary>
 
-```editorconfig
+```
 root = true
 
 [*]
