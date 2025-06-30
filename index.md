@@ -4,12 +4,8 @@ title: "Hello,"
 subtitle: "Let's create better computers and software."
 ---
 
-I'm a professional software engineer attempting to discover how to create
-better software.  Largely unknown, this digital world we are building and
-depend upon, is extremely fragile, complex and driven by fads.  I believe we
-can do better; the field is young and there is much to be discovered.
-
-A tiny subset of the topics that interest me are:
+I'm a software engineer attempting to discover how to create better software.
+On this website, you'll find things related to:
 
 - The design and creation of safe, effective and simple software systems.
 - Expression of ideas using a computer, particularly through programming
