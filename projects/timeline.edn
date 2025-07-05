@@ -50,6 +50,7 @@
        :link    "https://github.com/b-social/epilogue"
        :started "2023-04-02"
        :info    [:p "Simple Clojure logging facade for logging structured data via SLF4J 2+."]})
+     #_
      (project
       {:title   "Gait"
        :link    "https://github.com/axvr/gait"
@@ -69,6 +70,8 @@
       {:title   "Refrain"
        :link    "https://github.com/axvr/refrain"
        :started "2022-06-18"
+       :ended   "2024-03-17"
+       :archived? true
        :info    [:p "Collection of Clojure utility functions I frequently replicate across programs."]})
      (project
       {:title   "Dynamock"
@@ -157,9 +160,8 @@
       {:title   "Org.vim"
        :link    "https://github.com/axvr/org.vim"
        :started "2018-11-03"
-       :ended   "2021-03-11"
-       :info    [:p "Org mode syntax highlighting and folding for Vim."]
-       :archived? true})
+       ;; :ended   "2021-03-11"
+       :info    [:p "Org mode syntax highlighting and folding for Vim."]})
      (project
       {:title   "txtdb"
        :link    "https://github.com/axvr/txtdb"
