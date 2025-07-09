@@ -3,21 +3,24 @@ title: "Projects"
 description: "List of Alex Vear's projects; mostly software."
 ---
 
-These are my main projects.  You can find a complete list on my
-[project timeline](timeline/).
+These are my currently active projects. Archived projects and small programs
+I've created can be found in my [code archive](https://github.com/axvr/archive).
 
 
-#### [Clojure.vim](https://github.com/clojure-vim/clojure.vim)
+## Clojure libraries
 
-Clojure syntax highlighting for Vim and Neovim.
-
-
-#### [Epilogue](https://github.com/b-social/epilogue)
-
-Simple Clojure logging facade for logging structured data via SLF4J 2+.
+| Project | Summary |
+|---|---|
+| [**Epilogue**](https://github.com/b-social/epilogue) <!-- 2023-04-02 --> | Simple Clojure logging facade for logging structured data via SLF4J 2+. |
+| [**Typeset.logback**](https://github.com/b-social/typeset.logback) <!-- 2023-05-28 --> | Simple JSON layout component for Logback Classic, with Clojure and SLF4J 2+ key value attribute support. |
 
 
-#### [Typeset.logback](https://github.com/b-social/typeset.logback)
+## Vim plugins
 
-Simple JSON layout component for Logback Classic, with Clojure and SLF4J 2+ key
-value attribute support.
+| Project | Summary |
+|---|---|
+| [**Clojure.vim**](https://github.com/clojure-vim/clojure.vim) <!-- 2020-09-11 --> | Clojure syntax highlighting for Vim and Neovim. |
+| [Apart.vim](https://github.com/axvr/apart.vim) <!-- 2021-11-10 --> | Simple auto-bracket/quote plugin for Vim; optimised for [S-expression](https://en.wikipedia.org/wiki/S-expression) based languages. |
+| [Org.vim](https://github.com/axvr/org.vim) <!-- 2018-11-03 --> | [Org mode](https://orgmode.org/) syntax highlighting and folding for Vim. |
+| [iCal.vim](https://github.com/axvr/ical.vim) <!-- 2024-06-24 --> | iCalendar and vCard syntax highlighting for Vim/Neovim. |
+| [Raider.vim](https://github.com/axvr/raider.vim) <!-- 2021-02-28 --> | A Vim colour scheme for archaeological escapades. |
