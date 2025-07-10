@@ -6,7 +6,7 @@ description: "List of public talks given by Alex Vear."
 Reverse chronological list of public talks I have given.
 
 
-#### Reading Inside Out
+## Reading inside out
 
 <time>2024-05-06</time> @ <a href="https://european-lisp-symposium.org/2024/">European Lisp Symposium</a> (Lightning talk)
 
