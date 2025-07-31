@@ -17,7 +17,7 @@ Work in progress.
 | Project | Summary |
 |---|---|
 | [Epilogue](https://github.com/b-social/epilogue) <!-- 2023-04-02 --> | Simple Clojure logging facade for logging structured data via SLF4J 2+. |
-| [Typeset.logback](https://github.com/b-social/typeset.logback) <!-- 2023-05-28 --> | Simple JSON layout component for Logback Classic, with Clojure and SLF4J 2+ key value attribute support. |
+| [Typeset](https://github.com/b-social/typeset.logback) <!-- 2023-05-28 --> | Simple JSON layout component for Logback Classic, with Clojure and SLF4J 2+ key value attribute support. |
 
 
 ## Vim plugins
