@@ -1,8 +1,7 @@
-#!/bin/sh
+#!/usr/bin/env -S execlineb -W
 
 # Serve website locally.  http://localhost:6586/
 
-set -e
-
-do/build
-exec python3 -m http.server -d .dist 6586
+importas -D 6586 port 1
+foreground { do/build }
+python3 -m http.server -d .dist $port

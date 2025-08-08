@@ -16,6 +16,11 @@ jobs:
         with:
           cli: '1.12.1.1550'
 
+      - name: Install execline
+        run: |
+          sudo apt update
+          sudo apt install execline
+
       - name: Build website
         run: |
           do/build

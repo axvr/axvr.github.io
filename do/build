@@ -1,7 +1,6 @@
-#!/bin/sh
+#!/usr/bin/env -S execlineb -W
 
 # Build website.
 
-set -e
-
-( cd ssg && exec clojure -M ssg.clj )
+cd ssg
+clojure -M ssg.clj

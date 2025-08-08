@@ -1,12 +1,8 @@
-#!/bin/sh
+#!/usr/bin/env -S execlineb -WS 1
 
 # Create a new page for the website from the Markdown sample page using Vim.
 
-if [ -z "$1" ]; then
-    echo 'Error: no file name given.' 2>&1
-    exit 1
-fi
-
-uuid="$(uuidgen | tr '[A-Z]' '[a-z]')"
-
-"$EDITOR" 'ssg/sample.md' +"f $1" +"2s/UUID/$uuid/"
+importas fname 1
+importas -i edit EDITOR
+backtick -E uuid { pipeline { uuidgen } tr "[A-Z]" "[a-z]" }
+$edit "ssg/sample.md" +"f ${1}" +"2s/UUID/${uuid}/"
