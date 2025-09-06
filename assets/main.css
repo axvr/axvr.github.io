@@ -82,7 +82,18 @@ body {
 	margin-top: 5px;
 }
 
-hr { margin: 25px auto 25px auto; }
+/* Make <hr> into a dinkus. */
+hr {
+	margin: 25px auto;
+	border: none;
+}
+hr::before {
+	color: var(--fg-alt);
+	font-size: 1.3em;
+	content: '∗ ∗ ∗';
+	display: block;
+	text-align: center;
+}
 
 a { color: var(--fg-link); }
 a:hover { color: var(--fg-link-alt); }
@@ -95,7 +106,7 @@ pre, code {
 	font-family: 'IBM Plex Mono', 'Inconsolata', monospace;
 	background-color: var(--bg-alt);
 	color: var(--fg-main);
-	border-radius: 4px;
+	border-radius: 3px;
 }
 pre { padding: 15px 20px; }
 code { padding: 2px 7px; }
@@ -105,17 +116,19 @@ a:hover pre, a:hover code { color: var(--fg-link-alt); }
 
 blockquote {
 	color: var(--tbl-main);
-	border-left: 3px solid var(--tbl-border);
+	background-color: var(--bg-alt);
+	border-left: 8px solid var(--tbl-border);
 	margin-right: 0;
-	padding-right: 15px;
 	margin-left: 0;
-	padding-left: 15px;
+	padding: 1px 15px;
+	border-radius: 3px;
 }
 
 .table-container {
 	margin: 20px 0px;
 	overflow-x: auto;
 	outline: 2px solid var(--tbl-border);
+	border-radius: 3px;
 }
 
 table {
@@ -140,7 +153,7 @@ th, td {
 
 details {
 	background-color: var(--bg-alt);
-	border-radius: 4px;
+	border-radius: 3px;
 	padding: 10px 15px;
 }
 
@@ -270,6 +283,11 @@ h5 {
 	display: block;
 	margin: auto;
 	max-width: min(70ch, 100%);
+}
+
+:where(main ol, main ul) {
+  margin-inline-start: 0;
+  padding-inline-start: 3ch;
 }
 
 .content li {

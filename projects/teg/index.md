@@ -94,7 +94,6 @@ Feel free to use this design or modify it as you wish.
 
 This is an image of the TEG powering some LED lights.
 
----
 
 ## Useful Documents (Data Sheets)
 

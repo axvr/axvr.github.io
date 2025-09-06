@@ -1,12 +1,10 @@
 - Refine HTML + CSS.
   - Port some improvements from TM site.
   - Add a monospace font.
-  - Nested bullet lists.
-  - Block quotes.
   - Banners?
   - Captioned images.
   - Highlighted text. `<mark>`
 
 - Content ideas
-  - Recommended sites and resources?
+  - Recommended sites, books, videos and other resources?
   - Generate content on blog list page?
