@@ -3,15 +3,13 @@
 
 :root {
 	--bg-main:     #ffffff;
-	--bg-alt:      #f2f2f6;
+	--bg-alt:      #f4f2f1;
 	--fg-main:     #0a0a0a;
 	--fg-alt:      #212121;
 	--fg-link:     #1b4f99;
 	--fg-link-alt: #991b8c;
 	--bg-nav:      #64897a;
 	--bg-cover:    #e5dfd0;
-	--tbl-border:  #e1e1e1;
-	--tbl-row-alt: #eaeaea;
 }
 
 /* Dark variant. */
@@ -25,8 +23,6 @@
 		--fg-link-alt: #ba80f7;
 		--bg-nav:      #44aa9d;
 		--bg-cover:    #424242;
-		--tbl-border:  #424242;
-		--tbl-row-alt: #303030;
 	}
 }
 
@@ -88,9 +84,10 @@ hr {
 	border: none;
 }
 hr::before {
-	color: var(--fg-alt);
+	color: var(--bg-nav);
 	font-size: 1.3em;
 	content: '∗ ∗ ∗';
+	font-weight: 700;
 	display: block;
 	text-align: center;
 }
@@ -115,9 +112,8 @@ a pre, a code { color: var(--fg-link); }
 a:hover pre, a:hover code { color: var(--fg-link-alt); }
 
 blockquote {
-	color: var(--tbl-main);
 	background-color: var(--bg-alt);
-	border-left: 8px solid var(--tbl-border);
+	border-left: 5px solid var(--bg-nav);
 	margin-right: 0;
 	margin-left: 0;
 	padding: 1px 15px;
@@ -127,40 +123,49 @@ blockquote {
 .table-container {
 	margin: 20px 0px;
 	overflow-x: auto;
-	outline: 2px solid var(--tbl-border);
+	outline: 2px solid var(--bg-nav);
 	border-radius: 3px;
 }
 
 table {
 	width: 100%;
-	border: 2px solid var(--tbl-border);
+	border: 2px solid var(--bg-nav);
 	border-collapse: collapse;
 	border-style: hidden;
 }
 
 tr:nth-child(even) {
-	background-color: var(--tbl-row-alt);
-}
-
-th {
-	background-color: var(--tbl-border);
+	background-color: var(--bg-alt);
 }
 
 th, td {
 	padding: 5px 15px;
-	border: 2px solid var(--tbl-border);
+	border: 2px solid var(--bg-cover);
+}
+
+th {
+	background-color: var(--bg-nav);
+	border-color: var(--bg-nav);
+	color: var(--bg-main);
 }
 
 details {
-	background-color: var(--bg-alt);
 	border-radius: 3px;
 	padding: 10px 15px;
+	border: 2px solid var(--bg-nav);
 }
 
 summary {
+	background-color: var(--bg-cover);
 	cursor: pointer;
-	padding: 5px;
+	padding: 10px 15px;
 	margin: 0;
+	margin: -10px -15px;
+}
+
+summary:hover {
+	background-color: var(--bg-nav);
+	color: var(--bg-main);
 }
 
 abbr { cursor: help; }
@@ -220,7 +225,6 @@ h5 {
 }
 
 .navigation a {
-	transition: 0.2s;
 	color: var(--bg-main);
 	text-decoration: none;
 }
