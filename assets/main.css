@@ -85,11 +85,11 @@ hr {
 }
 hr::before {
 	color: var(--bg-nav);
-	font-size: 1.3em;
-	content: '∗ ∗ ∗';
+	font-size: 1.8em;
 	font-weight: 700;
 	display: block;
 	text-align: center;
+	content: '∗ ∗ ∗';
 }
 
 a { color: var(--fg-link); }
@@ -156,7 +156,7 @@ details {
 }
 
 summary {
-	background-color: var(--bg-cover);
+	background-color: var(--bg-alt);
 	cursor: pointer;
 	padding: 10px 15px;
 	margin: 0;
@@ -164,8 +164,7 @@ summary {
 }
 
 summary:hover {
-	background-color: var(--bg-nav);
-	color: var(--bg-main);
+	background-color: var(--bg-cover);
 }
 
 abbr { cursor: help; }
