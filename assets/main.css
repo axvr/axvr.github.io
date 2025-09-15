@@ -85,7 +85,7 @@ hr {
 }
 hr::before {
 	color: var(--bg-nav);
-	font-size: 1.6em;
+	font-size: 1.8em;
 	font-weight: 700;
 	display: block;
 	text-align: center;
