@@ -142,13 +142,11 @@
       [:h1 title]
       (when subtitle [:h2 subtitle])
       (when published
-        (let [format-date #(.format (date-formatter "dd MMMM yyyy") %)]
-          [:time {:class "date"
-                  :title (str published (when updated (format " (rev. %s" updated)))
-                  :datetime published}
+        (let [format-date #(.format (date-formatter "yyyy-MM-dd") %)]
+          [:time {:class "date", :datetime (format-date published)}
            (str (format-date published)
                 (when updated
-                  (format "&ensp;(rev. %s)" (format-date updated))))]))])))
+                  (format "&ensp;(updated: %s)" (format-date updated))))]))])))
 
 (defn build-breadcrumbs [{:keys [path]}]
   (when (seq path)
@@ -225,11 +223,11 @@
                              (let [path (path-breakdown input-dir f)]
                                (when-not (or (re-find #"^\." (first path))
                                              (exclusions (first path)))
-                                 (-> conf
-                                     (assoc :path        path
-                                            :file-type   (fs/extension f)
-                                            :input-file  f
-                                            :output-file (apply fs/file output-dir path)))))))
+                                 (assoc conf
+                                        :path        path
+                                        :file-type   (fs/extension f)
+                                        :input-file  f
+                                        :output-file (apply fs/file output-dir path))))))
                      (map enrich-file))
                     (file-seq input-dir))]
     (fs/delete-tree output-dir)
