@@ -16,7 +16,7 @@ html.head: |
   <meta http-equiv="refresh" content="1; url=https://example.com"> -->
 
   <!-- Mermaid.JS
-  <script src="https://cdn.jsdelivr.net/npm/mermaid@11.6.0/dist/mermaid.min.js"></script> -->
+  <script type="module" src="/assets/mermaid.js"></script> -->
 ---
 
 Hello world.
