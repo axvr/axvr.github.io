@@ -1,3 +1,8 @@
+// Include this to enable rendering of Mermaid diagrams.
+//
+//   html.head: |
+//     <script type="module" src="/assets/mermaid.js"></script>
+
 import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11.12.0/dist/mermaid.esm.min.mjs'
 
 function $(sel, elem = document) { return elem.querySelector(sel) }
