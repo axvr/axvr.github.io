@@ -167,6 +167,9 @@ summary:hover {
 	background-color: var(--bg-cover);
 }
 
+dt { font-weight: bold; }
+dd { padding-bottom: 5px; }
+
 abbr { cursor: help; }
 
 h1, h2, h3, h4, h5, h6 {

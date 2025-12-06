@@ -25,7 +25,7 @@ extensions they create.
 
 EditorConfig does not depend on any version control tools.
 
-### [Ascribe](../)
+### [Ascribe](..)
 
 The Ascribe standard reuses the `.gitattributes` file commonly found in many
 projects.  It defines how to use specific attributes in the `.gitattributes` to

@@ -29,14 +29,3 @@ Work in progress.
 | [Org.vim](https://github.com/axvr/org.vim) <!-- 2018-11-03 --> | [Org mode](https://orgmode.org/) syntax highlighting and folding for Vim and Neovim. |
 | [iCal.vim](https://github.com/axvr/ical.vim) <!-- 2024-06-24 --> | iCalendar and vCard syntax highlighting for Vim and Neovim. |
 | [Raider.vim](https://github.com/axvr/raider.vim) <!-- 2021-02-28 --> | A Vim colour scheme for archaeological escapades. |
-
-
-<!--
-## Other
-
-| Project | Date | Summary |
-|---|---|---|
-| [dotfiles](https://github.com/axvr/dotfiles) | 2017-04-16 | Config files for my personal computers. |
-| [www.alexvear.com](https://github.com/axvr/axvr.github.io) | 2021-08-29 | This website. |
-| [Code archive](https://github.com/axvr/codedump) | 2017-10-03 | An archive of various small bits of code I've created over the years. |
--->

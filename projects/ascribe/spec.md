@@ -8,7 +8,7 @@ title: "Ascribe specification"
 | v1.0    | 2019-05-18 | Initial version. |
 
 This is the Ascribe specification.  If you are unsure how `.gitattributes`
-files work, you can read my document on [using `.gitattributes` files](../usage/).
+files work, you can read my document on [using `.gitattributes` files](../usage).
 That document also explains the various terms used in this page, e.g.
 "explicitly set/unset".
 
