@@ -97,10 +97,10 @@ This is an image of the TEG powering some LED lights.
 
 ## Useful Documents (Data Sheets)
 
-- [Data Sheet for the TEC1-12706 Peltier](assets/TEC1-12706_40,40,3.8.pdf)
+- [Data Sheet for the TEC1-12706 Peltier](https://www.alldatasheet.com/datasheet-pdf/pdf/313841/HB/TEC1-12706.html)
   I used in this project.
-- [LT1302 - Micropower High Output Current Step-Up Adjustable and Fixed 5V DC/DC Converter (Linear Technology)](assets/lt1302.pdf).
-- [Voltage Regulator Data Sheet for the 78xx series](assets/78xx.pdf), use
+- [LT1302 - Micropower High Output Current Step-Up Adjustable and Fixed 5V DC/DC Converter (Linear Technology)](https://www.alldatasheet.com/datasheet-pdf/pdf/70392/LINER/LT1302.html).
+- [Voltage Regulator Data Sheet for the 78xx series](https://www.alldatasheet.com/datasheet-pdf/pdf/22614/stmicroelectronics/l7800.html), use
   if you want to have the current at 1A rather than 600mA.  The original
   version was going to use this.
 
