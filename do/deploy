@@ -1,0 +1,30 @@
+#!/bin/sh
+
+# Build and push website from a specific commit or HEAD of current branch to
+# the "pages" branch on Codeberg for deployment by <grebedoc.dev>.
+
+set -ex
+
+# Pass an optional commit hash to deploy.
+commit_ref="$(git rev-parse "$([ -n "$1" ] && echo "$1" || echo HEAD)")"
+
+base="/tmp/uk.axvr.www/$(uuidgen)"
+mkdir -p "$base"
+
+source="$base/source"
+git clone --no-tags . "$source"
+git -C "$source" switch --detach "$commit_ref"
+
+deploy="$base/deploy"
+git clone --depth=1 --no-tags 'ssh://git@codeberg.org/axvr/website.git' "$deploy" -b pages
+git -C "$deploy" rm -r .
+
+(
+  pushd "$source"
+  do/build
+  cp -r .dist/* "$deploy/"
+)
+
+git -C "$deploy" add .
+git -C "$deploy" commit -S -m "Update website from: $commit_ref"
+git -C "$deploy" push -u upstream pages
