@@ -25,5 +25,5 @@ $> { rsync -avh --checksum --prune-empty-dirs --recursive --itemize-changes \
            --delete-during --exclude .git ${source}/.dist/ $deploy }
 
 $> { git -C $deploy add . }
-$> { git -C $deploy commit -S -m "Update website from: ${commit}" }
-$> { git -C $deploy push -u upstream pages }
+$> { git -C $deploy commit -S -m "Update website from ${commit}" }
+$> { git -C $deploy push }
