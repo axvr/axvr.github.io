@@ -4,5 +4,5 @@
 
 importas fname 1
 importas -i edit EDITOR
-backtick -E uuid { pipeline { uuidgen } tr "[A-Z]" "[a-z]" }
+backtick -E uuid { pipeline { uuidgen } tr A-Z a-z }
 $edit "ssg/sample.md" +"f ${1}" +"2s/UUID/${uuid}/"
