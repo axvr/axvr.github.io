@@ -73,6 +73,13 @@ body {
 	right: 100%;
 }
 
+svg.icon {
+	width: 1em;
+	height: 1em;
+	vertical-align: -0.125em;
+	overflow: visible;
+}
+
 .date {
 	margin-bottom: -3px;
 	margin-top: 5px;
@@ -234,6 +241,9 @@ h5 {
 .navigation a:hover {
 	color: var(--fg-main);
 }
+
+.navigation svg { fill: var(--bg-main); }
+.navigation svg:hover { fill: var(--fg-main); }
 
 .navigation ul {
 	display: flex;
