@@ -3,8 +3,10 @@ title: "Projects"
 description: "List of Alex Vear's projects; mostly software."
 ---
 
-These are my currently active projects. A list of my [archived projects](https://github.com/axvr/archive/blob/master/timeline.md)
-and many small programs I've created can be found in my [code archive](https://github.com/axvr/archive).
+These are my currently active projects. A list of my
+[archived projects](https://codeberg.org/axvr/archive/src/branch/master/timeline.md)
+and many small programs I've created can be found in my
+[code archive](https://codeberg.org/axvr/archive).
 
 
 ## Programming languages
