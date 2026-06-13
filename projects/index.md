@@ -11,11 +11,6 @@ and many small programs I've created can be found in my
 [Codeberg](https://codeberg.org/axvr) and [GitHub](https://github.com/axvr).
 
 
-## Programming languages
-
-Work in progress.
-
-
 ## Clojure libraries
 
 | Project | Summary |

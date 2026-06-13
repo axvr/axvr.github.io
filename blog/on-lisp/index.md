@@ -44,8 +44,8 @@ the problem domain you are working in.
 >
 > &mdash; Paul Graham, *On Lisp* &sect; Introduction
 
-"Bottom-up programming" is so foundational to the book that even the title is
-a sly reference to it:
+"Bottom-up programming" is so foundational to the book that even the title is a
+sly reference to it:
 
 > The title is intended to stress the importance of bottom-up programming in
 > Lisp. Instead of just writing your program in Lisp, you can write your own
@@ -72,11 +72,11 @@ design[^langdes]:
 > the frame of a base language.</mark>
 >
 > In the course of giving this talk [...] I have had to define 50 or more new
-> words or phrases, and 16 names of persons or things.  [...]  In this way,
-> I added to the base language.  [...]  It should give no one pause, to note
-> the writing of a program having a million lines of code, might need many,
-> many, hundreds of new words.  That is to say, a new language built on the
-> base language.  I will be so bold to say it cannot be done any other way.
+> words or phrases, and 16 names of persons or things.  [...]  In this way, I
+> added to the base language.  [...]  It should give no one pause, to note the
+> writing of a program having a million lines of code, might need many, many,
+> hundreds of new words.  That is to say, a new language built on the base
+> language.  I will be so bold to say it cannot be done any other way.
 >
 > &mdash; Guy L. Steele, Jr., [*Growing a Language*](https://www.youtube.com/watch?v=lw6TaiXzHAE), 1998
 
