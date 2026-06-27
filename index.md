@@ -17,7 +17,6 @@ related to the following topics:
 
 ## Favourites
 
-- [Library](https://www.zotero.org/groups/6365078/library_of_axvr/library): Recommended reading and watching.
 - [On Lisp](/blog/on-lisp): A review of Paul Graham's 1993 book.
 - [Ascribe](/projects/ascribe): A simpler alternative to EditorConfig.
 
@@ -25,6 +24,7 @@ related to the following topics:
 
 - **Email**: insert an "@" between my first and surname, then append `.uk`.
 - **Code**: [Codeberg](https://codeberg.org/axvr), [GitHub](https://github.com/axvr).
+- **Research**: [Are.na](https://www.are.na/ax-vr), [Zotero](https://www.zotero.org/axvr).
 
 * * *
 
