@@ -10,6 +10,12 @@
 	--fg-link-alt: #991b8c;
 	--bg-nav:      #64897a;
 	--bg-cover:    #e5dfd0;
+
+	--code-name:   var(--fg-main);
+	--code-flag:   #b52e6d;
+	--code-key:		 #3272b2;
+	--code-text:   #306e1c;
+	--code-doc:    #da3b25;
 }
 
 /* Dark variant. */
@@ -23,6 +29,12 @@
 		--fg-link-alt: #ba80f7;
 		--bg-nav:      #44aa9d;
 		--bg-cover:    #424242;
+
+		--code-name:   var(--fg-main);
+		--code-flag:   var(--bg-nav);
+		--code-key:		 #94baca;
+		--code-text:   #96a8a1;
+		--code-doc:    #679d80;
 	}
 }
 
@@ -127,6 +139,12 @@ code { padding: 2px 7px; }
 pre code { padding: 0; }
 a pre, a code { color: var(--fg-link); }
 a:hover pre, a:hover code { color: var(--fg-link-alt); }
+
+pre span.name { color: var(--code-name); font-weight: bold; }
+pre span.key  { color: var(--code-key); }
+pre span.flag { color: var(--code-flag); font-weight: bold; }
+pre span.text { color: var(--code-text); }
+pre span.doc  { color: var(--code-doc); }
 
 blockquote {
 	background-color: var(--bg-alt);

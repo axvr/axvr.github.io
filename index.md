@@ -28,4 +28,4 @@ related to the following topics:
 
 * * *
 
-All content on this website was produced by a real human.
+All content on this website was produced by a human.

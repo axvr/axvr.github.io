@@ -1,8 +1,17 @@
 - Refine HTML + CSS.
-  - Port some improvements from TM site.
+  - Better syntax highlighting colours?
   - Add a monospace font.
-  - Banners?
   - Captioned images.
+  - Refine design.
+- Are.na guestbook or comments?
+- Embed Are.na channels into website?
+  - E.g. <https://gemmacope.land/>
+  - `iframe.arena { border: none; width: 100vw; height: 590px; }`
+  - `<iframe class="arena" src="https://www.are.na/ax-vr/cdb-9orc6cjzuqg/embed" title="Alex Vear’s Are.na channel “...”"></iframe>`
+- Custom code block syntax highlighter.  E.g.
 
-- Content ideas
-  - Generate content on blog list page?
+```axvr/syn
+#(id myMap) = Map.new()
+myMap.put(#(key "foo"), #(txt "a"))
+myMap.put(#(key "bar"), myList)
+```
