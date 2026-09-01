@@ -25,6 +25,7 @@ my code on [Codeberg](https://codeberg.org/axvr) and [GitHub](https://github.com
 | Project | Summary |
 |---|---|
 | [Clojure.vim][] <!-- 2020-09-11 --> | Clojure syntax highlighting and indentation for Vim and Neovim. |
+| [Zepl.vim][] <!-- 2020-02-23 --> | Simple and minimal REPL integration plugin for Vim and Neovim. |
 | [Apart.vim][]   <!-- 2021-11-10 --> | Simple auto-bracket/quote plugin for Vim and Neovim; optimised for [S-expression][] based languages. |
 | [Org.vim][]     <!-- 2018-11-03 --> | [Org mode][] syntax highlighting and folding for Vim and Neovim. |
 | [iCal.vim][]    <!-- 2024-06-24 --> | iCalendar and vCard syntax highlighting for Vim and Neovim. |
@@ -35,6 +36,7 @@ my code on [Codeberg](https://codeberg.org/axvr) and [GitHub](https://github.com
 [Org.vim]: https://github.com/axvr/org.vim
 [iCal.vim]: https://github.com/axvr/ical.vim
 [Raider.vim]: https://github.com/axvr/raider.vim
+[Zepl.vim]: https://github.com/axvr/zepl.vim
 
 [S-expression]: https://en.wikipedia.org/wiki/S-expression
 [Org mode]: https://orgmode.org
