@@ -250,4 +250,4 @@
   :template    (slurp "template.html")
   :input-dir   (fs/file "..")
   :output-dir  (fs/file ".." ".dist")
-  :exclusions  #{"README.md" "COPYING" "TODO" "DOING" "DONE" "do" "ssg"}})
+  :exclusions  #{"README.md" "COPYING" "TODO" "DOING" "DONE" "do" "ssg" ".axvr.vim"}})
